@@ -6191,8 +6191,8 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
   </tbody>
 </table>
 
-<p>* Motivation for incremental results, </p>
-<p>EMMA provides a series of attributes that support streaming incremental results from an EMMA producer to an EMMA consumer. These attributes capture the relationship between a series of partial results, how they relate to the whole and can also indicate whether the tokens in a partial result are final or subject to change.  One common use case for incremental results is giving immediate feedback as a user dictates spoken input. </p>
+<p>Incremental processing of inputs enables interactive applications to provide users with direct feedback on recognition, understanding and other levels of processing, potentially resulting in a more dynamic and engaging user experience. EMMA provides a series of attributes that support streaming incremental results from an EMMA producer to an EMMA consumer. These attributes capture the relationship between a series of partial results, how they relate to the whole and can also indicate whether the tokens in a partial result are final or subject to change.  </p>
+<p>One common use case for incremental results is giving immediate feedback as a user dictates spoken input. For example, if a user is dictating a message, incrementality enables them to see the words recognized as they speak.</p>
 <pre class="example">
 1. Hi Joe ...
 2. Hi Joe the tweeting ...
@@ -6201,6 +6201,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 5. Hi Joe the meeting has now moved downstairs.</pre>
 
 <p>In this example, as the user  dictates a message text, the user interface shows them the current best hypothesis as speech recognition proceeds. In order to support this use case, a speech recognition component producing EMMA needs to be able to produce a series of partial results and indicate how they relate to each other. The <code>emma:stream-id</code> MUST appear on each member of series of EMMA documents capturing incremental results and indicates the identify of the stream to which they all belong. Presence of an <code>emma:stream-id</code> is the mechanism through which an EMMA result is marked as being incremental. The <code>emma:stream-status</code> attribute MUST appear on each member of a series of partial results. <code>emma:stream-status</code> takes values from the set {<code>begin</code>, <code>in-progress</code>, <code>end</code>,<code> complete</code>} and is used to indicate whether this is a new stream ('<code>begin</code>'), an intermediate result in an ongoing stream ('<code>in-progress</code>') or the final result in a given stream ('<code>end</code>'). </p>
+<p>&nbsp;</p>
 <p>* Paragraph on emma:stream-token-span-full</p>
 <p>Explain emma:stream-full-result</p>
 <p>&nbsp;</p>
