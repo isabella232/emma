@@ -308,8 +308,8 @@ attribute</a></li>
 <code>emma:offset-to-start</code> attributes</a></li>
 <li>4.2.10.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.3">Duration of input:
 <code>emma:duration</code> attribute</a></li>
-<li><span>4.2.10.4 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.4">Composite Input and
-Relative Timestamps</a></span></li>
+<li>4.2.10.4 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.4">Composite Input and
+Relative Timestamps</a></li>
 </ul>
 </li>
 <li>4.2.11 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.11">Medium, mode, and function of user
@@ -362,8 +362,8 @@ schemata</a> <span>(Normative)</span></li>
 <li>Appendix B. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appB">MIME type</a>
 <span>(Normative)</span>
 <ul>
-<li><span>B.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#media-type-registration">Registration of
-MIME media type application/emma+xml</a></span></li>
+<li>B.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#media-type-registration">Registration of
+MIME media type application/emma+xml</a></li>
 </ul>
 </li>
 <li>Appendix C. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appC"><code>emma:hook</code> and SRGS</a>
@@ -1022,7 +1022,7 @@ by setting xmlns="".</p>
 
 <p class="new"> The optional attributes <code>doc-ref</code> and <code>prev-doc</code> MAY be used on <code>emma:emma</code> in order to indicate the location where the EMMA document comprising that <code>emma:emma</code> element can be retrieved from, and the location of the previous EMMA document in a sequence of interactions. One important use case for <code>doc-ref</code> is for client side logging. A client receiving an EMMA document can record the URI found in <code>doc-ref</code> in a log file instead of  a local copy of the whole EMMA document. The<code> prev-doc</code> attribute provides a mechanism for tracking a sequence of EMMA documents representing the results of processing distinct turns of interaction by an EMMA processor.
 </p><p class="new">In the following example, <code>doc-ref</code> on EMMA provides a URI which indicates where the EMMA document embodied in this <code>emma:emma</code> can be retrieved from.
-</p><pre class="example"><span class="new">&lt;emma:emma version="1.1"
+</p><pre class="new">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -1040,12 +1040,12 @@ by setting xmlns="".</p>
     &lt;destination&gt;London&lt;/destination&gt;
     &lt;date&gt;tomorrow&lt;/date&gt;
   &lt;/emma:interpretation&gt;
-&lt;/emma:emma&gt;</span></pre>
+&lt;/emma:emma&gt;</pre>
 
 <p class="new">In the following example, again <code>doc-ref </code>indicates where the EMMA document can be retrieved from but in addition <code>prev-doc</code> indicates where the previous EMMA document can be retrieved from. </p>
 
 
-<pre class="example"><span class="new">&lt;emma:emma version="1.1"
+<pre class="new">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -1064,7 +1064,7 @@ by setting xmlns="".</p>
     &lt;origin&gt;Cambridge&lt;/origin&gt;
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
-</span></pre>
+</pre>
 
 <span class="new">EMMA processors may be use a number of different techniques to determine the <code>prev-doc</code>. It may, for example, be determined based on the session. In a session of interaction a server processing requests for processing can track the previous EMMA result for a client and indicate that in <code>prev-doc</code>. Alternatively, the URI of the last EMMA result could be passed in as a parameter in a request to an EMMA processor and returned in the <code>prev-doc</code> with the next result.</span>
 
@@ -1657,7 +1657,7 @@ points on a map.</p>
 </pre>
 <p>The <code>emma:one-of</code> and <code>emma:group</code>
 containers MAY be nested arbitrarily.</p>
-<p><span class="new">Like <code>emma:one-of</code> the contents for <code>emma:group</code> may be partial, indicated by <code>emma:partial-content="true"</code> and the full set of group members retrieved by accessing the element referenced in <code>ref</code>.</span></p>
+<p class="new">Like <code>emma:one-of</code> the contents for <code>emma:group</code> may be partial, indicated by <code>emma:partial-content="true"</code> and the full set of group members retrieved by accessing the element referenced in <code>ref</code>.</p>
 <h4 id="s3.3.2.1">3.4.2.1 Indirect grouping criteria:
 <code>emma:group-info</code> element</h4>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -1952,8 +1952,8 @@ one or more <code>emma:arc</code> elements and zero or more
 </li>
 <li><b>Optional</b>: </li> 
 <ul>
-<li><span class="new"><code>id</code>of type
-      <code>xsd:id</code></span></li>
+<li class="new"><code>id</code>of type
+      <code>xsd:id</code></li>
 <li class="new">A single <code>ref</code> attribute of type <code>xsd:anyURI</code> providing a reference to a location where the content of the lattice element can be retrieved from</li>
 <li class="new">An <code>emma:partial-content</code> attribute of type <code>xsd:boolean</code> indicating whether the content inside the element is partial and more can be retrieved from an external document  through <code>ref</code></li>
 <li><code>emma:time-ref-uri</code>,
@@ -2666,7 +2666,7 @@ external data model with the <code>ref</code> attribute or provide
 a data model as in-line content. Either a <code>ref</code>
 attribute or in-line data model (but not both) MUST be
 specified.</p>
-<p><span class="new">Note that unlike the use of <code>ref</code> on e.g. <code>emma:one-of</code> it is not possible in EMMA to provide a partial specification of the data model inline and use <code>emma:partial-content="true"</code> to indicate that the full data model is available from the URI in <code>ref</code>.</span></p>
+<p class="new">Note that unlike the use of <code>ref</code> on e.g. <code>emma:one-of</code> it is not possible in EMMA to provide a partial specification of the data model inline and use <code>emma:partial-content="true"</code> to indicate that the full data model is available from the URI in <code>ref</code>.</p>
 <h3 id="s4.1.2">4.1.2 Interpretation derivation:
 <code>emma:derived-from</code> element and
 <code>emma:derivation</code> element</h3>
@@ -3183,7 +3183,7 @@ an element in the EMMA namespace. The <code>emma:grammar-ref</code> attribute ap
 </span>
 
 <p>Non-XML grammar formats, such as the SRGS ABNF format, MUST be contained within <code>&lt;!-[CDATA[ ...]]&gt;</code>. Care should be taken in platforms generating EMMA to avoid conflicts between<code> id</code> values in the EMMA markup and those in any inline grammars. Authors should be aware that there could be conflicts between <code>id</code> values used in different embedded inline grammars within an EMMA document.</p>
-<p><span class="new">Note that unlike the use of <code>ref</code> on e.g. <code>emma:one-of</code> it is not possible in EMMA to provide a partial specification of the grammar inline and use <code>emma:partial-content="true"</code> to indicate that the full grammar is available from the URI in <code>ref</code>.</span></p>
+<p class="new">Note that unlike the use of <code>ref</code> on e.g. <code>emma:one-of</code> it is not possible in EMMA to provide a partial specification of the grammar inline and use <code>emma:partial-content="true"</code> to indicate that the full grammar is available from the URI in <code>ref</code>.</p>
 
 
 <h3 id="s4.1.4">4.1.4 Reference to grammars active: <code>emma:grammar-active</code> element</h3>
@@ -3321,7 +3321,7 @@ providing metadata about the input.</td>
 <ul>
 <li><code>id</code> of type <code>xsd:ID</code></li>
 <li class="new"><code><span>ref</span></code> of type <code>xsd:anyURI</code> that references a remote document containing a specification of application/vendor specific annotations</li>
-<li><span class="new">An <code>emma:partial-content</code> attribute of type <code>xsd:boolean</code> indicating whether the content inside the element is partial and more can be retrieved from an external document  through <code>ref</code></span></li>
+<li class="new">An <code>emma:partial-content</code> attribute of type <code>xsd:boolean</code> indicating whether the content inside the element is partial and more can be retrieved from an external document  through <code>ref</code></li>
 <li><code>indexed </code>of type<code> xsd:boolean</code> indicating whether it has index scope</li>
 </ul>
 </li>
@@ -3405,7 +3405,7 @@ annotations.</p>
 <p>The <code>emma:info</code>
 element can therefore have either position scope (applies to the element it appears in and the interpretations within in), or index scope where  <code>emma:info-ref </code>attributes are used to show which interpretations a particular <code>emma:info</code> applies to. In order to distinguish emma:info elements that have positional vs. index scope the indexed attribute must be used. The attribute<code> indexed=true</code> indicates that the <code>emma:info</code> it appears on does not have positional scope and instead is referenced using <code>emma:info-ref</code>. The attribute<code> indexed=false</code> indicates than an <code>emma:info</code> has positional scope. The default value if <code>indexed</code> is not specified is <code>false</code>. The <code>indexed</code> attribute is required if and only if there is an <code>emma:info-ref </code>that refers to the <code>id</code> of the <code>emma:info</code>.</p>
 <p class="new">The <code>ref</code> attribute can also be used on <code>emma:info</code> instead of placing the application/vendor specific annotations inline. For example, assuming the example above was available at <code>http://example.com/examples/123/emma.xml</code>, the EMMA document delivered to an EMMA consumer could be:<span class="new"></span></p>
-<pre class="example"><span class="new">&lt;emma:emma version="1.1"
+<pre class="new">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -3426,7 +3426,7 @@ element can therefore have either position scope (applies to the element it appe
       &lt;date&gt;03112003&lt;/date&gt;
     &lt;/emma:interpretation&gt;
   &lt;/emma:one-of&gt;
-&lt;/emma:emma&gt;</span></pre>
+&lt;/emma:emma&gt;</pre>
 <p class="new">A <code>ref</code> on <code>emma:info</code> can also be used to point to an external document, not necessarily an EMMA document, containing additional annotations on the interpretation. For example, it could be used to point to an XML document providing a list of the specifications of the input device.</p>
 
 <h3 class="notoc">4.1.6 Endpoint reference:
@@ -3699,7 +3699,7 @@ between the source port and the sink port.</p>
            <ul>
              <li><code>api-ref</code> of type <code>xsd:string</code>.</li>
              <li class="new"><code>ref</code> of type <code>xsd:anyURI</code> that references a document containing a list of parameters</li>
-             <li><span class="new">An <code>emma:partial-content</code> attribute of type <code>xsd:boolean</code> indicating whether the content inside the element is partial and more can be retrieved from an external document  through <code>ref</code></span></li>
+             <li class="new">An <code>emma:partial-content</code> attribute of type <code>xsd:boolean</code> indicating whether the content inside the element is partial and more can be retrieved from an external document  through <code>ref</code></li>
            </ul>
          </li>
       </ul>
@@ -3779,49 +3779,49 @@ Note that in an EMMA document describing a multimodal input or a derivation with
 The relationship between a <code>emma:parameters</code> element and the container element it applies 
 to is captured by the<code> emma:parameter-ref</code> attribute. </p>
 <p class="new">Instead of specifying parameters inline the <code>ref</code> attribute can be used to provide a URI reference to an external document containing the parameters. <span class="note"></span>This could be either a pointer to an <code>emma:parameters</code> element within an EMMA document, or it can be a reference to a non-EMMA document containing a  specification of the parameters. In the following example, the <code>emma:parameters</code> element contains a reference to an separate parameters document.</p>
-<pre class="example"><span>&lt;emma:emma version="1.1"<br>    xmlns:emma="http://www.w3.org/2003/04/emma"<br>    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"<br>    xsi:schemaLocation="http://www.w3.org/2003/04/emma<br>     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"<br>    xmlns="http://www.example.com/example"&gt;<br>    &lt;emma:parameters id="parameters1" api-ref="vxml2.1" ref="http://example.com/mobile/asr/params.xml"<br>    &lt;/emma:parameters&gt;<br>    &lt;emma:interpretation id="int1" emma:parameter-ref="parameters1" 
+<pre class="example">&lt;emma:emma version="1.1"<br>    xmlns:emma="http://www.w3.org/2003/04/emma"<br>    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"<br>    xsi:schemaLocation="http://www.w3.org/2003/04/emma<br>     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"<br>    xmlns="http://www.example.com/example"&gt;<br>    &lt;emma:parameters id="parameters1" api-ref="vxml2.1" ref="http://example.com/mobile/asr/params.xml"<br>    &lt;/emma:parameters&gt;<br>    &lt;emma:interpretation id="int1" emma:parameter-ref="parameters1" 
        emma:medium="acoustic" emma:mode="voice"
-       emma:process="http://example.com/asr&gt;<br>      &lt;origin&gt;Boston&lt;/origin&gt;<br>    &lt;/emma:interpretation&gt;<br>&lt;/emma:emma&gt;<br></span></pre>
+       emma:process="http://example.com/asr&gt;<br>      &lt;origin&gt;Boston&lt;/origin&gt;<br>    &lt;/emma:interpretation&gt;<br>&lt;/emma:emma&gt;<br></pre>
 <h3 id="s4.1.9">4.1.9 Human annotation: <code>emma:annotation</code> element
 </h3>
 
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
   <tbody>
     <tr>
-      <th><span>Annotation</span></th>
-      <th><span>emma:annotation</span></th>
+      <th>Annotation</th>
+      <th>emma:annotation</th>
     </tr>
     <tr>
-      <th><span>Definition</span></th>
-      <td><span>The <code>emma:annotation</code> element acts as a container for annotations of user inputs made by human labellers</span></td>
+      <th>Definition</th>
+      <td>The <code>emma:annotation</code> element acts as a container for annotations of user inputs made by human labellers</td>
     </tr>
     <tr>
-      <th><span>Children</span></th>
-      <td><span>One or more elements 
-        providing annotations of the input. May also contain a single <code>emma:info</code> element.</span></td>
+      <th>Children</th>
+      <td>One or more elements 
+        providing annotations of the input. May also contain a single <code>emma:info</code> element.</td>
     </tr>
     <tr>
-      <th><span>Attributes</span></th>
+      <th>Attributes</th>
       <td><ul>
         <li><span><b>Optional</b>:
           </span>
           <ul>
-            <li><span><code>id</code> of type <code>xsd:ID</code>.</span></li>
-            <li><span><code>annotator</code> of type <code>xsd:string</code> indicating the name or other identifier of the annotator</span></li>
-            <li><span><code>type</code> of type <code>xsd:string</code> from the open set {transcription,semantics,emotion ...}</span></li>
-            <li><span><code>time</code> of type <code>xsd:dateTime</code> indicating the time at which the annotation label was made</span></li>
-            <li><span><code>reference</code> of type <code>xsd:boolean</code> indicating if this annotation is the reference for the current interpretation</span></li>
-            <li><span><code>emma:confidence</code> an attribute of type <code>xsd:decimal</code> in range 0.0 to
-1.0, indicating the annotators confidence in their annotation.</span></li>
+            <li><code>id</code> of type <code>xsd:ID</code>.</li>
+            <li><code>annotator</code> of type <code>xsd:string</code> indicating the name or other identifier of the annotator</li>
+            <li><code>type</code> of type <code>xsd:string</code> from the open set {transcription,semantics,emotion ...}</li>
+            <li><code>time</code> of type <code>xsd:dateTime</code> indicating the time at which the annotation label was made</li>
+            <li><code>reference</code> of type <code>xsd:boolean</code> indicating if this annotation is the reference for the current interpretation</li>
+            <li><code>emma:confidence</code> an attribute of type <code>xsd:decimal</code> in range 0.0 to
+1.0, indicating the annotators confidence in their annotation.</li>
             <li><span class="old"><code>src</code></span><code>ref</code> an attribute of type <code>xsd:anyURI</code> used to refer to an annotation outside of the document</li>
           </ul>
         </li>
       </ul></td>
     </tr>
     <tr>
-      <th><span>Applies to</span></th>
-      <td><span>The <code>emma:annotation</code> element is legal only as a child of
-        the EMMA elements <code>emma:emma</code>,<code> emma:interpretation</code>,<code> emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:arc</code>, or <code>emma:node</code>.</span></td>
+      <th>Applies to</th>
+      <td>The <code>emma:annotation</code> element is legal only as a child of
+        the EMMA elements <code>emma:emma</code>,<code> emma:interpretation</code>,<code> emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:arc</code>, or <code>emma:node</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -3900,7 +3900,7 @@ adding reference transcriptions to an EMMA document (<a href="https://www.w3.org
 </span>
 <p class="new">Annotations such the  <a href="https://www.w3.org/2002/mmi/Group/emma11/#emotionml">Emotion ML</a> in the example above can also be stored in separate files and referenced on an <code>emma:annotation</code> element using <code>ref</code>. Like <code>emma:parameters</code>, a partial specification of the annotation can be provided inline and <code>emma:partial-content="true"</code> provides an indication that the full annotation can be accessed at <code>ref</code>.</p>
 
-<pre class="example"><span class="new">&lt;emma:emma version="1.1"
+<pre class="new">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -3929,24 +3929,24 @@ adding reference transcriptions to an EMMA document (<a href="https://www.w3.org
       ref="http://example.com/2011/11/10/emotion123.xml"&gt;
     &lt;/emma:annotation&gt;</strong>
   &lt;/emma:one-of&gt;
-&lt;/emma:emma&gt;</span></pre>
+&lt;/emma:emma&gt;</pre>
 <h3 id="s4.1.10">4.1.10 Location: <code>emma:location</code> element </h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
   <tbody>
     <tr>
-      <th><span>Annotation</span></th>
-      <th><span>emma:location</span></th>
+      <th>Annotation</th>
+      <th>emma:location</th>
     </tr>
     <tr>
-      <th><span>Definition</span></th>
-      <td><span>The <code>emma:location</code> element acts as a container for information about the location of a user input, more precisely, information about the location of a capture device such as a mobile device.</span></td>
+      <th>Definition</th>
+      <td>The <code>emma:location</code> element acts as a container for information about the location of a user input, more precisely, information about the location of a capture device such as a mobile device.</td>
     </tr>
     <tr>
-      <th><span>Children</span></th>
-      <td><span>none</span></td>
+      <th>Children</th>
+      <td>none</td>
     </tr>
     <tr>
-      <th><span>Attributes</span></th>
+      <th>Attributes</th>
       <td><ul>
         <li><span><b>Required</b>: </span><code>id</code> of type <code>xsd:ID</code>.</li>
         <li><b>Optional</b>:
@@ -3965,9 +3965,9 @@ adding reference transcriptions to an EMMA document (<a href="https://www.w3.org
       </ul></td>
     </tr>
     <tr>
-      <th><span>Applies to</span></th>
-      <td><span>The <code>emma:location</code> element is legal only as a child of
-        the EMMA elements <code>emma:emma</code>,<code> emma:interpretation</code>,<code> emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>.</span></td>
+      <th>Applies to</th>
+      <td>The <code>emma:location</code> element is legal only as a child of
+        the EMMA elements <code>emma:emma</code>,<code> emma:interpretation</code>,<code> emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -4090,8 +4090,8 @@ to the lexical words and phrases of language but to any level of
 input processing. Other examples of tokenization include phonemes,
 ink strokes, gestures and any other discrete units of input at any
 level.</p>
-<p><span class="new">The <code>emma:token-type</code> annotation MAY be used on an element with an <code>emma:tokens</code> attribute in order to indicate the type of the space separated tokens that appear in <code>emma:tokens</code>. The value of <code>emma:token-type</code> is drawn from the open set: {word, character, phoneme, syllable, morpheme, logogram, gesture ....}. </span></p>
-<p><span class="new">The <code>emma:token-score</code> annotation MAY be used on an element with an <code>emma:tokens</code> attribute in order to provide individual confidence scores for each of the corresponding tokens in <code>emma:tokens</code>. The <code>emma:token-score</code> attribute MUST contain a space separated list of numerical scores between 0 and 1, where there is one numerical score for each of the tokens in <code>emma:tokens</code>.</span></p>
+<p class="new">The <code>emma:token-type</code> annotation MAY be used on an element with an <code>emma:tokens</code> attribute in order to indicate the type of the space separated tokens that appear in <code>emma:tokens</code>. The value of <code>emma:token-type</code> is drawn from the open set: {word, character, phoneme, syllable, morpheme, logogram, gesture ....}. </p>
+<p class="new">The <code>emma:token-score</code> annotation MAY be used on an element with an <code>emma:tokens</code> attribute in order to provide individual confidence scores for each of the corresponding tokens in <code>emma:tokens</code>. The <code>emma:token-score</code> attribute MUST contain a space separated list of numerical scores between 0 and 1, where there is one numerical score for each of the tokens in <code>emma:tokens</code>.</p>
 <p>Examples:</p>
 <pre class="example">&lt;emma:emma version=&quot;1.1&quot;
     xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
@@ -4168,7 +4168,7 @@ was used for generating an interpretation MAY be made using the
 process itself, such as grammar, type of parser, etc. EMMA is not
 normative about the format of the process description document.</p>
 <p>Note that while the <code>emma:process</code> attribute may refer to a document that describes the process, the URI syntax itself can be used to briefly describe the process within the EMMA document without actually referring to an external document. For example, the results of a natural language understanding component could be annotated as follows:</p>
-<pre class="example"><span>&lt;emma:emma version="1.1"
+<pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -4183,7 +4183,7 @@ normative about the format of the process description document.</p>
       &lt;destination&gt;Denver&lt;/destination&gt;
       &lt;date&gt;tomorrow&lt;/date&gt;
   &lt;/emma:interpretation&gt;
-&lt;/emma:emma&gt;</span></pre>
+&lt;/emma:emma&gt;</pre>
 <p>In this case the <code>emma:process</code> attribute indicates that the process is natural language understanding (<code>nlu</code>) that the classifier used is a support vector machine (<code>svm</code>), that the specific model is the '<code>travel</code>' model and the required output was '<code>xml</code>'. Note that none of the specific values used within the URI here are standardized. This simply illustrates how a URI can be used to provide a detailed process description.</p>
 <h3 id="s4.2.3">4.2.3 Lack of input: <code>emma:no-input</code>
 attribute</h3>
@@ -5014,38 +5014,38 @@ application instance data</td>
 application instance data</td>
 </tr>
 <tr>
-<th><span>Annotation</span></th>
-<th><span>emma:device-type</span></th>
+<th>Annotation</th>
+<th>emma:device-type</th>
 </tr>
 <tr>
-<th><span>Definition</span></th>
-<td><span>The type of device, or list of types of
+<th>Definition</th>
+<td>The type of device, or list of types of
 device through which the input is captured. An attribute of type <code>xsd:nmtokens</code> which
         contains a space delimited set of values from an open set of values
-      including: {<code>microphone</code>, <code>touchscreen</code>, <code>mouse</code>, <code>keypad</code>, <code>keyboard</code>, <code>pen</code>, <code>joystick</code>, <code>touchpad</code>, <code>scanner</code>, <code>camera_2d</code>, <code>camera_3d</code>, <code>thumbwheel</code>...}.</span></td>
+      including: {<code>microphone</code>, <code>touchscreen</code>, <code>mouse</code>, <code>keypad</code>, <code>keyboard</code>, <code>pen</code>, <code>joystick</code>, <code>touchpad</code>, <code>scanner</code>, <code>camera_2d</code>, <code>camera_3d</code>, <code>thumbwheel</code>...}.</td>
 </tr>
 <tr>
-<th><span>Applies to</span></th>
-<td><span><code>emma:interpretation</code>, <code>emma:group</code>,
+<th>Applies to</th>
+<td><code>emma:interpretation</code>, <code>emma:group</code>,
     <code>emma:one-of</code>, <code>emma:sequence</code>, and
-application instance data</span></td>
+application instance data</td>
 </tr>
 <tr>
-<th><span>Annotation</span></th>
-<th><span>emma:expressed-through</span></th>
+<th>Annotation</th>
+<th>emma:expressed-through</th>
 </tr>
 <tr>
-<th><span>Definition</span></th>
-<td><span>The modality, or list of modalities, through which the interpretation is
+<th>Definition</th>
+<td>The modality, or list of modalities, through which the interpretation is
         expressed. An attribute of type <code>xsd:nmtokens</code> which
         contains a space delimited set of values from an open set of values
-      including: {<code>gaze</code>, <code>face</code>, <code>head</code>, <code>torso</code>, <code>hands</code>, <code>leg</code>, <code>locomotion</code>, <code>posture</code>, <code>physiology</code>, ...}.</span></td>
+      including: {<code>gaze</code>, <code>face</code>, <code>head</code>, <code>torso</code>, <code>hands</code>, <code>leg</code>, <code>locomotion</code>, <code>posture</code>, <code>physiology</code>, ...}.</td>
 </tr>
 <tr>
-<th><span>Applies to</span></th>
-<td><span><code>emma:interpretation</code>, <code>emma:group</code>,
+<th>Applies to</th>
+<td><code>emma:interpretation</code>, <code>emma:group</code>,
     <code>emma:one-of</code>, <code>emma:sequence</code>, and
-application instance data</span></td>
+application instance data</td>
 </tr>
 </tbody>
 </table>
@@ -5091,10 +5091,10 @@ input the user physically presses keys on a keypad.</p>
   <code>emma:one-of</code> node or they must appear on an earlier
   stage of the derivation listed in <code>emma:derivation</code>.</p>
 <p>The <code>emma:device-type</code> annotation can be used to indicate the specific type of device used to capture the input. This allow for differentiation of, multiple different <code>tactile</code> inputs within the <code>ink</code> mode, such as touchscreen input, pen, and mouse. </p>
-<pre class="example"><span>emma:device-type = space delimited sequence of values from the set:
+<pre class="example">emma:device-type = space delimited sequence of values from the set:
 					 [microphone|keypad|keyboard|touchscreen|touchpad|
                     mouse|pen|joystick|thumbwheel|
-                    camera_2d|camera_3d|scanner... ]</span></pre>
+                    camera_2d|camera_3d|scanner... ]</pre>
 <p>The <code>emma:device-type</code> attribute SHOULD be used to indicate the general category of the sensor used to captured the input. The specific model number or characteristics SHOULD be captured instead using <code>emma:process</code> (<a href="https://www.w3.org/2002/mmi/Group/emma11/#4.2.2">Section 4.2.2</a>).</p>
 <p>Orthogonal to the mode, user inputs can also be classified with
   respect to their communicative function. This enables a simpler
@@ -5268,25 +5268,25 @@ grammar)</td>
 </tr>
 
 <tr>
-<td rowspan="4"><span>touchscreen</span></td>
-<td rowspan="2"><span>ink</span></td>
-<td rowspan="2"><span>trace, sketch</span></td>
-<td><span>handwritten command / query / response (verbal = true)</span></td>
-<td rowspan="2"><span>handwritten text entry</span></td>
-<td rowspan="2"><span>signature, handwriting recognition</span></td>
+<td rowspan="4">touchscreen</td>
+<td rowspan="2">ink</td>
+<td rowspan="2">trace, sketch</td>
+<td>handwritten command / query / response (verbal = true)</td>
+<td rowspan="2">handwritten text entry</td>
+<td rowspan="2">signature, handwriting recognition</td>
 </tr>
 <tr>
-<td><span>gesture (e.g. circling building) (verbal = false)</span></td>
+<td>gesture (e.g. circling building) (verbal = false)</td>
 </tr>
 <tr>
-<td rowspan="2"><span>gui</span></td>
-<td rowspan="2"><span>N/A</span></td>
-<td><span>tapping on named button (verbal = true)</span></td>
-<td rowspan="2"><span>soft keyboard</span></td>
-<td rowspan="2"><span>password / pin entry</span></td>
+<td rowspan="2">gui</td>
+<td rowspan="2">N/A</td>
+<td>tapping on named button (verbal = true)</td>
+<td rowspan="2">soft keyboard</td>
+<td rowspan="2">password / pin entry</td>
 </tr>
 <tr>
-<td><span>drag and drop, tapping on map (verbal = false)</span></td>
+<td>drag and drop, tapping on map (verbal = false)</td>
 </tr>
 <tr>
 <td rowspan="4">mouse</td>
@@ -5872,24 +5872,24 @@ for applications to define.</p>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
   <tbody>
     <tr>
-      <th><span>Annotation</span></th>
-      <th><span>emma:info-ref</span></th>
+      <th>Annotation</th>
+      <th>emma:info-ref</th>
     </tr>
     <tr>
-      <th><span>Definition</span></th>
-      <td><span>An attribute of type <code>xsd:IDREF</code> referring to the <code>id</code> attribute of an <code>emma:info</code> element.</span></td>
+      <th>Definition</th>
+      <td>An attribute of type <code>xsd:IDREF</code> referring to the <code>id</code> attribute of an <code>emma:info</code> element.</td>
     </tr>
     <tr>
-      <th><span>Applies to</span></th>
-      <td><span><code>emma:interpretation</code>, <code>emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, and
-        application instance data.</span></td>
+      <th>Applies to</th>
+      <td><code>emma:interpretation</code>, <code>emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, and
+        application instance data.</td>
     </tr>
   </tbody>
 </table>
 <p>The <code>emma:info-ref</code> annotation associates the EMMA
   result in the container element with a particular  <code>emma:info</code> element. This allows a single<code> emma:info</code> block of application and vendor specific annotations to apply to multiple different members of an<code> emma:one-of</code> or <code>emma:group </code>or <code>emma:sequence</code>. Alternatively, <code>emma:info</code> could appear separately as a child of each <code>emma:interpretation</code>. The benefit of using <code>emma:info-ref</code> is it avoids the need to repeat the same block of <code>emma:info</code> for multiple different interpretations.</p>
 <p>Example:</p>
-<pre class="example"><span>&lt;emma:emma version="1.1"
+<pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -5927,7 +5927,7 @@ for applications to define.</p>
       &lt;topping&gt;cheese&lt;/topping&gt;
     &lt;/emma:interpretation&gt;
   &lt;/emma:one-of&gt;
-</span></pre>
+</pre>
 <h3 id="s4.2.20">4.2.20 Reference to <code>emma:process-model</code> element: <code>emma:process-model-ref</code> attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
   <tbody>
@@ -5948,7 +5948,7 @@ for applications to define.</p>
 </table>
 <p>The <code>emma:process-model-ref</code> annotation associates the EMMA
   result in the container element with an <code>emma:process-model</code> element. In the following example the specific model used to produce two different object recognition results based on an image as input are indicated on the interpretations using <code>emma:process-model-ref</code> which references an <code>emma:process-model </code>element under <code>emma:emma</code> whose <code>ref</code> attribute contains URI identifying the particular model used.</p>
-<pre class="example"><span>&lt;emma:emma version="1.1"
+<pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -5977,7 +5977,7 @@ for applications to define.</p>
       &lt;object&gt;person&lt;/object&gt;
     &lt;/emma:interpretation&gt;
   &lt;/emma:one-of&gt;
-&lt;/emma:emma&gt;</span></pre>
+&lt;/emma:emma&gt;</pre>
 
 <h3 id="s4.2.21">4.2.21 Reference to <code>emma:parameters</code>
 element: <code>emma:parameter-ref</code> attribute</h3>
@@ -6042,7 +6042,7 @@ element that specifies a series of parameters used to configure the processor th
   ink strokes, gestures and any other discrete units of input at any
   level.</p>
 <p>In the following example, a speech recognizer has processed an audio input signal and the hypothesized string is "from cambridge to london tomorrow" contained in <code>emma:tokens</code>. A human labeller has listened to the audio and added the reference string "from canterbury to london today" in the <code>emma:annotated-tokens</code> attribute.</p>
-<pre class="example"><span>&lt;emma:emma version="1.1"
+<pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2003/04/emma
@@ -6061,7 +6061,7 @@ element that specifies a series of parameters used to configure the processor th
     &lt;date&gt;tomorrow&lt;/date&gt;
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
-</span></pre>
+</pre>
 <p>In order to provide metadata on the annotation such as the name of the annotator or time of annotation, the more powerful <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.9"><code>emma:annotation</code></a> element mechanism should be used. This also allows for structured annotations such as labelling of a semantic interpretation in XML.</p>
 
 <h3 id="s4.2.23">4.2.23 Partial Content: <code>emma:partial-content</code></h3>
@@ -6108,7 +6108,7 @@ element that specifies a series of parameters used to configure the processor th
     </tr>
     <tr>
       <th>Definition</th>
-      <td>An attribute of type <code>xsd:integer</code> used to indicate the position of a result in a sequence of partial results in a given stream of incremental results.</td>
+      <td>An attribute of type <code>xsd:integer</code> used to indicate the position of a result in a sequence of partial results in a given stream of incremental results</td>
     </tr>
     <tr>
       <th class="new">Applies to</th>
@@ -6121,7 +6121,7 @@ element that specifies a series of parameters used to configure the processor th
     <tr>
       <th>Definition</th>
       <td>An attribute of type <code>xsd:string</code> constrained to
-values in the  set {<code>begin</code>, <code>in-progress</code>, <code>end</code><code></code>} indicating whether this is the first message in a stream of incremental results, an intermediate result, or the last result.</td>
+values in the  set {<code>begin</code>, <code>in-progress</code>, <code>end</code><code></code>} indicating whether this is the first message in a stream of incremental results, an intermediate result, or the last result</td>
     </tr>
     <tr>
       <th class="new">Applies to</th>
@@ -6133,7 +6133,7 @@ values in the  set {<code>begin</code>, <code>in-progress</code>, <code>end</cod
     </tr>
     <tr>
       <th>Definition</th>
-      <td>An attribute of type <code>xsd:Boolean</code> indicating whether the  incremental result received represents the overall interpretation of that stream so far.</td>
+      <td>An attribute of type <code>xsd:Boolean</code> indicating whether the  incremental result received represents the overall interpretation of that stream so far</td>
     </tr>
     <tr>
       <th class="new">Applies to</th>
@@ -6145,7 +6145,7 @@ values in the  set {<code>begin</code>, <code>in-progress</code>, <code>end</cod
     </tr>
     <tr>
       <th>Definition</th>
-      <td>An attribute of type <code>xsd:string</code> indicating the start and end vertices that the current result (and <code>emma:tokens</code> within that) spans within the series of tokens being populated by a stream of partial results.</td>
+      <td>An attribute of type <code>xsd:string</code> indicating the start and end vertices that the current result (and <code>emma:tokens</code> within that) spans within the series of tokens being populated by a stream of partial results</td>
     </tr>
     <tr>
       <th class="new">Applies to</th>
@@ -6157,7 +6157,7 @@ values in the  set {<code>begin</code>, <code>in-progress</code>, <code>end</cod
     </tr>
     <tr>
       <th>Definition</th>
-      <td>An attribute of type <code>xsd:string</code> indicating the start and end of the overall result for the stream so far. </td>
+      <td>An attribute of type <code>xsd:string</code> indicating the start and end of the overall result for the stream so far</td>
     </tr>
     <tr>
       <th class="new">Applies to</th>
@@ -6170,7 +6170,7 @@ values in the  set {<code>begin</code>, <code>in-progress</code>, <code>end</cod
     <tr>
       <th>Definition</th>
       <td>An attribute of type <span><code>xsd:nmtokens</code></span> <span>which contains a space delimited set of values from the
-set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA consumer which of the tokens are final and which may be subject to change in future partial results in the stream. </td>
+set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA consumer which of the tokens are final and which may be subject to change in future partial results in the stream</td>
     </tr>
     <tr>
       <th class="new">Applies to</th>
@@ -6191,8 +6191,8 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
   </tbody>
 </table>
 
-<p>Incremental processing of inputs enables interactive applications to provide users with direct feedback on recognition, understanding and other levels of processing, potentially resulting in a more dynamic and engaging user experience. EMMA provides a series of attributes that support streaming incremental results from an EMMA producer to an EMMA consumer. These attributes capture the relationship between a series of partial results, how they relate to the whole and can also indicate whether the tokens in a partial result are final or subject to change.  </p>
-<p>One common use case for incremental results is giving immediate feedback as a user dictates spoken input. For example, if a user is dictating a message, incrementality enables them to see the words recognized as they speak.</p>
+<p class="new">Incremental processing of inputs enables interactive applications to provide users with direct feedback on recognition, understanding and other levels of processing, potentially resulting in a more dynamic and engaging user experience. EMMA provides a series of attributes that support streaming incremental results from an EMMA producer to an EMMA consumer. These attributes capture the relationship between a series of partial results, how they relate to the whole and can also indicate whether the tokens in a partial result are final or subject to change.  </p>
+<p class="new">One common use case for incremental results is giving immediate feedback as a user dictates spoken input. For example, if a user is dictating a message, incrementality enables them to see the words recognized as they speak.</p>
 <pre class="example">
 1. Hi Joe ...
 2. Hi Joe the tweeting ...
@@ -6200,13 +6200,17 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 4. Hi Joe the meeting has now moved to...
 5. Hi Joe the meeting has now moved downstairs.</pre>
 
-<p>In this example, as the user  dictates a message text, the user interface shows them the current best hypothesis as speech recognition proceeds. In order to support this use case, a speech recognition component producing EMMA needs to be able to produce a series of partial results and indicate how they relate to each other. The <code>emma:stream-id</code> MUST appear on each member of series of EMMA documents capturing incremental results and indicates the identify of the stream to which they all belong. Presence of an <code>emma:stream-id</code> is the mechanism through which an EMMA result is marked as being incremental. The <code>emma:stream-status</code> attribute MUST appear on each member of a series of partial results. <code>emma:stream-status</code> takes values from the set {<code>begin</code>, <code>in-progress</code>, <code>end</code>,<code> complete</code>} and is used to indicate whether this is a new stream ('<code>begin</code>'), an intermediate result in an ongoing stream ('<code>in-progress</code>') or the final result in a given stream ('<code>end</code>'). </p>
-<p>&nbsp;</p>
-<p>* Paragraph on emma:stream-token-span-full</p>
-<p>Explain emma:stream-full-result</p>
-<p>&nbsp;</p>
-<p>The following examples illustrate the use of the EMMA attributes for streaming incremental results, along with<code> emma:tokens</code>, <code>emma:token-type</code> and <code>emma:token-score</code>. Square brackets [] are used to indicate which words are contained in each partial result.</p>
-<p>&nbsp;</p>
+<p class="new">In this example, as the user  dictates the message, the user interface shows them the current best hypothesis as speech recognition proceeds. In order to support this use case, a speech recognition component producing EMMA needs to be able to produce a series of partial results and indicate how they relate to each other. Below we show how this series of incremental results can be handled in EMMA using the various <code>emma:stream-*</code> attributes.</p>
+<p class="new">The <code>emma:stream-id</code> MUST appear on each member of series of EMMA documents capturing incremental results and indicates the identify of the stream to which they all belong. Presence of an <code>emma:stream-id</code> is the mechanism through which an EMMA result is marked as being incremental. </p>
+<p class="new">The <code>emma:stream-status</code> attribute MUST appear on each member of a series of partial results. <code>emma:stream-status</code> takes values from the set {<code>begin</code>, <code>in-progress</code>, <code>end</code>} and is used to indicate whether this is a new stream ('<code>begin</code>'), an intermediate result in an ongoing stream ('<code>in-progress</code>') or the final result in a given stream ('<code>end</code>'). </p>
+<p class="new">The <code>emma:stream-seq-num</code> attribute MUST appear on each member of a series of partial results and contains an integer indicating the position in sequence of this result within the stream. Note that this position index does not relate to position in the actual result, e.g. a token span in a string, rather it indicates the position of the result in a series of incremental results from an EMMA producer.</p>
+<p class="new">The <code>emma:stream-full-result</code> attribute is an optional attribute taking a boolean value which indicates whether the incremental result received contains a result for the whole input signal received so far. This indicates whether the result is for the whole stream so far, or only for the last chunk of the signal. One use of <code>emma:stream-full-result</code> is to cover a common use cases in incremental processing where the final result in the sequence includes the final interpretation for the whole input. In this case that final result is marked as <code>emma:stream-status=&quot;end&quot;</code> and <code>emma:stream-full-result=&quot;true&quot;</code>. If instead the final result just gives the token and interpretation for the final chunk of the incremental input, it would be annotated as <code>emma:stream-status=&quot;end&quot;</code> and <code>emma:stream-full-result=&quot;false&quot;</code>.</p>
+<p class="new">For incremental results which involve a sequence of tokens, such as dictation of sequence of words or handwritten input of a sequence of characters. EMMA provides a series of attributes that can be used to indicate how a specific token relates to the overall sequence of tokens (<code>emma:stream-token-span</code>, <code>emma:stream-token-span-full</code>). These mechanisms allow for incremental results to provide revisions of previous tokens as more of the signal is processed, e.g. 'tweeting' becoming 'meeting' in the example above. Further attributes enable specification of whether tokens in the result are now 'immortal' that is, they will not be changed in future results within the stream (<code>emma:stream-token-immortals</code>, <code>emma:stream-immortal-vertex</code>).</p>
+<p class="new">For incremental results with tokens. The tokens themselves are specified using the <code>emma:tokens</code>, <code>emma:token-type</code>, and <code>emma:token-score</code> (defined in Section 4.2.1). The<code> emma:tokens</code> attribute contains a space delimited sequence of tokens. What the tokens are, e.g. <code>word</code>, <code>phoneme</code>, <code>character</code> is specified in <code>emma:token-type</code>. Per token scores may be specified using the <code>emma:token-score</code> attribute which contains a space delimited sequence of numerical scores between 0 and 1. In order to indicate the how the tokens in an incremental result map to the overall sequence of tokens, the <code>emma:stream-token-span</code> indicates the start and end vertices in the token stream that the result specifies. For example, if a result contains the first two words in a stream, the <code>emma:stream-token-span</code> would be <code>&quot;0-2&quot;</code>. The next word in the sequence would be<code> emma:stream-token-span=&quot;2-3&quot;</code>.</p>
+<p class="new">The <code>emma:stream-token-span-full</code> is an optional attribute, also a vertex range, which indicates the overall start and end vertices for the whole stream so far.</p>
+<p class="new">EMMA also provides attributes for indicating whether a token within an incremental result is final ('immortal') or subject to change in future results. The <code>emma:stream-token-immortals</code> contains a space delimited sequence of boolean values (true/false), indicating on a per token basis whether the token is final and will not change, or subject to change in a future result. For example, if <code>emma:tokens=&quot;Hi Joe the&quot;</code> and <code>emma:token-score=&quot;0.9 0.7 0.5&quot;</code> and <code>emma:stream-token-immortals=&quot;true true false&quot;</code> then first two words have scores <code>0.9</code> and <code>0.7</code> and those words will not change in future results. While, the word &quot;the&quot; has score <code>0.5</code> and &quot;false&quot; in the <code>emma:stream-token-immortals</code> indicates that the word &quot;the&quot; may be subject to change. One use of <code>emma:stream-token-immortals</code> is to drive the appearance of words in the user interface in a client. For example, immortal words might appear in bold dark font, while not non immortal tokens are shown in grey.</p>
+<p class="new">EMMA provides an additional mechanism for indicating how many of the tokens are immortal. The attribute emma:stream-immortal-vertex indicates which vertex (as in the emma:token-span) is the point up to which all tokens are immortal. For example, if <code>emma:tokens=&quot;Hi Joe the tweeting&quot;</code> and <code>emma:token-span=&quot;0-4&quot;</code> then if <code>emma:stream-immortal-vertex=&quot;2&quot;</code> then the words &quot;Hi&quot; and &quot;Joe&quot; are final and the word &quot;the&quot; and &quot;tweeting&quot; are subject to further potential revision in the result.</p>
+<p class="new">The example below shows how EMMA attributes can be used for streaming incremental results in the case of dictation of a spoken message. Before the EMMA markup, square brackets [] are used to indicate which words are contained in each following partial result.</p>
 <p>First result is 0</p>
 <p>1. [Hi Joe] ...</p>
 
@@ -6250,10 +6254,8 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
        emma:tokens=&quot;downstairs&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.9&quot;<br />       emma:stream-id=&quot;s1&quot;<br />       emma:stream-seq-num=&quot;4&quot;<br />       emma:stream-status=&quot;in-progress&quot;
-       emma:stream-full-result=&quot;false&quot;<br />       emma:stream-token-span=&quot;7-8&quot;<br />       emma:stream-token-immortals=&quot;true&quot;<br />       emma&quot;stream-immortal-vertex=&quot;8&quot;&gt;<br />      &lt;emma:literal&gt;downstairs&lt;/emma:literal&gt;<br />  &lt;/emma:interpretation&gt;<br />&lt;/emma:emma&gt;
-</pre> 
-<p class="new">The <code>emma:stream-full-result</code> annotation is used in order to indicate whether the result annotated contains the full set of tokens and so far for that stream. When a result is annotated as <span class="example"><code>emma:stream-status=&quot;end&quot;</code></span> and also has <code>emma:stream-full-result=&quot;true&quot;</code> then this is final result which also have the full set of tokens.</p>
-<p class="new">Some implementations may also provide a <code>emma:stream-status='complete'</code> result after <code>emma:stream-status='end'</code>that provides the full sequence of tokens. This would not be desirable for dictation of longer texts, but might be more used in cases where a smaller message is dictated.</p>
+       emma:stream-full-result=&quot;false&quot;<br />       emma:stream-token-span=&quot;7-8&quot;<br />       emma:stream-token-immortals=&quot;true&quot;<br />       emma&quot;stream-immortal-vertex=&quot;8&quot;&gt;<br />      &lt;emma:literal&gt;downstairs&lt;/emma:literal&gt;<br />  &lt;/emma:interpretation&gt;<br />&lt;/emma:emma&gt;</pre>
+<span class="new">In the next example we see how incremental results can be used for a voice search application, where there is a semantic interpretation in addition to a sequence of results.</span>
 <h4 class="new">4.2.24.1 Example use case of incremental results in voice search application</h4>
 
 <p class="new">In the following example we consider a series of partial results in a voice search query. The example domain is a query about flights and as each incremental EMMA result is received the semantic interpretation is expanded.  In this case, the partial result is for the whole input up until that point.</p>
@@ -6266,16 +6268,18 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 <pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int10&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.75&quot;
        emma:tokens=&quot;flights from boston&quot;
        emma:token-type=&quot;word&quot;
-       emma:token-score=&quot;0.9 0.8 0.5&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;0&quot;<br />       emma:stream-status=&quot;begin&quot;<br />       emma:stream-token-span=&quot;0-3&quot;<br />       emma:stream-token-immortals=&quot;true true false&quot;<br />       emma&quot;stream-immortal-vertex=&quot;2&quot;&gt;<br />      &lt;flight&gt;
+       emma:token-score=&quot;0.9 0.8 0.5&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;0&quot;<br />       emma:stream-status=&quot;begin&quot;<br />       emma:stream-token-span=&quot;0-3&quot;
+       emma:stream-full-result=&quot;true&quot;<br />       emma:stream-token-immortals=&quot;true true false&quot;<br />       emma&quot;stream-immortal-vertex=&quot;2&quot;&gt;<br />      &lt;flight&gt;
         &lt;src&gt;boston&lt;/src&gt;
       &lt;/flight&gt;<br />  &lt;/emma:interpretation&gt;<br />&lt;/emma:emma&gt;
 </pre>
 <p></p>
-<p>2. [flights from austin to denver] ...</p>
+<p>2. [flights from austin to dallas] ...</p>
 <pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int11&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.80&quot;
        emma:tokens=&quot;flights from austin to dallas&quot;
        emma:token-type=&quot;word&quot;
-       emma:token-score=&quot;0.9 0.8 0.9 0.8 0.5&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;1&quot;<br />       emma:stream-status=&quot;in-progress&quot;<br />       emma:stream-token-span=&quot;0-5&quot;<br />       emma:stream-token-immortals=&quot;true true true false false&quot;<br />       emma&quot;stream-immortal-vertex=&quot;3&quot;&gt;<br />      &lt;flight&gt;
+       emma:token-score=&quot;0.9 0.8 0.9 0.8 0.5&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;1&quot;<br />       emma:stream-status=&quot;in-progress&quot;
+       emma:stream-full-result=&quot;true&quot;<br />       emma:stream-token-span=&quot;0-5&quot;<br />       emma:stream-token-immortals=&quot;true true true false false&quot;<br />       emma&quot;stream-immortal-vertex=&quot;3&quot;&gt;<br />      &lt;flight&gt;
         &lt;src&gt;austin&lt;/src&gt;
         &lt;dest&gt;dallas&lt;/dest&gt;
       &lt;/flight&gt;<br />  &lt;/emma:interpretation&gt;<br />&lt;/emma:emma&gt;
@@ -6285,18 +6289,8 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 <pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int12&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.85&quot;
        emma:tokens=&quot;flights from austin to denver tomorrow&quot;
        emma:token-type=&quot;word&quot;
-       emma:token-score=&quot;0.9 0.8 0.9 0.8 0.9 0.9&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;2&quot;<br />       emma:stream-status=&quot;end&quot;<br />       emma:stream-token-span=&quot;0-6&quot;<br />       emma:stream-token-immortals=&quot;true true true true true true&quot;<br />       emma&quot;stream-immortal-vertex=&quot;6&quot;&gt;<br />      &lt;flight&gt;
-        &lt;src&gt;austin&lt;/src&gt;
-        &lt;dest&gt;denver&lt;/dest&gt;
-        &lt;time&gt;tomorrow&lt;/time&gt;
-      &lt;/flight&gt;<br />  &lt;/emma:interpretation&gt;<br />&lt;/emma:emma&gt;
-</pre>
-<p></p>
-<p>4. flights from austin to dallas tomorrow.</p>
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int13&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.85&quot;
-       emma:tokens=&quot;flights from austin to denver tomorrow&quot;
-       emma:token-type=&quot;word&quot;
-       emma:token-score=&quot;0.9 0.8 0.9 0.8 0.9 0.9&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;3&quot;<br />       emma:stream-status=&quot;complete&quot;<br />       emma:stream-token-span=&quot;0-6&quot;&gt;<br />      &lt;flight&gt;
+       emma:token-score=&quot;0.9 0.8 0.9 0.8 0.9 0.9&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;2&quot;<br />       emma:stream-status=&quot;end&quot;
+       emma:stream-full-result=&quot;true&quot;<br />       emma:stream-token-span=&quot;0-6&quot;<br />       emma:stream-token-immortals=&quot;true true true true true true&quot;<br />       emma&quot;stream-immortal-vertex=&quot;6&quot;&gt;<br />      &lt;flight&gt;
         &lt;src&gt;austin&lt;/src&gt;
         &lt;dest&gt;denver&lt;/dest&gt;
         &lt;time&gt;tomorrow&lt;/time&gt;
