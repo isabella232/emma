@@ -773,12 +773,12 @@ elements in the application-specific markup. (<a href="https://www.w3.org/2002/m
 of an EMMA document consists of a tree of EMMA container elements
 (<code>emma:one-of</code>, <code>emma:sequence</code>,
 <code>emma:group</code>) terminating in a number of interpretation
-elements (<code>emma:interpretation</code>). The
+elements (<code>emma:interpretation</code>) <span class="new">or output elements <code>(emma:output)</code></span>. The
 <code>emma:interpretation</code> elements serve as wrappers for
 either application namespace markup describing the interpretation
 of the users input or an <code>emma:lattice</code> element or
-<code>emma:literal</code> element . A single
-<code>emma:interpretation</code> may also appear directly under the
+<code>emma:literal</code> element . <span class="new">The
+<code>emma:output</code> elements serve as wrappers for system output.</span> A single <code>emma:interpretation</code> or a <span class="new">single <code>emma:output</code> </span> may also appear directly under the
 root node.</p>
 
 
@@ -1086,8 +1086,9 @@ contain either application instance data, or a single
 input or no input <code>emma:interpretation</code>
 <span>MUST</span> be empty. It MAY also contain <span>multiple
 optional</span> <code>emma:derived-from</code>
-element<span>s</span> and <span>an optional single</span>
-<code>emma:info</code> <span>element</span>.<span> It MAY also contain multiple optional<code> emma:annotation</code> elements. It MAY also contain multiple<code> emma:parameters</code> elements. It MAY also contain a single optional <code>emma:grammar-active</code> element. <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
+element<span>s</span> and <span class="remove">an optional single
+<code>emma:info</code> element </span><span class="new">multiple
+optional</span> <code>emma:info</code> element<span>s</span></span>.<span> It MAY also contain multiple optional<code> emma:annotation</code> elements. It MAY also contain multiple<code> emma:parameters</code> elements. It MAY also contain a single optional <code>emma:grammar-active</code> element. <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
 </tr>
 <tr>
 <th>Attributes</th>
@@ -1177,14 +1178,15 @@ earlier stage of the derivation listed in
       <th>Children</th>
       <td class="new">The <code>emma:output</code> element MUST immediately
         contain either application instance data, or a single <code>emma:lattice</code> element, or a single <code>emma:literal</code> element. It MAY also contain <span>multiple
-          optional</span> <code>emma:derived-from</code> element<span>s</span> and <span>an optional single</span> <code>emma:info</code> <span>element</span>.<span> It MAY also contain multiple optional<code> emma:annotation</code> elements. It MAY also contain multiple<code> emma:parameters</code> elements. <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
+          optional</span> <code>emma:derived-from</code> element<span>s</span> and <span>multiple optional</span> <code>emma:info</code> <span>elements</span>.<span> It MAY also contain multiple optional<code> emma:annotation</code> elements. It MAY also contain multiple<code> emma:parameters</code> elements. <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
     </tr>
     <tr>
       <th>Attributes</th>
       <td><ul>
         <li><b>Required</b>: Attribute <code>id</code> of type <code>xsd:ID</code> that uniquely identifies the output
           within the EMMA document.</li>
-        <li><b>Optional</b>: The annotation attributes: <code>emma:tokens</code>, <code>emma:process</code>, <code>emma:lang</code>, <code>emma:signal</code>, <code><span>emma:signal-size</span></code>, <code>emma:media-type</code>, <code>emma:confidence</code>, <code>emma:source</code>, <code>emma:start</code>, <code>emma:end</code>, <code>emma:time-ref-uri</code>, <code>emma:time-ref-anchor-point</code>, <code>emma:offset-to-start</code>, <code>emma:duration</code>, <code>emma:medium</code>, <code>emma:mode</code>, <code>emma:function</code>, <code>emma:verbal</code>, <code>emma:cost</code>,<code> emma:endpoint-info-ref</code>, <code>emma:model-ref</code>, <code>emma:dialog-turn</code>,<code> <span>emma:info-ref</span></code><span><strong>, </strong><code>emma:parameter-ref</code>, <code>emma:process-model-ref</code>, <code>emma:annotated-tokens</code>, <code>emma:result-format</code>, <code>emma:expressed-through, emma:device-type</code>.</span></li>
+        <li><b>Optional</b>: The annotation attributes: <code>emma:tokens</code>, <code>emma:process</code>, <code>emma:lang</code>, <code>emma:signal</code>, <code><span>emma:signal-size</span></code>, <code>emma:media-type</code>, <code>emma:confidence</code>, <code>emma:source</code>, <code>emma:start</code>, <code>emma:end</code>, <code>emma:time-ref-uri</code>, <code>emma:time-ref-anchor-point</code>, <code>emma:offset-to-start</code>, <code>emma:duration</code>, <code>emma:medium</code>, <code>emma:mode</code>, <code>emma:function</code>, <code>emma:verbal</code>, <code>emma:cost</code>,<code> emma:endpoint-info-ref</code>, <code>emma:model-ref</code>, <code>emma:dialog-turn</code>,<code> <span>emma:info-ref</span></code><span><strong>, </strong><code>emma:parameter-ref</code>, <code>emma:process-model-ref</code>, <code>emma:annotated-tokens</code>, <span class="remove"><code>emma:result-format</code></span>, 
+        <code>emma:output-format</code><code>emma:expressed-through, emma:device-type</code>.</span></li>
       </ul></td>
     </tr>
     <tr>
@@ -1239,12 +1241,11 @@ of mutually exclusive interpretations of the input.</td>
 <tr>
 <th>Children</th>
 <td>The <code>emma:one-of</code> element MUST immediately contain a
-collection of one or more <code>emma:interpretation</code> elements
-or container elements: <code>emma:one-of</code>,
-<code>emma:group</code>, <code>emma:sequence</code> <span class="new">UNLESS it is annotated with <code>ref</code></span>. It MAY also
+collection of one or more <code>emma:interpretation</code> elements <span class="new">or one or more <code>emma:output</code> elements </span>or container elements: <code>emma:one-of</code>,
+<code>emma:group</code>, <code>emma:sequence</code> <span class="new">UNLESS it is annotated with <code>ref</code></span>. <span class="new"><code>emma:output</code> elements and <code>emma:interpretation</code> elements MAY NOT be mixed under the same <code>emma:one-of element</code>.</span> It MAY also
 contain <span>multiple optional</span>
 <code>emma:derived-from</code> element<span>s</span> and multiple <code>emma:info</code>
-<span>element</span><span>s</span>. <span> It MAY also contain multiple optional<code> emma:annotation</code> elements. It MAY also contain multiple optional<code> emma:parameters</code> elements. It MAY also contain a single optional <code>emma:grammar-active</code> element.<span class="new"> It MAY also contain a single <code>emma:lattice</code> element containing the lattice result for the same input. </span> <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
+<span>element</span><span>s</span>. <span> It MAY also contain multiple optional<code> emma:annotation</code> elements. It MAY also contain multiple optional<code> emma:parameters</code> elements.  It MAY also contain multiple optional<code> emma:</code> elements. It MAY also contain a single optional <code>emma:grammar-active</code> element.<span class="new"> It MAY also contain a single <code>emma:lattice</code> element containing the lattice result for the same input. </span> <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
 </tr>
 <tr>
 <th>Attributes</th>
