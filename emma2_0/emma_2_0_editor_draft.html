@@ -6209,6 +6209,9 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 <p class="new">EMMA also provides attributes for indicating whether a token within an incremental result is final ('immortal') or subject to change in future results. The <code>emma:stream-token-immortals</code> contains a space delimited sequence of boolean values (true/false), indicating on a per token basis whether the token is final and will not change, or subject to change in a future result. For example, if <code>emma:tokens=&quot;Hi Joe the&quot;</code> and <code>emma:token-score=&quot;0.9 0.7 0.5&quot;</code> and <code>emma:stream-token-immortals=&quot;true true false&quot;</code> then first two words have scores <code>0.9</code> and <code>0.7</code> and those words will not change in future results. While, the word &quot;the&quot; has score <code>0.5</code> and &quot;false&quot; in the <code>emma:stream-token-immortals</code> indicates that the word &quot;the&quot; may be subject to change. One use of <code>emma:stream-token-immortals</code> is to drive the appearance of words in the user interface in a client. For example, immortal words might appear in bold dark font, while not non immortal tokens are shown in grey.</p>
 <p class="new">EMMA provides an additional mechanism for indicating how many of the tokens are immortal. The attribute emma:stream-immortal-vertex indicates which vertex (as in the emma:token-span) is the point up to which all tokens are immortal. For example, if <code>emma:tokens=&quot;Hi Joe the tweeting&quot;</code> and <code>emma:token-span=&quot;0-4&quot;</code> then if <code>emma:stream-immortal-vertex=&quot;2&quot;</code> then the words &quot;Hi&quot; and &quot;Joe&quot; are final and the word &quot;the&quot; and &quot;tweeting&quot; are subject to further potential revision in the result.</p>
 <p class="new">The example below shows how EMMA attributes can be used for streaming incremental results in the case of dictation of a spoken message. Before the EMMA markup, square brackets [] are used to indicate which words are contained in each following partial result.</p>
+<p class="new">&nbsp;</p>
+<p class="new">** EMBED SVG incremental visual **</p>
+<p class="new">&nbsp;</p>
 <p>First result is 0</p>
 <p>1. [Hi Joe] ...</p>
 
@@ -6296,12 +6299,11 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 <h4>&nbsp;</h4>
 
 <h4 id="s4.2.24.3">4.2.24.2 Example use case of incremental recognition of handwritten characters</h4>
-This is an example of a handwriting recognizer returning incremental results. Tokens returned by the recognizer correspond to individual characters.
-<br/><br/>
-The <code>emma:stream-id</code> value <code>"s1"</code> identifies the interpretations as being part of the same set of incremental results.
-<code>emma:stream-seq-num</code> indicates the serial number of the incremental result, with a value of <code>"0"</code> corresponding to the first result, 
-<code>"1"</code> corresponding to the second result, and so on.
-<br/><br/>
+<p>In the examplein this section we show the use of incremental results in EMMA for representing the results of handwriting recognition. Tokens returned by the recognizer correspond to individual characters. The <code>emma:stream-id</code> value <code>"s1"</code> identifies the interpretations as being part of the same set of incremental results.
+  <code>emma:stream-seq-num</code> indicates the number of the incremental result in sequence, with a value of <code>"0"</code> corresponding to the first result, 
+  <code>"1"</code> corresponding to the second result, and so on.
+  <br/><br/>
+</p>
 <pre>
 ** How do we indicate truncation of token span? This would be useful in cases where we need to discard tokens from the end of the token stream.
 We could use the value of <code>emma:stream-immortal-vertex</code> in the last result (<code>emma:stream-status="end"</code>) for this purpose.
@@ -6640,15 +6642,8 @@ Consequently, this also means that:
  &lt;/emma:interpretation>
 &lt;/emma:emma>
 </pre>
-
-
-
-
-
-<h4>&nbsp;</h4>
+<h4 id="s4.2.24.3">&nbsp;</h4>
 <p>&nbsp;</p>
-<h4 id="s4.2.24.3">4.2.24.3 Example use case of incremental gesture recognition</h4>
-<p></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&gt; discuss fact that 5. in this case contains the whole string, another implementation could just give you a final partial</p>
@@ -6660,12 +6655,7 @@ Consequently, this also means that:
 <p>How to capture relation between sequence</p>
 <p>&nbsp;</p>
 <p>&gt; example:</p>
-<p>&nbsp;</p>
 <p>&gt; picture with vertices</p>
-<p>&nbsp;</p>
-<p>emma:token-type</p>
-<p>emma:token-score</p>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&gt; immortals and scores could be used in the UI, e.g. to decide whether to show the word or just</p>
 <p>a block showing that something was recognized.</p>
@@ -6755,11 +6745,7 @@ Beyond the mechanisms in EMMA for representation incremental results with tokens
 
 
 
-<h2 class="notoc">&nbsp;</h2>
-<h2 class="notoc">&nbsp;</h2>
-<h2 class="notoc">** Add dictation example **</h2>
-
-
+<h2 class="notoc">END NOTES</h2>
 <h4 id="s4.2.24.1">&nbsp;</h4>
 
 <h4 id="s4.2.24.2">&nbsp;</h4>
