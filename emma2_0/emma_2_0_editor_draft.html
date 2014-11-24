@@ -6230,7 +6230,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 <p class="new">The example below shows how EMMA attributes can be used for streaming incremental results in the case of dictation of a spoken message. Before the EMMA markup, square brackets [] are used to indicate which words are contained in each following partial result.</p>
 <p>1. [Hi Joe] ...</p>
 
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int1&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.75&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int11&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.75&quot;
        emma:tokens=&quot;Hi Joe&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.90 0.70&quot;<br />       emma:stream-id=&quot;s1&quot;<br />       emma:stream-seq-num=&quot;0&quot;<br />       emma:stream-status=&quot;begin&quot;
@@ -6240,7 +6240,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 <p class="new">The <code>emma:stream-id</code> value '<code>s1</code>' is appears on all of the results in the stream. emma:token-type=&quot;word&quot; indicates that we can expect the space separated values in <code>emma:tokens</code> to be words. <span class="example"><code>emma:stream-status=&quot;begin&quot;</code></span> indicates that this is the beginning of the stream. The annotation <span class="example"><code>emma:stream-token-span=&quot;0-2&quot;</code></span> indicates that this is an partial result for  the first two words in the stream of of tokens. </p>
 <p>2. Hi [Joe the tweeting]...</p>
 
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int1&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.8&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int12&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.8&quot;
        emma:tokens=&quot;Joe the tweeting&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.9 0.77 0.91&quot;<br />       emma:stream-id=&quot;s1&quot;<br />       emma:stream-seq-num=&quot;1&quot;<br />       emma:stream-status=&quot;in-progress&quot;
@@ -6249,7 +6249,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 
 <p>3. Hi Joe the [meeting has remove two]...</p>
 
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int1&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.77&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int13&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.77&quot;
        emma:tokens=&quot;meeting has remove two&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.95 0.91 0.60 0.78&quot;<br />       emma:stream-id=&quot;s1&quot;<br />       emma:stream-seq-num=&quot;2&quot;<br />       emma:stream-status=&quot;in-progress&quot;
@@ -6258,7 +6258,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 
 <p>4. Hi Joe the meeting has [now moved to]...</p>
 
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int1&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.77&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int14&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.77&quot;
        emma:tokens=&quot;now moved to&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.95 0.91 0.5&quot;<br />       emma:stream-id=&quot;s1&quot;<br />       emma:stream-seq-num=&quot;3&quot;<br />       emma:stream-status=&quot;in-progress&quot;
@@ -6267,7 +6267,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 
 <p>5. [Hi Joe the meeting has now moved downstairs]</p>
 
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int1&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.94&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int15&quot;  <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.94&quot;
        emma:tokens=&quot;downstairs&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.9&quot;<br />       emma:stream-id=&quot;s1&quot;<br />       emma:stream-seq-num=&quot;4&quot;<br />       emma:stream-status=&quot;in-progress&quot;
@@ -6283,7 +6283,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 3. flights from austin to denver tomorrow.</pre>
 <p></p>
 <p>1. [flights from boston] ...</p>
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int10&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.75&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int21&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.75&quot;
        emma:tokens=&quot;flights from boston&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.9 0.8 0.5&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;0&quot;<br />       emma:stream-status=&quot;begin&quot;<br />       emma:stream-token-span=&quot;0-3&quot;
@@ -6293,7 +6293,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 </pre>
 <p></p>
 <p>2. [flights from austin to dallas] ...</p>
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int11&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.80&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int22&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.80&quot;
        emma:tokens=&quot;flights from austin to dallas&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.9 0.8 0.9 0.8 0.5&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;1&quot;<br />       emma:stream-status=&quot;in-progress&quot;
@@ -6304,7 +6304,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 </pre>
 <p></p>
 <p>3. [flights from austin to dallas tomorrow] </p>
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int12&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.85&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />  &lt;emma:interpretation id=&quot;int23&quot; <br />       emma:medium=&quot;acoustic&quot;<br />       emma:mode=&quot;voice&quot;<br />       emma:confidence=&quot;0.85&quot;
        emma:tokens=&quot;flights from austin to denver tomorrow&quot;
        emma:token-type=&quot;word&quot;
        emma:token-score=&quot;0.9 0.8 0.9 0.8 0.9 0.9&quot;<br />       emma:stream-id=&quot;s2&quot;<br />       emma:stream-seq-num=&quot;2&quot;<br />       emma:stream-status=&quot;end&quot;
@@ -6330,7 +6330,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int1" 
+ &lt;emma:interpretation id="int31" 
       emma:confidence="0.75"
       emma:token-type="character"
       emma:tokens="'1'"
@@ -6356,7 +6356,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int2" 
+ &lt;emma:interpretation id="int32" 
       emma:confidence="0.8"
       emma:token-type="character"
       emma:tokens="'1'"
@@ -6382,7 +6382,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int3" 
+ &lt;emma:interpretation id="int33" 
       emma:confidence="0.8"
       emma:token-type="character"
       emma:tokens="'H'"
@@ -6409,7 +6409,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int4" 
+ &lt;emma:interpretation id="int34" 
       emma:confidence="0.6"
       emma:token-type="character"
       emma:tokens="'i'"
@@ -6434,7 +6434,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int5" 
+ &lt;emma:interpretation id="int35" 
       emma:confidence="0.6"
       emma:token-type="character"
       emma:tokens="' ' 'J'"
@@ -6460,7 +6460,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int6" 
+ &lt;emma:interpretation id="int36" 
       emma:confidence="0.8"
       emma:token-type="character"
       emma:tokens="'o' 'e'"
@@ -6485,7 +6485,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int7" 
+ &lt;emma:interpretation id="int37" 
       emma:confidence="0.5"
       emma:token-type="character"
       emma:tokens="'l'"
@@ -6510,7 +6510,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int8" 
+ &lt;emma:interpretation id="int38" 
       emma:confidence="0.7"
       emma:token-type="character"
       emma:tokens="','"
@@ -6535,7 +6535,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int9" 
+ &lt;emma:interpretation id="int39" 
       emma:confidence="0.7"
       emma:token-type="character"
       emma:tokens="' ' 't' 'h' 'e'"
@@ -6560,7 +6560,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int10" 
+ &lt;emma:interpretation id="int40" 
       emma:confidence="0.7"
       emma:token-type="character"
       emma:tokens="'m'"
@@ -6586,7 +6586,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int11" 
+ &lt;emma:interpretation id="int41" 
       emma:confidence="0.8"
       emma:token-type="character"
       emma:tokens="' ' 'm' 'e' 'e' 't' 'i' 'n' 'g'"
@@ -6611,7 +6611,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int12" 
+ &lt;emma:interpretation id="int42" 
       emma:confidence="0.8"
       emma:token-type="character"
       emma:tokens="' ' 'h' 'a' 's'"
@@ -6637,7 +6637,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation="http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
    xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int13" 
+ &lt;emma:interpretation id="int43" 
       emma:confidence="0.8"
       emma:token-type="character"
       emma:tokens="' ' 'm' 'o' 'v' 'e' 'd'"
@@ -6661,7 +6661,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
    xmlns=&quot;http://www.example.com/example&quot;&gt;
- &lt;emma:interpretation id=&quot;int13&quot; 
+ &lt;emma:interpretation id=&quot;int44&quot; 
       emma:confidence=&quot;0.8&quot;
       emma:token-type=&quot;character&quot;
       emma:tokens=&quot;'H' 'i' ' ' 'J' 'o' 'e' ' ' 't' 'h' 'e' ' ' 'm' 'e' 'e' 't' 'i' 'n' 'g' ' ' 
