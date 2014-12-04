@@ -6546,7 +6546,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 &lt;/emma:emma>
 </pre>
 
-<p>9. Hi Joe, the[m]</p>
+<p>9. Hi Joe, the[ meeting has moved]</p>
 <pre class="example">
 &lt;emma:emma version="2.0"
    xmlns:emma="http://www.w3.org/2003/04/emma"
@@ -6557,13 +6557,13 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
  &lt;emma:interpretation id="int40" 
       emma:confidence="0.7"
       emma:token-type="character"
-      emma:tokens="'m'"
-      emma:token-score="0.7"
+      emma:tokens="' ' 'm' 'e' 'e' 't' 'i' 'n' 'g' ' ' 'h' 'a' 's' ' ' 'm' 'o' 'v' 'e' 'd'"
+      emma:token-score="0.6 0.7 0.5 0.5 0.6 0.6 0.7 0.75 0.7 0.75 0.8 0.8 0.8 0.6 0.7 0.7 0.65 0.65"
       emma:stream-id="s3"
       emma:stream-seq-num="9"
       emma:stream-status="in-progress"
-      emma:stream-token-span="11-12"
-      emma:stream-token-immortals="false"
+      emma:stream-token-span="11-29"
+      emma:stream-token-immortals="false false false false false false false false false false false false false false false false false false"
       emma:stream-immortal-vertex="8"
       emma:stream-full-result="false">
       &lt;emma:literal>m&lt;/emma:literal>
@@ -6572,82 +6572,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 </pre>
 
 
-<p>10. Hi Joe, the[ meeting]</p>
-<pre class="example">
-&lt;emma:emma version="2.0"
-   xmlns:emma="http://www.w3.org/2003/04/emma"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.w3.org/2003/04/emma
-    http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
-   xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int41" 
-      emma:confidence="0.8"
-      emma:token-type="character"
-      emma:tokens="' ' 'm' 'e' 'e' 't' 'i' 'n' 'g'"
-      emma:token-score="0.6 0.7 0.5 0.5 0.6 0.6 0.7 0.75"
-      emma:stream-id="s3"
-      emma:stream-seq-num="10"
-      emma:stream-status="in-progress"
-      emma:stream-token-span="11-19"
-      emma:stream-token-immortals="false false false false false false false false"
-      emma:stream-immortal-vertex="12"
-      emma:stream-full-result="false">
-    &lt;emma:literal> meeting&lt;/emma:literal>
- &lt;/emma:interpretation>
-&lt;/emma:emma>
-</pre>
-
-<p>11. Hi Joe, the meeting[ has]</p>
-<pre class="example">
-&lt;emma:emma version="2.0"
-   xmlns:emma="http://www.w3.org/2003/04/emma"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.w3.org/2003/04/emma
-    http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
-   xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int42" 
-      emma:confidence="0.8"
-      emma:token-type="character"
-      emma:tokens="' ' 'h' 'a' 's'"
-      emma:token-score="0.7 0.75 0.8 0.8"
-      emma:stream-id="s3"
-      emma:stream-seq-num="11"
-      emma:stream-status="in-progress"
-      emma:stream-token-span="19-23"
-      emma:stream-token-immortals="false false false false"
-      emma:stream-immortal-vertex="20"
-      emma:stream-full-result="false">
-      &lt;emma:literal> has&lt;/emma:literal>
- &lt;/emma:interpretation>
-&lt;/emma:emma>
-</pre>
-
-
-<p>12. Hi Joe, the meeting has[ moved]</p>
-<pre class="example">
-&lt;emma:emma version="2.0"
-   xmlns:emma="http://www.w3.org/2003/04/emma"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.w3.org/2003/04/emma
-    http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd"
-   xmlns="http://www.example.com/example">
- &lt;emma:interpretation id="int43" 
-      emma:confidence="0.8"
-      emma:token-type="character"
-      emma:tokens="' ' 'm' 'o' 'v' 'e' 'd'"
-      emma:token-score="0.6 0.7 0.7 0.65 0.65"
-      emma:stream-id="s1"
-      emma:stream-seq-num="12"
-      emma:stream-status="in-progress"
-      emma:stream-token-span="23-29"
-      emma:stream-token-immortals="true true true true true true"
-      emma:stream-immortal-vertex="29"
-      emma:stream-full-result="false">
-      &lt;emma:literal> moved&lt;/emma:literal>
- &lt;/emma:interpretation>
-&lt;/emma:emma>
-</pre>
-<p>13. [Hi Joe, the meeting has moved]</p>
+<p>10. [Hi Joe, the meeting has moved]</p>
 <pre class="example">
 &lt;emma:emma version=&quot;2.0&quot;
    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
@@ -6655,7 +6580,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
    xmlns=&quot;http://www.example.com/example&quot;&gt;
- &lt;emma:interpretation id=&quot;int44&quot; 
+ &lt;emma:interpretation id=&quot;int41&quot; 
       emma:confidence=&quot;0.8&quot;
       emma:token-type=&quot;character&quot;
       emma:tokens=&quot;'H' 'i' ' ' 'J' 'o' 'e' ' ' 't' 'h' 'e' ' ' 'm' 'e' 'e' 't' 'i' 'n' 'g' ' ' 
@@ -6673,6 +6598,7 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
  &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
 </pre>
+
 <p class="new">In this case the final message in the stream contains the full result as indicated by <code>emma:stream-full-result=&quot;true&quot;</code>.</p>
 <p> &lt; Beyond the mechanisms in EMMA for representation incremental results with tokens, for use cases where the elements of a partial result have attributes themselves or other structured objects (such as gesture interpretations, partial results can be captured using emma:sequence or <code>emma:group</code>.&gt;</p>
 <p>&nbsp;</p>
