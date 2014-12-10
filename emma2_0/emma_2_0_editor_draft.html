@@ -99,7 +99,7 @@ table.defn td { background-color: rgb(230,230,255);
 <div class="banner"><a href="http://www.w3.org/"><img alt="W3C" src="w3c_home" width="72" height="48"></a></div>
 <h1 class="notoc" id="s0">EMMA: Extensible MultiModal Annotation
 markup language Version 2.0</h1>
-<h2><a id="w3c-doctype" name="w3c-doctype"><acronym title="World Wide Web Consortium">W3C</acronym> Editors Draft @@ Nov 2014</a></h2>
+<h2><a id="w3c-doctype" name="w3c-doctype"><acronym title="World Wide Web Consortium">W3C</acronym> Editors Draft @@ Dec 2014</a></h2>
 <dl>
 <dt>This version:</dt>
 <dd>&nbsp;</dd>
@@ -150,7 +150,7 @@ document. A list of current W3C publications and the latest
 revision of this technical report can be found in the <a href="http://www.w3.org/TR/">W3C technical reports index</a> at
 http://www.w3.org/TR/.</em></p>
 
-<p>This is the @@ February 2014 First Public Working Draft of "EMMA:
+<p>This is the @@ December 2014 First Public Working Draft of "EMMA:
 Extensible MultiModal Annotation markup language Version 2.0".
 
 It has been produced by the
@@ -163,7 +163,7 @@ which is part of the
 <p>This specification describes markup for representing
   interpretations of user input (speech, keystrokes, pen input etc.)<span class="new"> and productions of system output</span> together with annotations for confidence scores, timestamps, <span class="old">input</span> medium etc., and forms part of the proposals for the <a href="http://www.w3.org/TR/mmi-framework/">W3C Multimodal Interaction
 Framework</a>.</p>
-<p>The <a href="http://www.w3.org/TR/EMMA">EMMA: Extensible Multimodal Annotation 1.0</a> specification was published as a W3C Recommendation in February 2009. Since then there have been numerous implementations of the standard and extensive feedback has come in regarding desired new features and clarifications requested for existing features. The W3C Multimodal Interaction Working Group  examined a range of different use cases for extensions of the EMMA specification and published a W3C Note on Use Cases for Possible Future EMMA Features [<a href="https://www.w3.org/2002/mmi/Group/emma11/emma_use_cases">EMMA Use Cases</a>]. In this working draft of EMMA 2.0, we have developed a set of new features based on feedback from implementers and have also added clarification text in a number of places throughout the specification. The new features include: support for adding human annotations (<code>emma:annotation</code>, <code>emma:annotated-tokens</code>), support for inline specification of process parameters (<code>emma:parameters</code>, <code>emma:parameter</code>, <code>emma:parameter-ref</code>), support for specification of models used in processing beyond grammars (<code>emma:process-model</code>, <code>emma:process-model-ref</code>), extensions to <code>emma:grammar</code> to enable inline specification of grammars, a new mechanism for indicating which grammars are active (<code>emma:grammar-active</code>, <code>emma:active</code>), support for non-XML semantic payloads (<code>emma:result-format</code>), support for multiple <code>emma:info</code> elements and reference to the <code>emma:info</code> relevant to an interpretation (<code>emma:info-ref</code>), and a new attribute to complement the <code>emma:medium</code> and <code>emma:mode</code> attributes that enables specification of the modality used to express an input (<code>emma:expressed-through</code>). <span class="new">In addition we have extended the specification to handle the production of system output, by adding the new element, <code>emma:output</code>.</span></p>
+<p>The <a href="http://www.w3.org/TR/EMMA">EMMA: Extensible Multimodal Annotation 1.0</a> specification was published as a W3C Recommendation in February 2009. Since then there have been numerous implementations of the standard and extensive feedback has come in regarding desired new features and clarifications requested for existing features. The W3C Multimodal Interaction Working Group  examined a range of different use cases for extensions of the EMMA specification and published a W3C Note on Use Cases for Possible Future EMMA Features [<a href="https://www.w3.org/2002/mmi/Group/emma11/emma_use_cases">EMMA Use Cases</a>]. In this working draft of EMMA 2.0, we have developed a set of new features based on feedback from implementers and have also added clarification text in a number of places throughout the specification. The new features include: support for adding human annotations (<code>emma:annotation</code>, <code>emma:annotated-tokens</code>), support for inline specification of process parameters (<code>emma:parameters</code>, <code>emma:parameter</code>, <code>emma:parameter-ref</code>), support for specification of models used in processing beyond grammars (<code>emma:process-model</code>, <code>emma:process-model-ref</code>), extensions to <code>emma:grammar</code> to enable inline specification of grammars, a new mechanism for indicating which grammars are active (<code>emma:grammar-active</code>, <code>emma:active</code>), support for non-XML semantic payloads (<code>emma:result-format</code>), support for multiple <code>emma:info</code> elements and reference to the <code>emma:info</code> relevant to an interpretation (<code>emma:info-ref</code>), and a new attribute to complement the <code>emma:medium</code> and <code>emma:mode</code> attributes that enables specification of the modality used to express an input (<code>emma:expressed-through</code>). <span class="new">In addition we have extended the specification to handle the production of system output, by adding the new element, <code>emma:output</code> and added a series of annotations enabling the use of EMMA for incremental results (Section 4.2.24).</span></p>
 <h3>Changes from the last working draft</h3>
 <p class="new">This working draft also adds a new <span class="new"><code>emma:location</code> element for specification of the location of the device or sensor which captured the input. The  <code>ref</code> attribute was added to a number of elements allowing for shorter EMMA documents which use URIs to point to content stored outside of the document: <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:group</code>, <code>emma:info</code>, <code>emma:parameters</code>, <code>emma:lattice</code>.</span> A new attribute <code>emma:partial-content</code> is introduced which indicates whether the content in an element with <code>ref</code>, is the full content or whether it is partial and more can be retrieved by following the URI in <code>ref</code>. <span class="new">The <code>emma:emma</code> element is extended with <code>doc-ref</code> and <code>prev-doc</code> attributes that indicate where the document can be retrieved from and where the previous document in a sequence of inputs can be retrieved from.</span> The application of <code>emma:lattice</code> is also extended so that an EMMA document can contain both a N-best and a lattice side-by-side.</p>
 
@@ -1167,7 +1167,7 @@ earlier stage of the derivation listed in
 <h3>3.3 Output element: <code>emma:output</code></h3>
 <h3></h3>
 
-<p> &lt;&lt;IN PROGRESS&gt;&gt;</p>
+<p> &lt;&lt;IN PROGRESS&gt;&gt; Needs a lot of work</p>
 
 <span class="new">
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -1563,7 +1563,10 @@ there are two more interpretations within the<code> emma:one-of</code> with id "
   &lt;/emma:one-of&gt;
 &lt;/emma:emma&gt;</span>
 </pre>
-<h3 id="s3.3.2">3.4.2 <code>emma:group</code> element</h3>
+<h3 id="s3.3.2">** ADD EXAMPLE SHOWING one-of with output, e.g. multiple generated strings **</h3>
+<h3>&nbsp;</h3>
+<h3>&nbsp;</h3>
+<h3>3.4.2 <code>emma:group</code> element</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
 <tr>
@@ -1573,7 +1576,7 @@ there are two more interpretations within the<code> emma:one-of</code> with id "
 <tr>
 <th>Definition</th>
 <td>A container element indicating that a number of interpretations
-of distinct user inputs are grouped according to some
+of distinct user inputs <span class="new">or system outputs</span> are grouped according to some
 criteria.</td>
 </tr>
 <tr>
@@ -1621,17 +1624,18 @@ element<span>s</span> and multiple <code>emma:info</code> <span>element</span><s
 </tr>
 </tbody>
 </table>
+<p>** Need to add output example **</p>
 <p>The <code>emma:group</code> element is used to indicate that the
-contained interpretations are from distinct user inputs that are
-related in some manner. <code>emma:group</code> MUST NOT be used
-for containing the multiple stages of processing of a single user
-input. Those MUST be contained in the <code>emma:derivation</code>
-element instead <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section 4.1.2</a>)</span>.
-For groups of inputs in temporal order the more specialized
-container <code>emma:sequence</code> MUST be used <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.3">Section 3.3.3</a>)</span>. The following example shows
-three interpretations derived from the speech input "Move this
-ambulance here" and the tactile input related to two consecutive
-points on a map.</p>
+  contained interpretations are from distinct user inputs that are
+  related in some manner. <code>emma:group</code> MUST NOT be used
+  for containing the multiple stages of processing of a single user
+  input. Those MUST be contained in the <code>emma:derivation</code>
+  element instead <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section 4.1.2</a>)</span>.
+  For groups of inputs in temporal order the more specialized
+  container <code>emma:sequence</code> MUST be used <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.3">Section 3.3.3</a>)</span>. The following example shows
+  three interpretations derived from the speech input "Move this
+  ambulance here" and the tactile input related to two consecutive
+  points on a map.</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1814,10 +1818,11 @@ of <code>emma:emma</code>, <code>emma:one-of</code>,
 </tr>
 </tbody>
 </table>
+<p>** NEED OUTPUT EXAMPLE **</p>
 <p>The <code>emma:sequence</code> element is used to indicate that
-the contained interpretations are sequential in time, as in the
-following example, which indicates that two points made with a pen
-are in temporal order.</p>
+  the contained interpretations are sequential in time, as in the
+  following example, which indicates that two points made with a pen
+  are in temporal order.</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -3068,6 +3073,7 @@ derived from.</p>
 use of <code>emma:derived-from</code> to represent sequential
 derivations and addresses the issue of the scope of EMMA
 annotations across derivations of user input.</p>
+<p>** ADD DERIVATION EXAMPLE WITH OUTPUT **</p>
 <h3 id="s4.1.3">4.1.3 Reference to grammar used:
 <code>emma:grammar</code> element</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -3641,6 +3647,7 @@ between the source port and the sink port.</p>
 <p>The <code>emma:process-model</code> element MUST have an attribute <strong><code>type</code></strong> containing a string indicating the type of model referenced. The value of type is drawn from an open set including <code>{svm,crf,neural_network,hmm...}</code>.</p>
 <p>Examples of potential uses of <code>emma:process-model</code> include referencing the model used for handwriting recognition or a text classification model used for natural language understanding. The <code>emma:process-model</code> annotation SHOULD be used for input processing models that are not grammars. Grammars SHOULD be referenced or specified inline using <code>emma:grammar</code>. Some input processing modules may utilize both a recognition model and a grammar. For example, for handwriting recognition of electronic ink a neural network might be used for character recognition while a language model or grammar is used to constrain the word or character sequences recognized. In this case, the neural network SHOULD be referenced using <code>emma:process-model</code> and the grammar or language model using <code>emma:grammar</code>.</p>
 <p>In the following example, there are two interpretations. The EMMA document in this example is produced by a computer vision system doing object recognition. The first interpretation is generated by a process model for vehicle recognition and second competing interpretation is generated by a process model for person recognition.</p>
+<p>** MENTION OUTPUT PROCESS MODEL **</p>
 <pre class="example"><span>&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -4018,7 +4025,7 @@ adding reference transcriptions to an EMMA document (<a href="https://www.w3.org
  &lt;/emma:emma&gt;
 </pre>
 </span>
-<h2>&nbsp;</h2>
+<h2>** emma:location on output **</h2>
 <h2>4.2 EMMA annotation attributes</h2>
 
 <h3 id="s4.2.1">4.2.1 Tokens of input: <code>emma:tokens</code>, <code>emma:token-type</code>, and <code>emma:token-score</code>
@@ -4115,7 +4122,6 @@ level.</p>
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
 </pre>
-<h3 id="s4.2.12"></h3>
 <h3 id="s4.2.2">&nbsp;</h3>
 <h3>4.2.2 Reference to processing:
   <code>emma:process</code> attribute</h3>
@@ -4190,6 +4196,7 @@ normative about the format of the process description document.</p>
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;</pre>
 <p>In this case the <code>emma:process</code> attribute indicates that the process is natural language understanding (<code>nlu</code>) that the classifier used is a support vector machine (<code>svm</code>), that the specific model is the '<code>travel</code>' model and the required output was '<code>xml</code>'. Note that none of the specific values used within the URI here are standardized. This simply illustrates how a URI can be used to provide a detailed process description.</p>
+<p>** Example of output process e.g generation **</p>
 <h3 id="s4.2.3">4.2.3 Lack of input: <code>emma:no-input</code>
 attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -4361,6 +4368,7 @@ none is inherited from a higher element in the document, the
 default value for <code>emma:lang</code> is <code>""</code> meaning
 that there is no information about whether the source input is in a
 language and if so which language.</p>
+<p><strong>** EXAMPLE OF emma:lang on output, and its meaning of e.g. target language for a semantic repr to be realized into **</strong></p>
 <p>The <code>xml:lang</code> and <code>emma:lang</code> attributes
 serve uniquely different and equally important purposes. The role
 of the <code>xml:lang</code> attribute in XML 1.0 is to indicate
@@ -4525,8 +4533,9 @@ follows:</p>
 &lt;/emma:emma&gt;
 </span>
 </pre>
-<h3 id="s4.2.7">4.2.7 Media type: <code>emma:media-type</code>
-attribute</h3>
+<h3 id="s4.2.7">** Can this be used for signal generated for TTS **</h3>
+<h3>4.2.7 Media type: <code>emma:media-type</code>
+  attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
 <tr>
@@ -4570,10 +4579,11 @@ milliseconds.</p>
     &lt;destination&gt;Denver&lt;/destination&gt;
     &lt;date&gt;03152003&lt;/date&gt;
   &lt;/emma:interpretation&gt;
-&lt;/emma:emma&gt;
-</pre>
-<h3 id="s4.2.8">4.2.8 Confidence scores:
-<code>emma:confidence</code> attribute</h3>
+&lt;/emma:emma&gt;</pre>
+<h3>** For output is this the planned MIME, e.g. what TTS should generate **</h3>
+<h3>&nbsp;</h3>
+<h3>4.2.8 Confidence scores:
+  <code>emma:confidence</code> attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
 <tr>
@@ -4654,6 +4664,7 @@ namespace, EMMA does not provide a standard way to annotate
 processors' confidences in attributes. Consequently, instance data
 that is expected to be assigned confidences SHOULD be represented
 using elements, as in the above example.</p>
+<p>** Give example of confidence of e.g. NLG results **</p>
 <h3 id="s4.2.9">4.2.9 Input source: <code>emma:source</code>
 attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -5246,6 +5257,7 @@ whether they use their voice (<code>acoustic</code>), touch
 (<code>tactile</code>), or visual appearance/motion
 (<code>visual</code>) for output .</span> Tactile includes most <i>hand-on</i> input device types such as pen, mouse, keyboard, and
 touch screen <span class="new">or vibration for output.</span> Visual is used for camera input. <span class="new">Visual is also used for output to a display..</span></p>
+<p>** Add examples for the output medium/mode **</p>
 <pre class="example">emma:medium = <span>space delimited sequence of values from the set: </span>
             [acoustic|tactile|visual]</pre>
 <p>The mode property provides the ability to distinguish between
@@ -5648,6 +5660,7 @@ encoded on a lattice output from speech recognition or other
 recognition or understanding processes. <code>emma:cost</code> MAY
 also be used to indicate the total cost associated with particular
 recognition results or semantic interpretations.</p>
+<p>** Mention application to output **</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -6051,6 +6064,7 @@ for applications to define.</p>
   </tbody>
 </table>
 <p>Typically, the application semantics contained within EMMA is in XML format, as can be seen in examples throughout the specification. The application semantics can be also be a simple string, contained within <code>emma:literal</code>. EMMA also accommodates other semantic representation formats such as JSON  (Javascript Object Notation [<a href="https://www.w3.org/2002/mmi/Group/emma11/#json">JSON</a>] )using CDATA within <code>emma:literal</code>. The function of the <code>emma:result-format</code> attribute is to make explict the specific format of the semantic representation. The value is a MIME type. The value to generally be used for XML semantic representations is  <code>text/xml</code>. If <code>emma:result-format</code> is not specified, the assumed default is <code>text/xml</code>. If a more specific XML MIME type is being used then this should be indicated explicitly in <code>emma:result-format</code>, e.g. for RDF the <code>emma:result-format</code> would be <code>application/rdf+xml</code>. In the following example, the application semantic representation is JSON and the MIME type <code>application/json</code> appears in <code>emma:result-format</code> indicating to an EMMA processor what to expect within the contained <code>emma:literal</code>. </p>
+<p>** Example of result-format on output representation **</p>
 <pre class="example">&lt;emma:emma<br>  version="1.1"<br>  xmlns:emma="http://www.w3.org/2003/04/emma"<br>  xmlns="http://www.example.com/example"&gt; <br>  &lt;emma:interpretation id=“int1"<br>    emma:confidence="0.75”<br>    emma:medium="acoustic" <br>    emma:mode="voice" <br>    emma:verbal="true"<br>    emma:function="dialog" <br>    emma:result-format="application/json" <br>      &lt;emma:literal&gt; <br>        &lt;![CDATA[<br>              {<br>           drink: {<br>              liquid:"coke",<br>              drinksize:"medium"},<br>           pizza: {<br>              number: "3",<br>              pizzasize: "large",<br>              topping: [ "pepperoni", "mushrooms" ]<br>           }<br>          } <br>          ]]&gt;<br>      &lt;/emma:literal&gt; <br>  &lt;/emma:interpretation&gt; <br>&lt;/emma:emma&gt;</pre>
 
 <p>Note that while many of the examples of semantic representation  in the specification are simple lists of attributes and values, EMMA interpretations can contain arbitrarily complex semantic representations.  XML representation can be used for the payload, so representations can be nested, have attributes, and ID references can be used to capture aspects of the interpretation such as variable binding or co-reference. Also using <code>emma:result-format</code> and <code>emma:literal</code> as above, other kinds of logical representations and notations, not necessarily XML, can also be carried as EMMA payloads.</p>
@@ -6781,7 +6795,6 @@ set</span> {<code>true</code>, <code>false</code>}.  This signals to the EMMA co
 </pre>
 
 <p class="new">In this case the final message in the stream contains the full result as indicated by <code>emma:stream-full-result=&quot;true&quot;</code>.</p>
-<p> &lt; Beyond the mechanisms in EMMA for representation incremental results with tokens, for use cases where the elements of a partial result have attributes themselves or other structured objects (such as gesture interpretations, partial results can be captured using emma:sequence or <code>emma:group</code>.&gt;</p>
 <p>&nbsp;</p>
 <h2 class="notoc">4.3 Scope of EMMA annotations</h2>
 <p>The <code>emma:derived-from</code> element (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section 4.1.2</a>) can be used to capture both sequential
@@ -7785,6 +7798,7 @@ Since the publication of the  EMMA 1.0 Recommendation, the following changes hav
 <li>Added ability to specific a lattice and an N-best in a single EMMA document</li>
 <li>Added <code>emma:partial-content</code> attribute 4.2.23</li>
 <li>Added attributes and mechanisms for incremental results Section 4.2.24</li>
+<li>Revisions throughout to support output ....</li>
 </span>
 </ul>
 
