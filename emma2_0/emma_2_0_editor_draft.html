@@ -4699,11 +4699,14 @@ different input interpretations.</p>
 &lt;/emma:emma&gt;
 </pre>
 <h3 id="s4.2.10">4.2.10 Timestamps</h3>
-<p>The start and end times for input MAY be indicated using either
+<p>The start and end times for input <span class="new">or output</span> MAY be indicated using either
 absolute timestamps or relative timestamps. Both are in
 milliseconds for ease in processing timestamps. Note that the
 ECMAScript Date object's <code>getTime()</code> function is a
 convenient way to determine the absolute time.</p>
+<p class="new">With regard to output timestamps, the actual time of an output may differ from from the planned time. The attributes in this section refer to the actual time of the output as opposed to the planned time, and are the same as the timestamps for inputs. The start and end times for output MAY be indicated using either absolute 
+timestamps or relative timestamps.</p>
+<p> <span class="new">Actual output times only make sense for an output has already taken place; consequently EMMA implementations SHOULD NOT include actual timestamps for output times in the future. Actual output timestamps that are in the future MUST be ignored by consumers of an EMMA document with such timestamps (although they MAY be passed on to downstream EMMA consumers. Once the time denoted by the actual timestamp has passed, the relevant attributes (<code>&quot;emma:start&quot;, &quot;emma:end&quot;, &quot;emma:duration&quot;)</code> MUST (if present) either be deleted or the actual time of the output must replace their value. </span></p>
 <h4 id="s4.2.10.1">4.2.10.1 Absolute timestamps:
 <code>emma:start</code>, <code>emma:end</code> attributes</h4>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -4716,19 +4719,19 @@ convenient way to determine the absolute time.</p>
 <th>Definition</th>
 <td>Attributes <span>of type
 <code>xsd:nonNegativeInteger</code></span> indicating the absolute
-starting and ending times of an input in terms of the number of
+starting and ending times of an input <span class="new">or output</span> in terms of the number of
 milliseconds since 1 January 1970 00:00:00 GMT</td>
 </tr>
 <tr>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
 <code>emma:one-of</code>, <code>emma:sequence</code>,
-<code>emma:arc</code>, <span>and</span> application instance
+<code>emma:arc</code>, <span><code>emma:output</code> and</span> application instance
 data</td>
 </tr>
 </tbody>
 </table>
-<p>Here is an example of a timestamp for an absolute time.</p>
+<p>Here is an example of a timestamp for an absolute time<span class="new"> of an input</span>.</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -4743,10 +4746,24 @@ data</td>
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
 </pre>
+<p><span class="new">Here is an example of a timestamp for an absolute time of output</span>.</p>
+<pre class="example">&lt;emma:emma version=&quot;1.1&quot;
+    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
+     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
+    xmlns=&quot;http://www.example.com/example&quot;&gt;
+  &lt;emma:output id=&quot;out1&quot;
+       emma:start=&quot;1087995961542&quot;
+       emma:end=&quot;1087995963542&quot;
+       <span>emma:medium=&quot;acoustic&quot; emma:mode=&quot;voice&quot;</span>&gt;
+    &lt;destination&gt;Chicago&lt;/destination&gt;
+  &lt;/emma:output&gt;
+&lt;/emma:emma&gt;
+</pre>
 <p>The <code>emma:start</code> and <code>emma:end</code>
-annotations on an input MAY be identical, however the
-<code>emma:end</code> value MUST NOT be less than the
-<code>emma:start</code> value.</p>
+  annotations on an input <span class="new">or output </span>MAY be identical, however the <code>emma:end</code> value MUST NOT be less than the
+  <code>emma:start</code> value.</p>
 <h4 id="s4.2.10.2">4.2.10.2 Relative timestamps:
 <code>emma:time-ref-uri</code>,
 <code>emma:time-ref-anchor-point</code>,
@@ -4766,7 +4783,7 @@ used to anchor the relative timestamp.</td>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
 <code>emma:one-of</code>, <code>emma:sequence</code>,
-<code>emma:lattice</code>, <span>and</span> application instance
+<code>emma:lattice</code>, <code>emma:output</code> <span>and</span> application instance
 data</td>
 </tr>
 <tr>
@@ -4784,7 +4801,7 @@ designated with <code>emma:time-ref-uri</code>.</td>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
 <code>emma:one-of</code>, <code>emma:sequence</code>,
-<code>emma:lattice</code>, <span>and</span> application instance
+<code>emma:lattice</code>, <span><code>emma:output</code> and</span> application instance
 data</td>
 </tr>
 <tr>
@@ -4803,7 +4820,7 @@ start of input from the anchor point designated with
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
 <code>emma:one-of</code>, <code>emma:sequence</code>,
-<code>emma:arc</code>, <span>and</span> application instance
+<code>emma:arc</code>, <code>emma:output</code> <span>and</span> application instance
 data</td>
 </tr>
 </tbody>
@@ -4847,12 +4864,11 @@ might refer to the timestamp for just one word.</p>
 <p>The absolute and relative timestamps are not mutually exclusive;
 that is, it is possible to have both relative and absolute
 timestamp attributes on the same EMMA container element.</p>
-<p>Timestamps of inputs collected by different devices will be
+<p>Timestamps of inputs collected by different devices <span class="new">and outputs presented by different devices</span> will be
 subject to variation if the times maintained by the devices are not
 synchronized. This concern is outside of the scope of the EMMA
 specification.</p>
-<h4 id="s4.2.10.3">4.2.10.3 Duration of input:
-<code>emma:duration</code> attribute</h4>
+<h4 id="s4.2.10.3">4.2.10.3 Duration of input <span class="new">and output</span>: <code>emma:duration</code> attribute</h4>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
 <tr>
@@ -4869,12 +4885,12 @@ specifies the duration of the input in milliseconds.</td>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
 <code>emma:one-of</code>, <code>emma:sequence</code>,
-<code>emma:arc</code>, <span>and</span> application instance
+<code>emma:arc</code>, <span><code>emma:output </code>and</span> application instance
 data</td>
 </tr>
 </tbody>
 </table>
-<p>The duration of an input in milliseconds MAY be specified with
+<p>The duration of an input <span class="new">or output</span> in milliseconds MAY be specified with
 the <code>emma:duration</code> attribute. The
 <code>emma:duration</code> attribute MAY be used either in
 combination with timestamps or independently, for example in the
@@ -4894,11 +4910,11 @@ rise to the interpretation is indicated using
     &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
 </pre>
-<h4 id="s4.2.10.4">4.2.10.4 Composite Input and Relative
+<h4 id="s4.2.10.4">4.2.10.4 Composite <span class="new">Input and Output </span>and Relative
 Timestamps</h4>
 <p>This section is informative.</p>
 <p>The following table provides guidance on how to determine the
-values of relative timestamps on a composite input.</p>
+values of relative timestamps on a composite input<span class="new"> and output</span>.</p>
 <div>
 <table summary="3 columns" border="1" cellpadding="3" cellspacing="0">
 <caption>Informative Guidance on Relative Timestamps in Composite
@@ -4906,15 +4922,15 @@ Derivations</caption>
 <tbody>
 <tr>
 <td><code>emma:time-ref-uri</code></td>
-<td>If the reference interval URI is the same for both inputs then
+<td>If the reference interval URI is the same for both inputs <span class="new">or outputs</span> then
 it should be the same for the composite input. If it is not the
 same then relative timestamps will have to be resolved to absolute
 timestamps in order to determine the combined timestamp. .</td>
 </tr>
 <tr>
 <td><code>emma:time-ref-anchor-point</code></td>
-<td>If the anchor value is the same for both inputs then it should
-be the same for the composite input. If it is not the same then
+<td>If the anchor value is the same for both inputs <span class="new">or outputs</span> then it should
+be the same for the composite input <span class="new">or output</span>. If it is not the same then
 relative timestamps will have to be resolved to absolute timestamps
 in order to determine the combined timestamp.</td>
 </tr>
@@ -4922,7 +4938,7 @@ in order to determine the combined timestamp.</td>
 <td><code>emma:offset-to-start</code></td>
 <td>Given that the <code>emma:time-ref-uri</code> and
 <code>emma:time-ref-anchor-point</code> are the same for both
-combining inputs, then the <code>emma:offset-to-start</code> for
+combining inputs <span class="new">or outputs</span>, then the <code>emma:offset-to-start</code> for
 the combination should be the lesser of the two. If they are not
 the same then relative timestamps will have to be resolved to
 absolute timestamps in order to determine the combined
@@ -4932,11 +4948,10 @@ timestamp.</td>
 <td><code>emma:duration</code></td>
 <td>Given that the <code>emma:time-ref-uri</code> and
 <code>emma:time-ref-anchor-point</code> are the same for both
-combining inputs, then the <code>emma:duration</code> is calculated
+combining inputs <span class="new">or outputs</span>, then the <code>emma:duration</code> is calculated
 as follows. Add together the <code>emma:offset-to-start</code> and
-<code>emma:duration</code> for each of the inputs. Take whichever
-of these is greater and subtract from it the lesser of the
-<code>emma:offset-to-start</code> values in order to determine the
+<code>emma:duration</code> for each of the inputs <span class="new">or outputs</span>. Take whichever
+of these is greater and subtract from it the lesser of the <code>emma:offset-to-start</code> values in order to determine the
 combined duration. If <code>emma:time-ref-uri</code> and
 <code>emma:time-ref-anchor-point</code> are not the same then
 relative timestamps will have to be resolved to absolute timestamps
@@ -4945,10 +4960,176 @@ in order to determine the combined timestamp.</td>
 </tbody>
 </table>
 </div>
-<h3 id="s4.2.11">4.2.11 Medium, mode, and function of user inputs:
-<code>emma:medium</code>, <code>emma:mode</code>,
-<code>emma:function</code>, <code>emma:verbal</code>
-attributes</h3>
+<h3 class="new" id="s4.2.11">4.2.10.5 Planned Output Timestamps</h3>
+<p class="new">There are two types of start and end times for output. One is an intended time for the system to present output to the user and the other is the actual time that the output was presented. It is necessary to differentiate these because some external event may interfere with a planned output, cause it to be postponed, or cause it to be presented earlier than planned. For example, an incoming phone call may cause the system to pause an ongoing dialog with the user, thus delaying the time of the planned system output for that dialog. Both types of output time (planned and actual) MAY be indicated using either absolute 
+  timestamps or relative timestamps. Actual output times are designated with the same attributes that are used for timestamping inputs.  When planned output timestamps are omitted, the EMMA consumer MUST produce its output as soon as possible. </p>
+<p class="new">Both planned and actual times are in milliseconds for ease in 
+  processing timestamps. Note that the ECMAScript Date object's <code>getTime()</code> function is a convenient way to determine the absolute 
+  time.</p>
+<h5 class="new" id="s4.2.10.6">4.2.10.5.1 Absolute timestamps for planned output: <code>emma:start-plan</code>, <code>emma:end-plan</code> attributes</h5>
+<table width="98%" class="defn" cellspacing="0" cellpadding="5" summary="property definition">
+  <tbody>
+    <tr>
+      <th>Annotation</th>
+      <th>emma:start-plan, emma:end-plan</th>
+    </tr>
+    <tr>
+      <th>Definition</th>
+      <td>Attributes <span>of type <code>xsd:nonNegativeInteger</code></span> indicating the planned absolute starting and ending times of an output in terms of 
+        the number of milliseconds since 1 January 1970 00:00:00 GMT</td>
+    </tr>
+    <tr>
+      <th>Applies to</th>
+      <td><code>emma:output</code>, <code>emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:arc</code>, <span>and</span> application instance
+        data</td>
+    </tr>
+  </tbody>
+</table>
+<p class="new">Here is an example of a timestamp for an absolute planned time.</p>
+<pre class="example">&lt;emma:emma version=&quot;1.1&quot;
+    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
+     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
+    xmlns=&quot;http://www.example.com/example&quot;&gt;
+  &lt;emma:output id=&quot;out1&quot;
+       emma:start-plan=&quot;1087995961542&quot;
+       emma:end-plan=&quot;1087995963542&quot;
+       <span>emma:medium=&quot;acoustic&quot; emma:mode=&quot;voice&quot;</span>&gt;
+    &lt;destination&gt;Chicago&lt;/destination&gt;
+  &lt;/emma:output&gt;
+&lt;/emma:emma&gt;
+</pre>
+<p><span class="new">The <code>emma:start-plan</code> and <code>emma:end</code>-plan annotations on an output 
+  MAY be identical, however the <code>emma:end-plan</code> value MUST NOT be less than 
+  the <code>emma:start-plan</code> value. Absolute planned times in the past are allowed. In an output document  prepared by the system for an interactive dialog and sent to the user, if the emma:start-plan or emma:end-plan attribute is in the past, it MUST be ignored. In logging and archiving, emma:start-plan or emma:end-plan attributes in the past simply serve as records of when the output was planned to occur.</span></p>
+<h4 id="s4.2.10.7">4.2.10.2 Relative timestamps: <code>emma:time-ref-uri</code>, <code>emma:time-ref-anchor-point</code>, <span class="new"><code>emma:offset-to-start-plan</code></span> attributes</h4>
+<table width="98%" class="defn" cellspacing="0" cellpadding="5" summary="property definition">
+  <tbody>
+    <tr>
+      <th>Annotation</th>
+      <th>emma:time-ref-uri</th>
+    </tr>
+    <tr>
+      <th>Definition</th>
+      <td>Attribute of type <code>xsd:anyURI</code> indicating the URI used to 
+        anchor the relative timestamp.</td>
+    </tr>
+    <tr>
+      <th>Applies to</th>
+      <td><code>emma:output</code>, <code>emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:lattice</code>, <span>and</span> application instance
+        data</td>
+    </tr>
+    <tr>
+      <th>Annotation</th>
+      <th>emma:time-ref-anchor-point</th>
+    </tr>
+    <tr>
+      <th>Definition</th>
+      <td>Attribute with a value of <code>start</code> or <code>end</code>, 
+        defaulting to <code>start</code>. It indicates whether to measure the time 
+        from the start or end of the interval designated with <code>emma:time-ref-uri</code>.</td>
+    </tr>
+    <tr>
+      <th>Applies to</th>
+      <td><code>emma:output</code>, <code>emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:lattice</code>, <span>and</span> application instance
+        data</td>
+    </tr>
+    <tr>
+      <th>Annotation</th>
+      <th>emma:offset-to-start-plan</th>
+    </tr>
+    <tr>
+      <th>Definition</th>
+      <td>Attribute <span>of type <code>xsd:integer</code></span>, defaulting to 
+        zero. It specifies the offset in milliseconds for the start of output from 
+        the anchor point designated with <span><code>emma:time-ref-uri</code></span> and <span><code>emma:time-ref-anchor-point</code></span></td>
+    </tr>
+    <tr>
+      <th>Applies to</th>
+      <td><code>emma:output</code>, <code>emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:arc</code>, <span>and</span> application instance
+        data</td>
+    </tr>
+  </tbody>
+</table>
+<p class="new">Relative timestamps define the start of an output relative to the start or end 
+  of a reference interval such as another output. The figure shows how planned output times can vary from the actual output times, relative to a reference interval.</p>
+<p class="new"><img src="timing.png" width="658" height="322" alt="plannedTimeStamps" /></p>
+<p class="new">The reference interval is designated with <code>emma:time-ref-uri</code> attribute. This MAY be combined with <code>emma:time-ref-anchor-point</code>attribute to specify whether the anchor point is the start or end of this 
+  interval. The start of an output relative to this anchor point is then specified
+  with <code>emma:offset-to-start-plan</code> attribute. The examples in the graphic all show the actual output occuring after the planned output. This is expected to be the most frequent case, but in general there may be application-specific situations where the actual output is earlier than the planned output. </p>
+<p class="new">Here is an example where the referenced output is in the same document:</p>
+<pre class="example">&lt;emma:emma version=&quot;1.1&quot;
+    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
+     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
+    xmlns=&quot;http://www.example.com/example&quot;&gt;
+  &lt;emma:sequence&gt;
+    &lt;emma:output id=&quot;out1&quot;
+     <span>emma:medium=&quot;acoustic&quot; emma:mode=&quot;voice&quot;</span>&gt;
+    &lt;origin&gt;Denver&lt;/origin&gt;
+    &lt;/emma:output&gt;
+    &lt;emma:output id=&quot;out2&quot;
+        <span>emma:medium=&quot;acoustic&quot; emma:mode=&quot;voice&quot;</span>
+        emma:time-ref-uri=&quot;#int1&quot;
+        emma:time-ref-anchor-point=&quot;start&quot;
+        emma:offset-to-start-plan=&quot;5000&quot;&gt;
+    &lt;destination&gt;Chicago&lt;/destination&gt;
+    &lt;/emma:output&gt;
+  &lt;/emma:sequence&gt;
+&lt;/emma:emma&gt;
+</pre>
+<p>Note that the reference point refers to an output, but not necessarily to a 
+  complete output. For example, if a speech synthesizer timestamps each word in an 
+  utterance, the anchor point might refer to the timestamp for just one word.</p>
+<p>The absolute and relative timestamps are not mutually exclusive; that is, it 
+  is possible to have both relative and absolute timestamp attributes on the same 
+  EMMA container element.</p>
+<p>Timestamps of outputs presented by different devices will be subject to 
+  variation if the times maintained by the devices are not synchronized. This 
+  concern is outside of the scope of the EMMA specification.</p>
+<h4 id="s4.2.10.8">4.2.10.3 Duration of output: <code>emma:duration-plan</code> attribute</h4>
+<table width="98%" class="defn" cellspacing="0" cellpadding="5" summary="property definition">
+  <tbody>
+    <tr>
+      <th>Annotation</th>
+      <th>emma:duration-plan</th>
+    </tr>
+    <tr>
+      <th>Definition</th>
+      <td>Attribute <span>of type <code>xsd:nonNegativeInteger</code></span>, 
+        defaulting to zero. It specifies the planned duration of the output in 
+        milliseconds.</td>
+    </tr>
+    <tr>
+      <th>Applies to</th>
+      <td><code>emma:output</code>, <code>emma:group</code>, <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:arc</code>, <span>and</span> application instance
+        data</td>
+    </tr>
+  </tbody>
+</table>
+<p>The planned duration of an output in milliseconds MAY be specified with the <code>emma:duration-plan</code> attribute. The <code>emma:duration-plan</code> attribute 
+  MAY be used either in combination with timestamps or independently, for example 
+  in the annotation of speech corpora. <span class="remove">(Question, I'm not sure when you would actually want to annotate the &quot;duration-plan&quot;, since normally annotations by humans aren't used for machine-determined properties.)</span> <span class="note">Note: Removed this because it will be discussed in the general annotation section for output.</span></p>
+<p>In the following example, the planned duration of the signal produced as the 
+  output is indicated using <code>emma:duration-plan</code>.</p>
+<pre class="example">&lt;emma:emma version=&quot;1.1&quot;
+    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
+     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
+    xmlns=&quot;http://www.example.com/example&quot;&gt;
+    &lt;emma:output id=&quot;out1&quot; emma:duration-plan=&quot;2300&quot;
+        <span>emma:medium=&quot;acoustic&quot; emma:mode=&quot;voice&quot;</span>&gt;
+    &lt;origin&gt;Denver&lt;/origin&gt;
+    &lt;/emma:output&gt;
+&lt;/emma:emma&gt;
+</pre>
+<p>&nbsp;</p>
+<h3>4.2.11 Medium, mode, and function of user inputs <span class="new">and outputs</span>: <code>emma:medium</code>, <code>emma:mode</code>,
+  <code>emma:function</code>, <code>emma:verbal</code>
+  attributes</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
 <tr>
@@ -4985,7 +5166,7 @@ open set of values including: {<span><code>voice</code>,
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
 <code>emma:one-of</code>, <code>emma:sequence</code>,
-<code>emma:endpoint</code>, and application instance data</td>
+<code>emma:endpoint</code>, <code>emma:output,</code> and application instance data</td>
 </tr>
 <tr>
 <th>Annotation</th>
@@ -5001,7 +5182,7 @@ values in the open set {<code>recording</code>,
 <tr>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
-<code>emma:one-of</code>, <code>emma:sequence</code>, and
+<code>emma:one-of</code>, <code>emma:sequence</code>,  <code>emma:output, </code>and
 application instance data</td>
 </tr>
 <tr>
@@ -5015,7 +5196,7 @@ application instance data</td>
 <tr>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
-<code>emma:one-of</code>, <code>emma:sequence</code>, and
+<code>emma:one-of</code>, <code>emma:sequence</code>,  <code>emma:output</code>, and
 application instance data</td>
 </tr>
 <tr>
@@ -5032,7 +5213,7 @@ device through which the input is captured. An attribute of type <code>xsd:nmtok
 <tr>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
-    <code>emma:one-of</code>, <code>emma:sequence</code>, and
+    <code>emma:one-of</code>, <code>emma:sequence</code>,  <code>emma:output</code>, and
 application instance data</td>
 </tr>
 <tr>
@@ -5041,7 +5222,7 @@ application instance data</td>
 </tr>
 <tr>
 <th>Definition</th>
-<td>The modality, or list of modalities, through which the interpretation is
+<td>The modality, or list of modalities, through which the interpretation <span class="new">or output</span> is
         expressed. An attribute of type <code>xsd:nmtokens</code> which
         contains a space delimited set of values from an open set of values
       including: {<code>gaze</code>, <code>face</code>, <code>head</code>, <code>torso</code>, <code>hands</code>, <code>leg</code>, <code>locomotion</code>, <code>posture</code>, <code>physiology</code>, ...}.</td>
@@ -5049,21 +5230,22 @@ application instance data</td>
 <tr>
 <th>Applies to</th>
 <td><code>emma:interpretation</code>, <code>emma:group</code>,
-    <code>emma:one-of</code>, <code>emma:sequence</code>, and
+    <code>emma:one-of</code>, <code>emma:sequence</code>,  <code>emma:output</code>, and
 application instance data</td>
 </tr>
 </tbody>
 </table>
 <p>EMMA provides two properties for the annotation of input
-modality. One indicating the broader medium or channel
+  <span class="new">or output</span> modality. One indicating the broader medium or channel
 (<code>emma:medium</code>) and another indicating the specific mode
 of communication used on that channel (<code>emma:mode</code>). The
-input medium is defined from the users perspective and indicates
+input <span class="new">or output</span> medium is defined from the user's perspective and indicates
 whether they use their voice (<code>acoustic</code>), touch
 (<code>tactile</code>), or visual appearance/motion
-(<code>visual</code>) as input. Tactile includes most
-<i>hand-on</i> input device types such as pen, mouse, keyboard, and
-touch screen. Visual is used for camera input.</p>
+(<code>visual</code>) as input <span class="new">or whether the system uses  its voice (<code>acoustic</code>), touch
+(<code>tactile</code>), or visual appearance/motion
+(<code>visual</code>) for output .</span> Tactile includes most <i>hand-on</i> input device types such as pen, mouse, keyboard, and
+touch screen <span class="new">or vibration for output.</span> Visual is used for camera input. <span class="new">Visual is also used for output to a display..</span></p>
 <pre class="example">emma:medium = <span>space delimited sequence of values from the set: </span>
             [acoustic|tactile|visual]</pre>
 <p>The mode property provides the ability to distinguish between
@@ -5081,9 +5263,8 @@ device in order to provide input. For
 <code>emma:medium="visual"</code> the user's movement is captured
 by sensors (cameras, infrared) resulting in an input to the system.
 In the case where <code>emma:medium="acoustic"</code> the user
-provides input to the system by producing an acoustic signal. Note
-then that DTMF input will be classified as
-<code>emma:medium="tactile"</code> since in order to provide DTMF
+provides input to the system by producing an acoustic signal <span class="new">or the system provides an acoustic signal as output.</span> Note
+then that DTMF input will be classified as <code>emma:medium="tactile"</code> since in order to provide DTMF
 input the user physically presses keys on a keypad.</p>
 <p>In order to clarify the difference between <code>emma:medium</code> and <code>emma:mode</code> consider the following examples of different ways to capture drawn input. If the user input consists of drawing it will be classified as <code>emma:mode="ink"</code>. If the user physically draws on a touch sensitive screen then the input is classifed as  <code>emma:medium ="tactile"</code> since the user interacts with the system by direct contact. If instead the user draws on a tabletop and their input is captured by a camera mounted above (or below) the surface then the input is <code>emma:medium ="visual"</code>. Similarly, drawing on a large screen display using hand gestures made in space and sensed with a camera will be classified as <code>emma:mode="ink"</code> and <code>emma:medium ="visual"</code>.</p>
 <p>While <code>emma:medium</code> and <code>emma:mode</code> are
