@@ -333,7 +333,7 @@ element: <code>emma:model-ref</code> attribute</a></li>
 <li>4.2.17 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.17">Dialog turns:
 <code>emma:dialog-turn</code> attribute</a></li>
 <li>4.2.18 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.18">Semantic representation type:
-<code>emma:result-format</code> attribute</a></li>
+<code>emma:output-format</code> attribute</a></li>
 <li>4.2.19 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.19">Reference to <code>emma:info</code> element: <code>emma:info-ref</code> attribute</a></li>
 <li>4.2.20 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.20">Reference to <code>emma:process-model</code> element: <code>emma:process-model-ref</code> attribute</a></li>
 <li>4.2.21 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.21">Reference to <code>emma:parameters</code>
@@ -1164,11 +1164,9 @@ directly on <code>emma:interpretation</code> or they must appear on
 an ancestor <code>emma:one-of</code> node or they must appear on an
 earlier stage of the derivation listed in
 <code>emma:derivation</code>.</p>
-<h3>3.3 Output element: <code>emma:output</code></h3>
-<h3></h3>
-
-<p> &lt;&lt;IN PROGRESS&gt;&gt; Needs a lot of work</p>
-
+<h3>3.3 Output element: <code>emma:output</code>
+  <span class="new">
+</span></h3>
 <span class="new">
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
   <tbody>
@@ -1178,22 +1176,20 @@ earlier stage of the derivation listed in
     </tr>
     <tr>
       <th>Definition</th>
-      <td>The <code>emma:output</code> element acts as a wrapper
-        for application instance data or lattices.</td>
+      <td>The <code>emma:output</code> element acts as a wrapper for application instance data specifying a system output.</td>
     </tr>
     <tr>
       <th>Children</th>
       <td class="new">The <code>emma:output</code> element MUST immediately
-        contain either application instance data, or a single <code>emma:lattice</code> element, or a single <code>emma:literal</code> element. It MAY also contain <span>multiple
-          optional</span> <code>emma:derived-from</code> element<span>s</span> and <span>multiple optional</span> <code>emma:info</code> <span>elements</span>.<span> It MAY also contain multiple optional<code> emma:annotation</code> elements. It MAY also contain multiple<code> emma:parameters</code> elements. <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
+        contain either application instance data or a single <code>emma:literal</code> element. It MAY also contain <span>multiple
+          optional</span> <code>emma:derived-from</code> element<span>s</span> and <span>multiple optional</span> <code>emma:info</code> <span>elements</span>.<span>  It MAY also contain multiple<code> emma:parameters</code> elements. <span class="new"> It may also contain a single <code>emma:location</code> element.</span></span></td>
     </tr>
     <tr>
       <th>Attributes</th>
       <td><ul>
         <li><b>Required</b>: Attribute <code>id</code> of type <code>xsd:ID</code> that uniquely identifies the output
           within the EMMA document.</li>
-        <li><b>Optional</b>: The annotation attributes: <code>emma:tokens</code>, <code>emma:process</code>, <code>emma:lang</code>, <code>emma:signal</code>, <code><span>emma:signal-size</span></code>, <code>emma:media-type</code>, <code>emma:confidence</code>, <code>emma:source</code>, <code>emma:start</code>, <code>emma:end</code>, <code>emma:time-ref-uri</code>, <code>emma:time-ref-anchor-point</code>, <code>emma:offset-to-start</code>, <code>emma:duration</code>, <code>emma:medium</code>, <code>emma:mode</code>, <code>emma:function</code>, <code>emma:verbal</code>, <code>emma:cost</code>,<code> emma:endpoint-info-ref</code>, <code>emma:model-ref</code>, <code>emma:dialog-turn</code>,<code> <span>emma:info-ref</span></code><span><strong>, </strong><code>emma:parameter-ref</code>, <code>emma:process-model-ref</code>, <code>emma:annotated-tokens</code>, <span class="remove"><code>emma:result-format</code></span>, 
-        <code>emma:output-format</code><code>emma:expressed-through, emma:device-type</code>.</span></li>
+        <li><b>Optional</b>: The annotation attributes: <code>emma:tokens</code>, <code>emma:process</code>, <code>emma:lang</code>, <code>emma:signal</code>, <code><span>emma:signal-size</span></code>, <code>emma:media-type</code>, <code>emma:confidence</code>, <code>emma:source</code>, <code>emma:start</code>, <code>emma:end</code>, <code>emma:time-ref-uri</code>, <code>emma:time-ref-anchor-point</code>, <code>emma:offset-to-start</code>, <code>emma:duration</code>, <code>emma:medium</code>, <code>emma:mode</code>, <code>emma:function</code>, <code>emma:verbal</code>, <code>emma:cost</code>,<code> emma:endpoint-info-ref</code>, <code>emma:model-ref</code>, <code>emma:dialog-turn</code>,<code> <span>emma:info-ref</span></code><span><strong>, </strong><code>emma:parameter-ref</code>, <code>emma:process-model-ref</code>,<code> </code><code>emma:output-format,</code><code>emma:expressed-through.</code></span></li>
       </ul></td>
     </tr>
     <tr>
@@ -1205,27 +1201,71 @@ earlier stage of the derivation listed in
 </table>
 </span>
 
-<p class="new">The <code>emma:output</code> element holds a single
-interpretation represented in application specific markup, or a
-single <code>emma:lattice</code> element, or a single <code>emma:literal</code> element.</p>
-<p class="new">Attributes:</p>
-<ol>
-  <li class="new"><b>id</b> a REQUIRED <code>xsd:ID</code> value that uniquely
-    identifies the interpretation within the EMMA document.</li>
-</ol>
+<p class="new">The <code>emma:output</code> element is used as a container for system output represented in EMMA. As such is the outside twin of <code>emma:interpretation</code>. For example, a dialog or interaction manager might generate an emma:output containing application specific semantic representation markup describing a system action. For example, to convey the availability of flights in a travel application. </p>
 <span class="new">
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot; xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;
+    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
     xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
      http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
     xmlns=&quot;http://www.example.com/example&quot;&gt;
-  &lt;emma:output id=&quot;o1&quot; emma:medium=&quot;acoustic&quot; emma:mode=&quot;voice&quot;&gt;
-    ...
-  &lt;/emma:output&gt;
+&lt;emma:output emma:confidence=&quot;0.9&quot; id=sem1&quot;
+         emma:medium=&quot;acoustic&quot;
+         emma:mode=&quot;voice&quot;
+         emma:verbal=&quot;true&quot;
+         emma:function=&quot;dialog&quot;
+         emma:media-type=&quot;&quot;
+         emma:start=&quot;&quot;
+         emma:end=&quot;&quot;
+         emma:lang=&quot;en-US&quot;
+         emma:process=&quot;http://example.com/dialog_engine&quot;&gt;
+             &lt;inform&gt;
+               &lt;flights&gt;
+                  &lt;src&gt;DEN&lt;/src&gt;
+                  &lt;dest&gt;BOS&lt;/dest&gt;
+                  &lt;airlines&gt;
+                     &lt;airline&gt;United&lt;/airline&gt;
+                     &lt;airline&gt;American&lt;/airline&gt;
+                     &lt;airline&gt;Delta&lt;/airline&gt;
+                  &lt;/airlines&gt;
+               &lt;/flights&gt;
+             &lt;/inform&gt;
+&lt;/emma:output&gt;
 &lt;/emma:emma&gt;
 </pre>
 </span>
 
+
+<p class="new">* Work through issues of planned vs. actual on output *</p>
+<p class="new">Explain meaning of each of the annotations,</p>
+<p class="new">The semantics of annotations on <code>emma:output</code> differs from emma:interpretation, since here we are seeing the stages of the planning of an intended output by the system. </p>
+<p class="new">This representation would then be received by a natural language generation component with generates a text string for the system to speak, here captured in SSML. <span class="new">
+</span></p>
+<span class="new">
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;
+    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
+     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
+    xmlns=&quot;http://www.example.com/example&quot;&gt;
+&lt;emma:output emma:confidence=&quot;0.8&quot; id=&quot;tts1&quot;&gt;
+         emma:medium=&quot;acoustic&quot;
+         emma:mode=&quot;voice&quot;
+         emma:verbal=&quot;true&quot;
+         emma:function=&quot;dialog&quot;
+         emma:output-format=&quot;application/ssml+xml&quot;
+         emma:media-type=&quot;&quot;
+         emma:start=&quot;&quot;
+         emma:end=&quot;&quot;
+         emma:lang=&quot;en-US&quot;
+         emma:process=&quot;http://example.com/nlg&quot;&gt;
+         &lt;speak version=&quot;1.0&quot; xmlns=&quot;http://www.w3.org/2001/10/synthesis&quot;
+                                  xml:lang=&quot;en-US&quot;&gt;
+         There are flights to Boston from Denver on United, American, and Delta.
+         &lt;/speak&gt;
+&lt;/emma:output&gt;
+&lt;/emma:emma&gt;</pre>
+</span>
 <p class="new">While <code>emma:medium</code> and <code>emma:mode</code> are
   optional on <code>emma:output</code>, note that all EMMA
   outputs must be annotated for <code>emma:medium</code> and <code>emma:mode</code>, so either these attributes must appear
@@ -1398,6 +1438,43 @@ this would be represented as follows in EMMA:</p>
 &lt;/emma:emma&gt;
 </span>
 </pre>
+
+<p> Output example:</p>
+
+<span class="new">
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;
+    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
+     http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
+    xmlns=&quot;http://www.example.com/example&quot;&gt;
+&lt;emma:one-of id=&quot;ooo1&quot;
+         emma:medium=&quot;acoustic&quot;
+         emma:mode=&quot;voice&quot;
+         emma:verbal=&quot;true&quot;
+         emma:function=&quot;dialog&quot;
+         emma:result-format=&quot;application/ssml+xml&quot;
+         emma:lang=&quot;en=US&quot;
+         emma:process=&quot;http://example.com/nlg&quot;&gt;
+        &lt;emma:output emma:confidence=&quot;0.8&quot; id=&quot;tts1&quot;&gt;
+             &lt;speak version=&quot;1.0&quot; xmlns=&quot;http://www.w3.org/2001/10/synthesis&quot;
+                                  xml:lang=&quot;en-US&quot;&gt;
+             I found three flights from Boston to Denver.
+             &lt;/speak&gt;
+        &lt;/emma:output&gt;
+        &lt;emma:output emma:confidence=&quot;0.7&quot; id=&quot;tts2&quot;&gt;
+             &lt;speak version=&quot;1.0&quot; xmlns=&quot;http://www.w3.org/2001/10/synthesis&quot;
+                                  xml:lang=&quot;en-US&quot;&gt;
+             There are flights to Boston from Denver on United, American, and Delta.
+             &lt;/speak&gt;
+        &lt;/emma:output&gt;
+&lt;/emma:one-of&gt;
+&lt;/emma:emma&gt;
+</pre>
+</span>
+
+
+
 <p>EMMA MAY explicitly represent ambiguity resulting from different
 processes, devices, or sources using embedded
 <code>emma:one-of</code> and the <code>disjunction-type</code>
@@ -2722,7 +2799,7 @@ specified the value is <code>"false"</code> by default.</li>
 <th>Applies to</th>
 <td>The <code>emma:derived-from</code> element is legal only as a
 child of <code>emma:interpretation</code>,
-<code>emma:one-of</code>, <code>emma:group</code>, or
+<code>emma:output, emma:one-of</code>, <code>emma:group</code>, or
 <code>emma:sequence</code>.</td>
 </tr>
 <tr>
@@ -2747,7 +2824,7 @@ representing earlier stages in the processing of the input.</td>
 <tr>
 <th>Applies to</th>
 <td>The <code>emma:derivation</code> MAY appear only as a child of
-the <code>emma:emma</code>, <code>emma:interpretation</code>, <code>emma:one-of</code>, <code>emma:group</code>, and <code>emma:sequence</code> elements.</td>
+the <code>emma:emma</code>, <code>emma:interpretation</code>, <code>emma:output</code>, <code>emma:one-of</code>, <code>emma:group</code>, and <code>emma:sequence</code> elements.</td>
 </tr>
 </tbody>
 </table>
@@ -4689,6 +4766,7 @@ application instance data.</td>
 <p>The source of an interpreted input MAY be represented in EMMA as
 a URI resource using the <code>emma:source</code> annotation. Here is an example that shows different input sources for
 different input interpretations.</p>
+<p>* Meaning for output? *</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
