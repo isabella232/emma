@@ -468,7 +468,7 @@ EMMA component.</p>
   automatically extracted from a user's input by an interpretation
 component, where input is to be taken in the general sense of a
   meaningful user input in any modality supported by the platform. <span class="new">In the case of output, EMMA represents the stages in the production of a system output.</span></p>
-<p>** DOES MMI FRAMEWORK SHOW EMMA FOR OUTPUT **</p>
+<p class="remove">** DOES MMI FRAMEWORK SHOW EMMA FOR OUTPUT ** No, it doesn't </p>
 <p>The reader should refer to the sample architecture in <span>W3C
   Multimodal Interaction Framework</span> <a href="https://www.w3.org/2002/mmi/Group/emma11/#MMIF">[<span>MMI
     Framework</span>]</a>, which shows EMMA conveying content between
@@ -858,7 +858,7 @@ annotation attributes <code>emma:confidence</code> and
 <p>Attributes in EMMA cascade from a containing <code>emma:one-of</code> element to the individual interpretations. In the example above, the <code>emma:start</code>, <code>emma:end</code>, <code>emma:medium</code>, and <code>emma:mode</code> attributes are all specified once on <code>emma:one-of</code> but apply to both of the contained <code>emma:interpretation</code> elements. This is an important mechanism as it limits the need to repeat annotations. More details on the scope of annotations among EMMA structural elements, and also on the scope of annotations within derivations, where multiple different processing stages apply to an input, can be found in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.3">Section 4.3</a>.</p>
 <p class="new">The core of an EMMA document representing system output is <code>emma:output</code>. Like <code>emma:interpretation</code>, <code>emma:output</code> can appear within container elements. In the following example <code>emma:output</code> elements appear within <code>emma:one-of </code>indicating alternative text to speech prompts and this structure is captured with <code>emma:group</code> indicating a graphical table to be presented. The <code>emma:medium</code>, <code>emma:mode</code>, <code>emma:verbal</code>, <code>emma:function</code>, <code>emma:result-format</code>, and <code>emma:lang</code> are the same for both TTS prompts and so they can be specified once on the <code>emma:one-of</code> and are assumed to apply to both prompts.</p>
 <span class="new">
-<pre class="example">&lt;emma:emma version=&quot;2.0&quot;
+<pre class="example"><a name="fullOutputExample" id="fullOutputExample"></a>&lt;emma:emma version=&quot;2.0&quot;
     xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
     xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
