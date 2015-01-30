@@ -7241,13 +7241,39 @@ statement is required regarding the accuracy, speed or other
 characteristics of output produced by the processor. No statement
 is made regarding the size of input that a EMMA Processor is
 required to support.</p>
-<h2 id="appendices">Appendices</h2>
+<h2 id="s6">6. Integration of EMMA with other Standards Related to Output</h2>
+<p>This section is Informative</p>
+<p>EMMA can be used with other standards that provide metadata about system output, for example, WAI-ARIA and TTML as discussed below.</p>
+<h3 id=6.1>6.1 WAI-ARIA (Accessible Rich Internet Applications)</h3>
+<p>The ARIA <a href="#aria">[WAI-ARIA</a>] standard defines a   way to make Web content and Web applications more accessible to   people with disabilities, in part by providing a vocabulary for describing the functions of controls in a relatively abstract way that relates to the purpose of the control. Thus, assistive technology can use ARIA tags to provide a functionally equivalent presentation of a control to a user. EMMA output can be useful in this context because it can initially be represented at an abstract way and then can be progressively refined through further stages of processing (multimodal fission) to eventually produce an actual, contextually appropriate, presentation that accommodates the user's preferences. For example, if an application needs to warn the user about an invalid input, the warning can be realized in a variety of ways, such as an alert popup, a spoken message, or a vibration, but the underlying semantics of the message will be the same. This example shows the abstract, high level EMMA message.</p>
+<pre class="example">&lt;emma:output id=&quot;output1&quot; role=&quot;alert&quot;&gt;    
+  &lt;item aria-invalid=&quot;true&quot;&gt;phone number&lt;/item&gt;    
+  &lt;warning&gt;invalid format&lt;/warning&gt; 
+&lt;/emma:output&gt;</pre>
+<p>As processing proceeds, the decision would be made as to how the messge would be presented, either by assistive technology or by other means (for example, the user has selected &quot;voice output&quot; as a preference). If voice output is selected, and the message is to be spoken by text-to-speech software, the final EMMA message would look like this. </p>
+<pre class="example">&lt;emma:emma version=&quot;2.0&quot;<br />  &lt;emma:output id=&quot;tts1&quot;<br />    emma:medium=&quot;acoustic&quot;
+    emma:mode=&quot;voice&quot;
+    emma:output-format=&quot;application/ssml+xml&quot;
+    emma:lang=&quot;en-US&quot;
+    emma:process=&quot;http://example.com/nlg&quot;&gt;
+    emma:confidence=&quot;0.8&quot;
+    role=&quot;alert&quot;&gt;
+    &lt;speak version=&quot;1.0&quot; xmlns=&quot;http://www.w3.org/2001/10/synthesis&quot; xml:lang=&quot;en-US&quot;&gt;
+   The phone number format is not valid.
+    &lt;/speak&gt;
+  &lt;/emma:output&gt;
+&lt;emma:emma&gt;</pre>
+<h3>6.2 Integration of EMMA with TTML (Timed Text Markup Language)</h3>
+<p>Timed Text Markup Language <a href="#TTML">[TTML]</a> refers to formats used for the          representation of text synchronized with other timed media, like audio          and video. An important use case, for example, is captioning video. Timed text could be embedded in EMMA for use in presenting system output which consists of synchronized text and video. </p>
+<pre class="example">&lt;emma:emma version=&quot;1.1&quot;<br />    xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;<br />    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;<br />    xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma<br />    http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;<br />    xmlns=&quot;http://www.example.com/example&quot;&gt;<br />&lt;emma:one-of disjunction-type=&quot;recognition&quot; start=&quot;12457990&quot; end=&quot;12457995&quot;<br />emma:medium=&quot;visual&quot; emma:mode=&quot;ttml&quot;&gt;<br />     &lt;emma:one-of&gt;<br />       &lt;emma:output&gt;<br />          &lt;tt xml:lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/ns/ttml&quot; xmlns:ttm=&quot;<br />http://www.w3.org/ns/ttml#metadata&quot;&gt;<br />  &lt;head&gt;<br />    &lt;ttm:agent xml:id=&quot;bond&quot; type=&quot;character&quot;&gt;<br />      &lt;ttm:name type=&quot;family&quot;&gt;Bond&lt;/ttm:name&gt;<br />      &lt;ttm:name type=&quot;given&quot;&gt;James&lt;/ttm:name&gt;<br />      &lt;ttm:name type=&quot;alias&quot;&gt;007&lt;/ttm:name&gt;<br />    &lt;/ttm:agent&gt;<br />    &lt;ttm:agent xml:id=&quot;No&quot; type=&quot;character&quot;&gt;<br />      &lt;ttm:name type=&quot;family&quot;&gt;No&lt;/ttm:name&gt;<br />      &lt;ttm:name type=&quot;given&quot;&gt;Dr. Julius No&lt;/ttm:name&gt;<br />      &lt;ttm:name type=&quot;alias&quot;&gt;Dr. No&lt;/ttm:name&gt;<br />    &lt;/ttm:agent&gt;<br />     &lt;layout&gt;<br />      &lt;region xml:id=&quot;r1&quot;&gt;<br />        &lt;style tts:origin=&quot;10px 100px&quot;/&gt;<br />        &lt;style tts:extent=&quot;620px 96px&quot;/&gt;<br />        &lt;style tts:fontSize=&quot;40px&quot;/&gt;<br />        &lt;style tts:fontWeight=&quot;bold&quot;/&gt;<br />        &lt;style tts:backgroundColor=&quot;black&quot;/&gt;<br />        &lt;style tts:color=&quot;red&quot;/&gt;<br />        &lt;style tts:textAlign=&quot;center&quot;/&gt;<br />        &lt;style tts:displayAlign=&quot;center&quot;/&gt;<br />      &lt;/region&gt;<br />      &lt;region xml:id=&quot;r2&quot;&gt;<br />        &lt;style tts:origin=&quot;10px 300px&quot;/&gt;<br />        &lt;style tts:fontWeight=&quot;bold&quot;/&gt;<br />        &lt;style tts:backgroundColor=&quot;black&quot;/&gt;<br />        &lt;style tts:color=&quot;yellow&quot;/&gt;<br />      &lt;/region&gt;<br />    &lt;/layout&gt;<br />  &lt;/head&gt;<br />   &lt;body xml:id=&quot;b1&quot;&gt;<br />    &lt;div xml:id=&quot;d1&quot; begin=&quot;0s&quot; dur=&quot;2s&quot;&gt;<br />      &lt;p xml:id=&quot;p1&quot; region=&quot;r1&quot; ttm:agent=&quot;bond&quot;&gt;Text 1&lt;/p&gt;<br />      &lt;p xml:id=&quot;p2&quot; region=&quot;r2&quot; ttm:agent=&quot;Dr. No&quot;&gt;Text 2&lt;/p&gt;<br />    &lt;/div&gt;<br />    &lt;div xml:id=&quot;d2&quot; begin=&quot;1s&quot; dur=&quot;2s&quot;&gt;<br />      &lt;p xml:id=&quot;p3&quot; region=&quot;r2&quot; ttm:agent=&quot;No&quot;&gt;Text 3&lt;/p&gt;<br />      &lt;p xml:id=&quot;p4&quot; region=&quot;r1&quot; ttm:agent=&quot;bond&quot;&gt;Text 4&lt;/p&gt;<br />    &lt;/div&gt;<br />  &lt;/body&gt;<br />&lt;/tt&gt;<br />       &lt;/emma:output&gt;<br />     &lt;/emma:one-of&gt;<br />  &lt;/emma:one-of&gt;<br />&lt;/emma:emma&gt;<br />
+</pre>
+<h2>Appendices</h2>
 <h3 id="appA">Appendix A. XML and <span>RELAX NG</span>
 schemata</h3>
 <p>This section is Normative.</p>
 <p>This section defines the formal syntax for EMMA documents in
 terms of a normative XML Schema.</p>
-<p>The schema provided here is for the EMMA 1.0 Recommendation. No schema exists as of yet for the EMMA 1.1 Working Draft as it is a work in progress.</p>
+<p>The schema provided here is for the EMMA 1.0 Recommendation. No schema exists as of yet for the EMMA <span class="remove">1.1 </span>2.0 Working Draft as it is a work in progress.</p>
 <p>There are both an XML Schema and <span>RELAX NG</span> Schema
   for the EMMA markup. The latest version of the XML Schema for EMMA
   is available at <a href="http://www.w3.org/TR/emma/emma.xsd">http://www.w3.org/TR/emma/emma.xsd</a>
@@ -7836,6 +7862,11 @@ Emotion Markup Language (Emotion ML ) 1.0.</a> World Wide Web Consortium, W3C La
   <dt><a id="ref-geo">[Geolocation]</a></dt>
   <dd><a href="http://www.w3.org/TR/geolocation-API/">Geolocation API Specification
     World Wide Web Consortium Proposed Recommendation 10 May 2012.</a> See   http://www.w3.org/TR/geolocation-API/ </dd>
+  <dt><a name="TTML" id="TTML"></a>Timed Text Markup Language</dt>
+  <dd><a href="http://www.w3.org/TR/ttml1/">Timed Text Markup Language 1 (TTML1) (Second Edition)</a>. See http://www.w3.org/TR/ttml1/</dd>
+  <dt><a name="aria" id="aria"></a>WAI-ARIA</dt>
+  <dd><a href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</a>. See http://www.w3.org/TR/wai-aria/</dd>
+  <dd>&nbsp;</dd>
   <dt><a id="ref-wgs">[WGS84]</a></dt>
   <dd><a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">National   Imagery and Mapping Agency Technical Report 8350.2, Third Edition</a>.   National Imagery and Mapping Agency, 3 January 2000. See   http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf </dd>
 </dl>
