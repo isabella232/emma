@@ -163,7 +163,9 @@ which is part of the
 <p>This specification describes markup for representing
   interpretations of user input (speech, keystrokes, pen input etc.)<span class="new"> and productions of system output</span> together with annotations for confidence scores, timestamps, <span class="old">input</span> medium etc., and forms part of the proposals for the <a href="http://www.w3.org/TR/mmi-framework/">W3C Multimodal Interaction
 Framework</a>.</p>
-<p>The <a href="http://www.w3.org/TR/EMMA">EMMA: Extensible Multimodal Annotation 1.0</a> specification was published as a W3C Recommendation in February 2009. Since then there have been numerous implementations of the standard and extensive feedback has come in regarding desired new features and clarifications requested for existing features. The W3C Multimodal Interaction Working Group  examined a range of different use cases for extensions of the EMMA specification and published a W3C Note on Use Cases for Possible Future EMMA Features [<a href="https://www.w3.org/2002/mmi/Group/emma11/emma_use_cases">EMMA Use Cases</a>]. In this working draft of EMMA 2.0, we have developed a set of new features based on feedback from implementers and have also added clarification text in a number of places throughout the specification. The new features include: support for adding human annotations (<code>emma:annotation</code>, <code>emma:annotated-tokens</code>), support for inline specification of process parameters (<code>emma:parameters</code>, <code>emma:parameter</code>, <code>emma:parameter-ref</code>), support for specification of models used in processing beyond grammars (<code>emma:process-model</code>, <code>emma:process-model-ref</code>), extensions to <code>emma:grammar</code> to enable inline specification of grammars, a new mechanism for indicating which grammars are active (<code>emma:grammar-active</code>, <code>emma:active</code>), support for non-XML semantic payloads (<code>emma:result-format</code>), support for multiple <code>emma:info</code> elements and reference to the <code>emma:info</code> relevant to an interpretation (<code>emma:info-ref</code>), and a new attribute to complement the <code>emma:medium</code> and <code>emma:mode</code> attributes that enables specification of the modality used to express an input (<code>emma:expressed-through</code>). <span class="new">In addition we have extended the specification to handle the production of system output, by adding the new element, <code>emma:output</code> and added a series of annotations enabling the use of EMMA for incremental results (Section 4.2.24).</span></p>
+<p>The <a href="http://www.w3.org/TR/EMMA">EMMA: Extensible Multimodal Annotation 1.0</a> specification was published as a W3C Recommendation in February 2009. Since then there have been numerous implementations of the standard and extensive feedback has come in regarding desired new features and clarifications requested for existing features. The W3C Multimodal Interaction Working Group  examined a range of different use cases for extensions of the EMMA specification and published a W3C Note on Use Cases for Possible Future EMMA Features [<a href="https://www.w3.org/2002/mmi/Group/emma11/emma_use_cases">EMMA Use Cases</a>]. In this working draft of EMMA 2.0, we have developed a set of new features based on feedback from implementers and have also added clarification text in a number of places throughout the specification. The new features include: support for adding human annotations (<code>emma:annotation</code>, <code>emma:annotated-tokens</code>), support for inline specification of process parameters (<code>emma:parameters</code>, <code>emma:parameter</code>, <code>emma:parameter-ref</code>), support for specification of models used in processing beyond grammars (<code>emma:process-model</code>, <code>emma:process-model-ref</code>), extensions to <code>emma:grammar</code> to enable inline specification of grammars, a new mechanism for indicating which grammars are active (<code>emma:grammar-active</code>, <code>emma:active</code>), support for non-XML semantic payloads (<code>emma:result-format</code>), support for multiple <code>emma:info</code> elements and reference to the <code>emma:info</code> relevant to an interpretation (<code>emma:info-ref</code>), and a new attribute to complement the <code>emma:medium</code> and <code>emma:mode</code> attributes that enables specification of the modality used to express an input (<code>emma:expressed-through</code>). 
+<span class="new">In addition we have extended the specification to handle the production of system output, by adding the new element, <code>emma:output</code> and added a series of annotations enabling the use of EMMA for incremental results (Section 4.2.24). 
+<p>Not addressed in this draft, but planned for a later Working Draft of EMMA 2.0, is a JSON serialization of EMMA documents for use in contexts were JSON is better suited than XML for representing user inputs and system outputs.</p></span></p>
 <h3>Changes from the last working draft</h3>
 <p class="new">This working draft also adds a new <span class="new"><code>emma:location</code> element for specification of the location of the device or sensor which captured the input. The  <code>ref</code> attribute was added to a number of elements allowing for shorter EMMA documents which use URIs to point to content stored outside of the document: <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:group</code>, <code>emma:info</code>, <code>emma:parameters</code>, <code>emma:lattice</code>.</span> A new attribute <code>emma:partial-content</code> is introduced which indicates whether the content in an element with <code>ref</code>, is the full content or whether it is partial and more can be retrieved by following the URI in <code>ref</code>. <span class="new">The <code>emma:emma</code> element is extended with <code>doc-ref</code> and <code>prev-doc</code> attributes that indicate where the document can be retrieved from and where the previous document in a sequence of inputs can be retrieved from.</span> The application of <code>emma:lattice</code> is also extended so that an EMMA document can contain both a N-best and a lattice side-by-side.</p>
 
@@ -403,7 +405,6 @@ necessarily limited to, speech, natural language text, GUI and ink <span class="
   multimodal system; in particular, it will normally be automatically
   generated by interpretation components to represent the semantics
 of users' inputs <span class="new">and by production components to represent system output</span>, not directly authored by developers.</p>
-<p>** DOES THE SINGLE TURN INPUT ASPECT STILL HOLD IN 2.0: Agree to drop this 1/9/2014</p>
 <p>The language is focused on <span class="new">representing</span> and annotating  <span class="old">single</span> inputs from users <span class="new">and system generated outputs</span>,
   which may be either <span class="old">from</span> <span class="new">in</span> a single mode or a composite input
   combining information from multiple modes<span class="old">, as opposed to
@@ -460,15 +461,10 @@ later drafts the issues of modularization and profiling; that is,
 which sets of annotations are to be supported by which classes of
 EMMA component.</p>
 <h3 id="s1.1">1.1 Uses of EMMA</h3>
-<p>** SHOULD WE REVISE TO INCLUDE USE OF EMMA PURELY FOR ANNOTATION</p>
-<p>&gt; would you need to expand the meaning of emma:interpretation</p>
-<p>&gt; what about dialog where system only interprets some of what was said</p>
-<p>&gt; need attribute to identify speaker</p>
 <p>The general purpose of EMMA is to represent <span class="new">the stages of processing of the inputs and outputs of an automated system</span>. <span class="new">In the case of input this is</span> information
   automatically extracted from a user's input by an interpretation
 component, where input is to be taken in the general sense of a
   meaningful user input in any modality supported by the platform. <span class="new">In the case of output, EMMA represents the stages in the production of a system output.</span></p>
-<p class="remove">** DOES MMI FRAMEWORK SHOW EMMA FOR OUTPUT ** No, it doesn't </p>
 <p>The reader should refer to the sample architecture in <span>W3C
   Multimodal Interaction Framework</span> <a href="https://www.w3.org/2002/mmi/Group/emma11/#MMIF">[<span>MMI
     Framework</span>]</a>, which shows EMMA conveying content between
@@ -1231,14 +1227,9 @@ earlier stage of the derivation listed in
                &lt;/flights&gt;
              &lt;/inform&gt;
 &lt;/emma:output&gt;
-&lt;/emma:emma&gt;
-</pre>
+&lt;/emma:emma&gt;</pre>
 </span>
-
-
-<p class="new">* Work through issues of planned vs. actual on output *</p>
-<p class="new">Explain meaning of each of the annotations,</p>
-<p class="new">The semantics of annotations on <code>emma:output</code> differs from emma:interpretation, since here we are seeing the stages of the planning of an intended output by the system. </p>
+<p class="new">The semantics of annotations on <code>emma:output</code> differs from emma:interpretation, since here we are seeing the stages of the planning of an intended output by the system. Future drafts will address issues of planned vs. actual output.</p>
 <p class="new">This representation would then be received by a natural language generation component with generates a text string for the system to speak, here captured in SSML. <span class="new">
 </span></p>
 <span class="new">
@@ -1640,12 +1631,9 @@ there are two more interpretations within the<code> emma:one-of</code> with id "
   &lt;/emma:one-of&gt;
 &lt;/emma:emma&gt;</span>
 </pre>
-<h3 id="s3.3.2">** ADD EXAMPLE SHOWING one-of with output, e.g. multiple generated strings **</h3>
-<h3>&nbsp;</h3>
-<h3>&nbsp;</h3>
-<h3>3.4.2 <code>emma:group</code> element</h3>
+<h3 id="s3.3.2">3.4.2 <code>emma:group</code> element</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
-<tbody>
+  <tbody>
 <tr>
 <th>Annotation</th>
 <th>emma:group</th>
@@ -1701,7 +1689,6 @@ element<span>s</span> and multiple <code>emma:info</code> <span>element</span><s
 </tr>
 </tbody>
 </table>
-<p>** Need to add output example **</p>
 <p>The <code>emma:group</code> element is used to indicate that the
   contained interpretations are from distinct user inputs that are
   related in some manner. <code>emma:group</code> MUST NOT be used
@@ -1712,7 +1699,7 @@ element<span>s</span> and multiple <code>emma:info</code> <span>element</span><s
   container <code>emma:sequence</code> MUST be used <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.3">Section 3.3.3</a>)</span>. The following example shows
   three interpretations derived from the speech input "Move this
   ambulance here" and the tactile input related to two consecutive
-  points on a map.</p>
+points on a map.</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1895,7 +1882,6 @@ of <code>emma:emma</code>, <code>emma:one-of</code>,
 </tr>
 </tbody>
 </table>
-<p>** NEED OUTPUT EXAMPLE **</p>
 <p>The <code>emma:sequence</code> element is used to indicate that
   the contained interpretations are sequential in time, as in the
   following example, which indicates that two points made with a pen
@@ -3150,7 +3136,6 @@ derived from.</p>
 use of <code>emma:derived-from</code> to represent sequential
 derivations and addresses the issue of the scope of EMMA
 annotations across derivations of user input.</p>
-<p>** ADD DERIVATION EXAMPLE WITH OUTPUT **</p>
 <h3 id="s4.1.3">4.1.3 Reference to grammar used:
 <code>emma:grammar</code> element</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -3723,8 +3708,8 @@ between the source port and the sink port.</p>
   an element in the EMMA namespace. The <code>emma:process-model-ref</code> attribute appears on the specific interpretation and references the appropriate <code>emma:process-model</code> element. The <code>emma:process-model</code> element MUST  have a <code>ref</code> attribute which contains a URI referencing the model used in processing the input. Unlike <code>emma:grammar</code>, <code>emma:process-model</code> does not allow for inline specification of a model. For each  <code>emma:process-model </code>element there MUST be an <code>emma:process-model-ref</code> in the document those value is the <code>id</code> of that <code>emma:process-model</code>. The<code> emma:process-model</code> element cannot have positional scope.</p>
 <p>The <code>emma:process-model</code> element MUST have an attribute <strong><code>type</code></strong> containing a string indicating the type of model referenced. The value of type is drawn from an open set including <code>{svm,crf,neural_network,hmm...}</code>.</p>
 <p>Examples of potential uses of <code>emma:process-model</code> include referencing the model used for handwriting recognition or a text classification model used for natural language understanding. The <code>emma:process-model</code> annotation SHOULD be used for input processing models that are not grammars. Grammars SHOULD be referenced or specified inline using <code>emma:grammar</code>. Some input processing modules may utilize both a recognition model and a grammar. For example, for handwriting recognition of electronic ink a neural network might be used for character recognition while a language model or grammar is used to constrain the word or character sequences recognized. In this case, the neural network SHOULD be referenced using <code>emma:process-model</code> and the grammar or language model using <code>emma:grammar</code>.</p>
+<p>The <code>emma:process-model</code> element can also be used with <code>emma:output.</code></p>
 <p>In the following example, there are two interpretations. The EMMA document in this example is produced by a computer vision system doing object recognition. The first interpretation is generated by a process model for vehicle recognition and second competing interpretation is generated by a process model for person recognition.</p>
-<p>** MENTION OUTPUT PROCESS MODEL **</p>
 <pre class="example"><span>&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -4099,10 +4084,8 @@ adding reference transcriptions to an EMMA document (<a href="https://www.w3.org
          &lt;origin&gt;Boston&lt;/origin&gt;
          &lt;destination&gt;Denver&lt;/destination&gt;
    &lt;/emma:interpretation&gt;
- &lt;/emma:emma&gt;
-</pre>
+ &lt;/emma:emma&gt;</pre>
 </span>
-<h2>** emma:location on output **</h2>
 <h2>4.2 EMMA annotation attributes</h2>
 
 <h3 id="s4.2.1">4.2.1 Tokens of input: <code>emma:tokens</code>, <code>emma:token-type</code>, and <code>emma:token-score</code>
@@ -4155,7 +4138,6 @@ application instance data.</td>
 </tr>
 </tbody>
 </table>
-<p> ** ADD token-score and token-type to definition of emma:interpretation etc as optional attributes **</p>
 <p>The <code>emma:tokens</code> annotation holds a list of input
   tokens. In the following description, the term <i>tokens</i> is
   used in the computational and syntactic sense of <i>units of
@@ -4273,7 +4255,7 @@ normative about the format of the process description document.</p>
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;</pre>
 <p>In this case the <code>emma:process</code> attribute indicates that the process is natural language understanding (<code>nlu</code>) that the classifier used is a support vector machine (<code>svm</code>), that the specific model is the '<code>travel</code>' model and the required output was '<code>xml</code>'. Note that none of the specific values used within the URI here are standardized. This simply illustrates how a URI can be used to provide a detailed process description.</p>
-<p>** Example of output process e.g generation **</p>
+<p>Similarly,  the <code>emma:process</code> attribute can be used with <code>emma:output</code> to refer to a generation process.</p>
 <h3 id="s4.2.3">4.2.3 Lack of input: <code>emma:no-input</code>
 attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -4307,7 +4289,7 @@ if there was no input.</td>
 <p>If the <code>emma:interpretation</code> is annotated with
 <code>emma:no-input="true"</code> then the
 <code>emma:interpretation</code> MUST be empty.</p>
-<h3 id="s4.2.4">4.2.4 Uninterpreted input:
+<h3 id="s4.2.4">4.2.4 Uninterpreted input :
 <code>emma:uninterpreted</code> attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
@@ -4363,7 +4345,7 @@ understanding component, it can be tagged as
 </pre>
 <p>The <code>emma:interpretation</code> MUST be empty <span class="add">if</span> the <code>emma:interpretation</code> element is
 annotated with <code>emma:uninterpreted="true"</code>.</p>
-<h3 id="s4.2.5">4.2.5 Human language of input:
+<h3 id="s4.2.5">4.2.5 Human language of input or output:
 <code>emma:lang</code> attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
@@ -4445,36 +4427,35 @@ none is inherited from a higher element in the document, the
 default value for <code>emma:lang</code> is <code>""</code> meaning
 that there is no information about whether the source input is in a
 language and if so which language.</p>
-<p><strong>** EXAMPLE OF emma:lang on output, and its meaning of e.g. target language for a semantic repr to be realized into **</strong></p>
 <p>The <code>xml:lang</code> and <code>emma:lang</code> attributes
-serve uniquely different and equally important purposes. The role
-of the <code>xml:lang</code> attribute in XML 1.0 is to indicate
-the language used for character data content in an XML element or
-document. In contrast, the <code>emma:lang</code> attribute is used
-to indicate the language employed by a user when entering an input.
-Critically, <code>emma:lang</code> annotates the language of the
-signal originating from the user rather than the specific tokens
-used at a particular stage of processing. This is most clearly
-illustrated through consideration of an example involving multiple
-stages of processing of a user input. Consider the following
-scenario: EMMA is being used to represent three stages in the
-processing of a spoken input to an system for ordering products.
-The user input is in Italian, after speech recognition, the user
-input is first translated into English, then a natural language
-understanding system converts the English translation into a
-product ID (which is not in any particular language). Since the
-input signal is a user speaking Italian, the <code>emma:lang</code>
-will be <code>emma:lang="it"</code> on all of these three stages of
-processing. The <code>xml:lang</code> attribute, in contrast, will
-initially be <code>"it"</code>, after translation the
-<code>xml:lang</code> will be <code>"en-US"</code>, and after
-language understanding it will be <code>"zxx"</code> since the
-product ID is non-linguistic content. The following are examples of
-EMMA documents corresponding to these three processing stages,
-abbreviated to show the critical attributes for discussion here.
-Note that <code>&lt;transcription&gt;</code>,
-<code>&lt;translation&gt;</code>, and
-<code>&lt;understanding&gt;</code> are application namespace
+  serve uniquely different and equally important purposes. The role
+  of the <code>xml:lang</code> attribute in XML 1.0 is to indicate
+  the language used for character data content in an XML element or
+  document. In contrast, the <code>emma:lang</code> attribute is used
+  to indicate the language employed by a user when entering an input.
+  Critically, <code>emma:lang</code> annotates the language of the
+  signal originating from the user rather than the specific tokens
+  used at a particular stage of processing. This is most clearly
+  illustrated through consideration of an example involving multiple
+  stages of processing of a user input. Consider the following
+  scenario: EMMA is being used to represent three stages in the
+  processing of a spoken input to an system for ordering products.
+  The user input is in Italian, after speech recognition, the user
+  input is first translated into English, then a natural language
+  understanding system converts the English translation into a
+  product ID (which is not in any particular language). Since the
+  input signal is a user speaking Italian, the <code>emma:lang</code>
+  will be <code>emma:lang="it"</code> on all of these three stages of
+  processing. The <code>xml:lang</code> attribute, in contrast, will
+  initially be <code>"it"</code>, after translation the
+  <code>xml:lang</code> will be <code>"en-US"</code>, and after
+  language understanding it will be <code>"zxx"</code> since the
+  product ID is non-linguistic content. The following are examples of
+  EMMA documents corresponding to these three processing stages,
+  abbreviated to show the critical attributes for discussion here.
+  Note that <code>&lt;transcription&gt;</code>,
+  <code>&lt;translation&gt;</code>, and
+  <code>&lt;understanding&gt;</code> are application namespace
 attributes, not part of the EMMA markup.</p>
 <pre class="example"><span>&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
@@ -4528,6 +4509,7 @@ separated by spaces.</p>
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
 </pre>
+<p>A future Working Draft will include a discussion and examples of <code>emma:lang</code> as it applies to system output.
 <h3 id="s4.2.6">4.2.6 Reference to signal: <code>emma:signal</code>
 <span>and <code>emma:signal-size</code></span> attributes</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
