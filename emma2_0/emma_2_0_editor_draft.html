@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0041)https://www.w3.org/2002/mmi/Group/emma11/ -->
+<!-- saved from url=(0041) -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org">
 
@@ -111,7 +111,7 @@ http://www.w3.org/TR/emma20</a></dd>
 </dl>
 <dl>
 <dt>Editor:</dt>
-<dd>Michael Johnston (AT&amp;T)</dd>
+<dd>Michael Johnston (???)</dd>
 <dt>Authors:</dt>
 <dd>Paolo Baggia (while at Loquendo, currently Nuance Communications)</dd>
 <dd>Michael Bodell (until May 2012, while at Microsoft)</dd>
@@ -123,7 +123,7 @@ http://www.w3.org/TR/emma20</a></dd>
 </dl>
 
 <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©
-2014 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+2015 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.eu/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
 <a href="http://www.keio.ac.jp/">Keio</a>,
 <a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
 <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>
@@ -166,17 +166,17 @@ which is part of the
 <p>This specification describes markup for representing
   interpretations of user input (speech, keystrokes, pen input etc.) and productions of system output together with annotations for confidence scores, timestamps, medium etc., and forms part of the proposals for the <a href="http://www.w3.org/TR/mmi-framework/">W3C Multimodal Interaction
 Framework</a>.</p>
-<p>The <a href="http://www.w3.org/TR/EMMA">EMMA: Extensible Multimodal Annotation 1.0</a> specification was published as a W3C Recommendation in February 2009. Since then there have been numerous implementations of the standard and extensive feedback has come in regarding desired new features and clarifications requested for existing features. The W3C Multimodal Interaction Working Group  examined a range of different use cases for extensions of the EMMA specification and published a W3C Note on Use Cases for Possible Future EMMA Features [<a href="https://www.w3.org/2002/mmi/Group/emma11/emma_use_cases">EMMA Use Cases</a>]. In this working draft of EMMA 2.0, we have developed a set of new features based on feedback from implementers and have also added clarification text in a number of places throughout the specification. The new features include: support for adding human annotations (<code>emma:annotation</code>, <code>emma:annotated-tokens</code>), support for inline specification of process parameters (<code>emma:parameters</code>, <code>emma:parameter</code>, <code>emma:parameter-ref</code>), support for specification of models used in processing beyond grammars (<code>emma:process-model</code>, <code>emma:process-model-ref</code>), extensions to <code>emma:grammar</code> to enable inline specification of grammars, a new mechanism for indicating which grammars are active (<code>emma:grammar-active</code>, <code>emma:active</code>), support for non-XML semantic payloads (<code>emma:result-format</code>), support for multiple <code>emma:info</code> elements and reference to the <code>emma:info</code> relevant to an interpretation (<code>emma:info-ref</code>), and a new attribute to complement the <code>emma:medium</code> and <code>emma:mode</code> attributes that enables specification of the modality used to express an input (<code>emma:expressed-through</code>). 
+<p>The <a href="http://www.w3.org/TR/EMMA">EMMA: Extensible Multimodal Annotation 1.0</a> specification was published as a W3C Recommendation in February 2009. Since then there have been numerous implementations of the standard and extensive feedback has come in regarding desired new features and clarifications requested for existing features. The W3C Multimodal Interaction Working Group  examined a range of different use cases for extensions of the EMMA specification and published a W3C Note on Use Cases for Possible Future EMMA Features [<a href="emma_use_cases">EMMA Use Cases</a>]. In this working draft of EMMA 2.0, we have developed a set of new features based on feedback from implementers and have also added clarification text in a number of places throughout the specification. The new features include: support for adding human annotations (<code>emma:annotation</code>, <code>emma:annotated-tokens</code>), support for inline specification of process parameters (<code>emma:parameters</code>, <code>emma:parameter</code>, <code>emma:parameter-ref</code>), support for specification of models used in processing beyond grammars (<code>emma:process-model</code>, <code>emma:process-model-ref</code>), extensions to <code>emma:grammar</code> to enable inline specification of grammars, a new mechanism for indicating which grammars are active (<code>emma:grammar-active</code>, <code>emma:active</code>), support for non-XML semantic payloads (<code>emma:result-format</code>), support for multiple <code>emma:info</code> elements and reference to the <code>emma:info</code> relevant to an interpretation (<code>emma:info-ref</code>), and a new attribute to complement the <code>emma:medium</code> and <code>emma:mode</code> attributes that enables specification of the modality used to express an input (<code>emma:expressed-through</code>). 
 In addition we have extended the specification to handle the production of system output, by adding the new element, <code>emma:output</code> and added a series of annotations enabling the use of EMMA for incremental results (Section 4.2.24). 
 <p>Not addressed in this draft, but planned for a later Working Draft of EMMA 2.0, is a JSON serialization of EMMA documents for use in contexts were JSON is better suited than XML for representing user inputs and system outputs.</p>
 <h3>Changes from the last working draft</h3>
 <p >This working draft also adds a new <code>emma:location</code> element for specification of the location of the device or sensor which captured the input. The  <code>ref</code> attribute was added to a number of elements allowing for shorter EMMA documents which use URIs to point to content stored outside of the document: <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:group</code>, <code>emma:info</code>, <code>emma:parameters</code>, <code>emma:lattice</code>. A new attribute <code>emma:partial-content</code> is introduced which indicates whether the content in an element with <code>ref</code>, is the full content or whether it is partial and more can be retrieved by following the URI in <code>ref</code>. The <code>emma:emma</code> element is extended with <code>doc-ref</code> and <code>prev-doc</code> attributes that indicate where the document can be retrieved from and where the previous document in a sequence of inputs can be retrieved from. The application of <code>emma:lattice</code> is also extended so that an EMMA document can contain both a N-best and a lattice side-by-side.</p>
 
 <p>
-A <a href="https://www.w3.org/2002/mmi/Group/emma11/diff.html">diff-marked version</a> from EMMA 1.1
+A <a href="diff.html">diff-marked version</a> from EMMA 1.1
 is available for comparison purposes.
 
-Also changes from EMMA 1.0 can be found in <a href="https://www.w3.org/2002/mmi/Group/emma11/#appF">Appendix F</a>.
+Also changes from EMMA 1.0 can be found in <a href="#appF">Appendix F</a>.
 </p>
 
 <p>Comments are welcome on <a href="mailto:www-multimodal@w3.org">www-multimodal@w3.org</a>
@@ -206,145 +206,145 @@ otherwise indicated. The informative parts of this specification
 are identified by "Informative" labels within sections.</p>
 <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
 NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"
-in this document are to be interpreted as described in [<a href="https://www.w3.org/2002/mmi/Group/emma11/#ref-rfc2119">RFC2119</a>].</p>
+in this document are to be interpreted as described in [<a href="#ref-rfc2119">RFC2119</a>].</p>
 <h2 class="notoc" id="toc">Table of Contents</h2>
 <ul class="tocline">
-<li>1. <a href="https://www.w3.org/2002/mmi/Group/emma11/#s1">Introduction</a>
+<li>1. <a href="#s1">Introduction</a>
 <ul class="tocline">
-<li>1.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s1.1">Uses of EMMA</a></li>
-<li>1.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s1.2">Terminology</a></li>
+<li>1.1 <a href="#s1.1">Uses of EMMA</a></li>
+<li>1.2 <a href="#s1.2">Terminology</a></li>
 </ul>
 </li>
-<li>2. <a href="https://www.w3.org/2002/mmi/Group/emma11/#s2">Structure of EMMA documents</a>
+<li>2. <a href="#s2">Structure of EMMA documents</a>
 <ul class="tocline">
-<li>2.<span>1</span> <a href="https://www.w3.org/2002/mmi/Group/emma11/#s2.1">Data model</a></li>
-<li>2.<span>2</span> <a href="https://www.w3.org/2002/mmi/Group/emma11/#s2.2">EMMA namespace
+<li>2.<span>1</span> <a href="#s2.1">Data model</a></li>
+<li>2.<span>2</span> <a href="#s2.2">EMMA namespace
 prefixes</a></li>
 </ul>
 </li>
-<li>3. <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3">EMMA structural elements</a>
+<li>3. <a href="#s3">EMMA structural elements</a>
 <ul class="tocline">
-<li>3.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.1">Root element:
+<li>3.1 <a href="#s3.1">Root element:
 <code>emma:emma</code></a></li>
-<li>3.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.2">Interpretation element:
+<li>3.2 <a href="#s3.2">Interpretation element:
 <code>emma:interpretation</code></a></li>
 <li >3.3 Output: <code>emma:output</code></li>
-<li>3.4 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3">Container elements</a>
+<li>3.4 <a href="#s3.3">Container elements</a>
   <ul class="tocline">
-<li>3.4.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.1"><code>emma:one-of</code>
+<li>3.4.1 <a href="#s3.3.1"><code>emma:one-of</code>
 element</a></li>
-<li>3.4.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.2"><code>emma:group</code> element</a>
+<li>3.4.2 <a href="#s3.3.2"><code>emma:group</code> element</a>
   <ul class="tocline">
-<li>3.4.2.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.2.1">Indirect grouping criteria:
+<li>3.4.2.1 <a href="#s3.3.2.1">Indirect grouping criteria:
 <code>emma:group-info</code> element</a></li>
 </ul>
 </li>
-<li>3.4.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.3"><code>emma:sequence</code>
+<li>3.4.3 <a href="#s3.3.3"><code>emma:sequence</code>
 element</a></li>
 </ul>
 </li>
-<li>3.5 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.4">Lattice element</a>
+<li>3.5 <a href="#s3.4">Lattice element</a>
   <ul class="tocline">
-<li>3.5.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.4.1">Lattice markup:
+<li>3.5.1 <a href="#s3.4.1">Lattice markup:
 <code>emma:lattice</code>, <code>emma:arc</code>,
 <code>emma:node</code> elements</a></li>
-<li>3.5.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.4.2">Annotations on lattices</a></li>
-<li>3.5.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.4.3">Relative timestamps on
+<li>3.5.2 <a href="#s3.4.2">Annotations on lattices</a></li>
+<li>3.5.3 <a href="#s3.4.3">Relative timestamps on
 lattices</a></li>
 </ul>
 </li>
-<li>3.6 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.5">Literal semantics:
+<li>3.6 <a href="#s3.5">Literal semantics:
 <code>emma:literal</code> element</a></li>
 </ul>
 </li>
-<li>4 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4">EMMA annotations</a>
+<li>4 <a href="#s4">EMMA annotations</a>
 <ul class="tocline">
-<li>4.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1">EMMA annotation elements</a>
+<li>4.1 <a href="#s4.1">EMMA annotation elements</a>
 <ul class="tocline">
-<li>4.1.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.1">Data model: <code>emma:model</code>
+<li>4.1.1 <a href="#s4.1.1">Data model: <code>emma:model</code>
 element</a></li>
-<li>4.1.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Interpretation derivation:
+<li>4.1.2 <a href="#s4.1.2">Interpretation derivation:
 <code>emma:derived-from</code> element and
 <code>emma:derivation</code> element</a></li>
-<li>4.1.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.3">Reference to grammar used:
+<li>4.1.3 <a href="#s4.1.3">Reference to grammar used:
 <code>emma:grammar</code> element</a></li>
-<li>4.1.4 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.4">Reference to grammars active: <code>emma:grammar-active</code> element</a></li>
-<li>4.1.5 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.5">Extensibility to application/vendor
+<li>4.1.4 <a href="#s4.1.4">Reference to grammars active: <code>emma:grammar-active</code> element</a></li>
+<li>4.1.5 <a href="#s4.1.5">Extensibility to application/vendor
 specific annotations: <code>emma:info</code> element</a></li>
-<li>4.1.6 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.6">Endpoint reference:
+<li>4.1.6 <a href="#s4.1.6">Endpoint reference:
 <code>emma:endpoint-info</code> element and
 <code>emma:endpoint</code> element</a></li>
-<li>4.1.7 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.7">Reference to process model used: <code>emma:process-model</code> element</a></li>
-<li>4.1.8 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.8">Reference parameters used by a process: <code>emma:parameters</code> and <code>emma:parameter</code> elements</a></li>
-<li>4.1.9 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.9">Human annotation: <code>emma:annotation</code><code></code> element</a></li>
-<li>4.1.10 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.10" >Location: <code>emma:location</code> element</a></li>
+<li>4.1.7 <a href="#s4.1.7">Reference to process model used: <code>emma:process-model</code> element</a></li>
+<li>4.1.8 <a href="#s4.1.8">Reference parameters used by a process: <code>emma:parameters</code> and <code>emma:parameter</code> elements</a></li>
+<li>4.1.9 <a href="#s4.1.9">Human annotation: <code>emma:annotation</code><code></code> element</a></li>
+<li>4.1.10 <a href="#s4.1.10" >Location: <code>emma:location</code> element</a></li>
 </ul>
 </li>
-<li>4.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2">EMMA annotation attributes</a>
+<li>4.2 <a href="#s4.2">EMMA annotation attributes</a>
 <ul class="tocline">
-<li>4.2.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.1">Tokens of input:
+<li>4.2.1 <a href="#s4.2.1">Tokens of input:
       <code>emma:tokens</code>, <code>emma:token-type</code> and <code>emma:token-score</code> attributes</a></li>
-<li>4.2.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.2">Reference to processing:
+<li>4.2.2 <a href="#s4.2.2">Reference to processing:
 <code>emma:process</code> attribute</a></li>
-<li>4.2.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.3">Lack of input:
+<li>4.2.3 <a href="#s4.2.3">Lack of input:
 <code>emma:no-input</code> attribute</a></li>
-<li>4.2.4 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.4">Uninterpreted input:
+<li>4.2.4 <a href="#s4.2.4">Uninterpreted input:
 <code>emma:uninterpreted</code> attribute</a></li>
-<li>4.2.5 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.5">Human language of input:
+<li>4.2.5 <a href="#s4.2.5">Human language of input:
 <code>emma:lang</code> attribute</a></li>
-<li>4.2.6 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.6">Reference to signal:
+<li>4.2.6 <a href="#s4.2.6">Reference to signal:
 <code>emma:signal</code> <span>and
 <code>emma:signal-size</code></span> attributes</a></li>
-<li>4.2.7 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.7">Media type:
+<li>4.2.7 <a href="#s4.2.7">Media type:
 <code>emma:media-type</code> attribute</a></li>
-<li>4.2.8 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.8">Confidence scores:
+<li>4.2.8 <a href="#s4.2.8">Confidence scores:
 <code>emma:confidence</code> attribute</a></li>
-<li>4.2.9 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.9">Input source: <code>emma:source</code>
+<li>4.2.9 <a href="#s4.2.9">Input source: <code>emma:source</code>
 attribute</a></li>
-<li>4.2.10 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10">Timestamps</a>
+<li>4.2.10 <a href="#s4.2.10">Timestamps</a>
 <ul class="tocline">
-<li>4.2.10.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.1">Absolute timestamps:
+<li>4.2.10.1 <a href="#s4.2.10.1">Absolute timestamps:
 <code>emma:start</code>, <code>emma:end</code> attributes</a></li>
-<li>4.2.10.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.2">Relative timestamps:
+<li>4.2.10.2 <a href="#s4.2.10.2">Relative timestamps:
 <code>emma:time-ref-uri</code>,
 <code>emma:time-ref-anchor-point</code>,
 <code>emma:offset-to-start</code> attributes</a></li>
-<li>4.2.10.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.3">Duration of input:
+<li>4.2.10.3 <a href="#s4.2.10.3">Duration of input:
 <code>emma:duration</code> attribute</a></li>
-<li>4.2.10.4 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.4">Composite Input and
+<li>4.2.10.4 <a href="#s4.2.10.4">Composite Input and
 Relative Timestamps</a></li>
 </ul>
 </li>
-<li>4.2.11 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.11">Medium, mode, and function of user
+<li>4.2.11 <a href="#s4.2.11">Medium, mode, and function of user
 inputs: <code>emma:medium</code>, <code>emma:mode</code>,
 <code>emma:function</code>, <code>emma:verbal,emma:device-type,</code> and <code>emma:expressed-through</code>
 attributes</a></li>
-<li>4.2.12 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.12">Composite multimodality:
+<li>4.2.12 <a href="#s4.2.12">Composite multimodality:
 <code>emma:hook</code> attribute</a></li>
-<li>4.2.13 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.13">Cost: <code>emma:cost</code>
+<li>4.2.13 <a href="#s4.2.13">Cost: <code>emma:cost</code>
 attribute</a></li>
-<li>4.2.14 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.14">Endpoint properties:
+<li>4.2.14 <a href="#s4.2.14">Endpoint properties:
 <code>emma:endpoint-role</code>,
 <code>emma:endpoint-address</code>, <code>emma:port-type</code>,
 <code>emma:port-num</code>, <code>emma:message-id</code>,
 <code>emma:service-name</code>, <code>emma:endpoint-pair-ref</code>,
 <code>emma:endpoint-info-ref</code>
 attributes</a></li>
-<li>4.2.15 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.15">Reference to
+<li>4.2.15 <a href="#s4.2.15">Reference to
 <code>emma:grammar</code> element: <code>emma:grammar-ref</code>
 attribute</a></li>
-<li>4.2.16 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.16">Reference to <code>emma:model</code>
+<li>4.2.16 <a href="#s4.2.16">Reference to <code>emma:model</code>
 element: <code>emma:model-ref</code> attribute</a></li>
-<li>4.2.17 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.17">Dialog turns:
+<li>4.2.17 <a href="#s4.2.17">Dialog turns:
 <code>emma:dialog-turn</code> attribute</a></li>
-<li>4.2.18 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.18">Semantic representation type:
+<li>4.2.18 <a href="#s4.2.18">Semantic representation type:
 <code>emma:output-format</code> attribute</a></li>
-<li>4.2.19 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.19">Reference to <code>emma:info</code> element: <code>emma:info-ref</code> attribute</a></li>
-<li>4.2.20 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.20">Reference to <code>emma:process-model</code> element: <code>emma:process-model-ref</code> attribute</a></li>
-<li>4.2.21 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.21">Reference to <code>emma:parameters</code>
+<li>4.2.19 <a href="#s4.2.19">Reference to <code>emma:info</code> element: <code>emma:info-ref</code> attribute</a></li>
+<li>4.2.20 <a href="#s4.2.20">Reference to <code>emma:process-model</code> element: <code>emma:process-model-ref</code> attribute</a></li>
+<li>4.2.21 <a href="#s4.2.21">Reference to <code>emma:parameters</code>
 element: <code>emma:parameter-ref</code> attribute</a></li>
-<li>4.2.22 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.22">Human transcription: the <code>emma:annotated-tokens</code> attribute</a></li>
-<li >4.2.23 <a  href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.23">Partial content: <code>emma:partial-content</code></a></li>
+<li>4.2.22 <a href="#s4.2.22">Human transcription: the <code>emma:annotated-tokens</code> attribute</a></li>
+<li >4.2.23 <a  href="#s4.2.23">Partial content: <code>emma:partial-content</code></a></li>
 <li >4.2.24 <a href="#s4.2.24">Incremental results:<code> emma:stream-id</code>, <code>emma:stream-seq-num, emma:stream-status</code>, <code>emma:stream-full-result</code>, <code>emma:stream-token-span</code>, <code>emma:stream-token-span-full, emma:stream-token-immortals</code>, <code>emma:stream-immortal-vertex</code></a></li>
 <ul class="tocline">
 <li>4.2.24.1 <a href="#s4.2.24.1">Example use case of incremental results in dictation</a></li>
@@ -355,41 +355,41 @@ element: <code>emma:parameter-ref</code> attribute</a></li>
 <li > </li>
 </ul>
 </li>
-<li>4.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.3">Scope of EMMA annotations</a></li>
+<li>4.3 <a href="#s4.3">Scope of EMMA annotations</a></li>
 </ul>
 </li>
-<li>5.<a href="https://www.w3.org/2002/mmi/Group/emma11/#s5">Conformance</a>
+<li>5.<a href="#s5">Conformance</a>
 <ul class="tocline">
-<li>5.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s5.1">Conforming EMMA Documents</a></li>
-<li>5.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s5.2">Using EMMA with other Namespaces</a></li>
-<li>5.3 <a href="https://www.w3.org/2002/mmi/Group/emma11/#s5.3">Conforming EMMA Processors</a></li>
+<li>5.1 <a href="#s5.1">Conforming EMMA Documents</a></li>
+<li>5.2 <a href="#s5.2">Using EMMA with other Namespaces</a></li>
+<li>5.3 <a href="#s5.3">Conforming EMMA Processors</a></li>
 </ul>
 </li>
-<li><a href="https://www.w3.org/2002/mmi/Group/emma11/#appendices">Appendices</a>
+<li><a href="#appendices">Appendices</a>
 <ul class="tocline">
-<li>Appendix A. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appA">XML and <span>RELAX NG</span>
+<li>Appendix A. <a href="#appA">XML and <span>RELAX NG</span>
 schemata</a> <span>(Normative)</span></li>
-<li>Appendix B. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appB">MIME type</a>
+<li>Appendix B. <a href="#appB">MIME type</a>
 <span>(Normative)</span>
 <ul>
-<li>B.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#media-type-registration">Registration of
+<li>B.1 <a href="#media-type-registration">Registration of
 MIME media type application/emma+xml</a></li>
 </ul>
 </li>
-<li>Appendix C. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appC"><code>emma:hook</code> and SRGS</a>
+<li>Appendix C. <a href="#appC"><code>emma:hook</code> and SRGS</a>
 <span>(Informative)</span></li>
-<li>Appendix D. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appD">EMMA event interface</a>
+<li>Appendix D. <a href="#appD">EMMA event interface</a>
 <span>(Informative)</span></li>
-<li>Appendix E. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appE">References</a>
+<li>Appendix E. <a href="#appE">References</a>
 <ul>
-<li>E.1 <a href="https://www.w3.org/2002/mmi/Group/emma11/#appE1">Normative references</a></li>
-<li>E.2 <a href="https://www.w3.org/2002/mmi/Group/emma11/#appE2"><span>Informative</span>
+<li>E.1 <a href="#appE1">Normative references</a></li>
+<li>E.2 <a href="#appE2"><span>Informative</span>
 references</a></li>
 </ul>
 </li>
-<li>Appendix F. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appF">Changes since EMMA 1.0</a>
+<li>Appendix F. <a href="#appF">Changes since EMMA 1.0</a>
 <span>(Informative)</span></li>
-<li>Appendix G. <a href="https://www.w3.org/2002/mmi/Group/emma11/#appG">Acknowledgements</a>
+<li>Appendix G. <a href="#appG">Acknowledgements</a>
 <span>(Informative)</span></li>
 </ul>
 </li>
@@ -399,7 +399,7 @@ references</a></li>
 <p>This document presents an XML specification for EMMA, an
 Extensible MultiModal Annotation markup language, responding to the
 requirements documented in <span>Requirements for EMMA</span>
-[<a href="https://www.w3.org/2002/mmi/Group/emma11/#EMMAreqs">EMMA <span>Requirements</span></a>]. This
+[<a href="#EMMAreqs">EMMA <span>Requirements</span></a>]. This
 markup language is intended for use by systems that provide
 semantic interpretations for a variety of inputs and representations for a variety of system outputs. Possible inputs include but are not
 necessarily limited to, speech, natural language text, GUI and ink Possible outputs include speech, text, GUI, vibration, and gestures made by embodied agents or robots.</p>
@@ -452,12 +452,12 @@ all the types of data within an EMMA document.)</li>
   kinds of metadata to be included in application specific
   vocabularies. EMMA itself can be extended with application and
   vendor specific annotations contained within the
-  <code>emma:info</code> element <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.5">Section
+  <code>emma:info</code> element <span>(<a href="#s4.1.5">Section
   4.1.5</a>)</span>.</li>
 </ul>
 <p>The annotations of EMMA should be considered 'normative' in the
 sense that if an EMMA component produces annotations as described
-in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3">Section 3</a> <span>and <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4">Section
+in <a href="#s3">Section 3</a> <span>and <a href="#s4">Section
 4</a></span>, these annotations must be represented using the EMMA
 syntax. The Multimodal Interaction Working Group may address in
 later drafts the issues of modularization and profiling; that is,
@@ -469,7 +469,7 @@ EMMA component.</p>
 component, where input is to be taken in the general sense of a
   meaningful user input in any modality supported by the platform. In the case of output, EMMA represents the stages in the production of a system output.</p>
 <p>The reader should refer to the sample architecture in <span>W3C
-  Multimodal Interaction Framework</span> <a href="https://www.w3.org/2002/mmi/Group/emma11/#MMIF">[<span>MMI
+  Multimodal Interaction Framework</span> <a href="#MMIF">[<span>MMI
     Framework</span>]</a>, which shows EMMA conveying content between
   user input modality components and an interaction manager. EMMA is one potential transport for system output from an interaction manager to system output modality components.</p>
 <p>Input processing components that generate EMMA markup:</p>
@@ -525,7 +525,7 @@ interpretations of user input or representations of system output.</dd>
 input, and higher level interpretations may be derived from lower
 level ones. EMMA allows you to reference the user input or
 interpretation a given interpretation was derived from, see
-<a href="https://www.w3.org/2002/mmi/Group/emma11/#semantic-interpretation"><em>semantic
+<a href="#semantic-interpretation"><em>semantic
 interpretation</em></a>. A system output is said to be derived from a semantic representation produced by the system. There may be multiple stages to the production of a system output and EMMA allows you to reference the previous stage that it was derived from.</dd>
 <dt id="dialog">dialog</dt>
 <dd>For EMMA, dialog can be considered as a sequence of
@@ -542,7 +542,7 @@ end of a speech input.</dd>
 by the user or application. An example is circling an area on a map
 to indicate a region of interest. Users may be able to gesture with
 a pen, keystrokes, hand movements, head
-movements, or sound. Gestures often form part of <a href="https://www.w3.org/2002/mmi/Group/emma11/#composite-input"><em>composite input</em></a>. Application
+movements, or sound. Gestures often form part of <a href="#composite-input"><em>composite input</em></a>. Application
 gestures are typically animations and/or sound effects. Gestures may also be made by a system, e.g. highlighting on a graphical display or physical arm/hand motions by an embodied virtual agent or physical robotic agent.</dd>
 <dt id="grammar">grammar</dt>
 <dd>A set of rules that describe a sequence of tokens expected in a
@@ -672,14 +672,14 @@ to provide a composite input involving multiple modes.</dd>
   <dd>A URI is a unifying syntax for the expression of names and
     addresses of objects on the network as used in the World Wide Web.
     <span>Within this specification, the term URI refers to a Universal
-      Resource Identifier as defined in [<a href="https://www.w3.org/2002/mmi/Group/emma11/#RFC3986">RFC3986</a>]
-      and extended in [<a href="https://www.w3.org/2002/mmi/Group/emma11/#RFC3987">RFC3987</a>] with the new name
+      Resource Identifier as defined in [<a href="#RFC3986">RFC3986</a>]
+      and extended in [<a href="#RFC3987">RFC3987</a>] with the new name
       IRI. The term URI has been retained in preference to IRI to avoid
       introducing new names for concepts such as "Base URI" that are
       defined or referenced across the whole family of XML
     specifications</span>. A URI is defined as any legal
     <code>anyURI</code> primitive as defined in XML Schema Part 2:
-  Datatypes Second Edition Section 3.2.17 [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XSD2">SCHEMA2</a>].</dd>
+  Datatypes Second Edition Section 3.2.17 [<a href="#XSD2">SCHEMA2</a>].</dd>
   <dt id="user-input">user input</dt>
   <dd>An input provided by a user as opposed to something generated
   automatically.</dd>
@@ -709,63 +709,63 @@ interpretations and instances, and an annotative syntax to apply
 the annotation to the input data and output data at different levels.</p>
 <p>An outline of the structural syntax and annotations found in
 EMMA documents is as follows. A fuller definition may be found in
-the description of individual elements and attributes in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3"><span>S</span>ection 3</a> and <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4"><span>S</span>ection 4</a>.</p>
+the description of individual elements and attributes in <a href="#s3"><span>S</span>ection 3</a> and <a href="#s4"><span>S</span>ection 4</a>.</p>
 <ul>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s3">EMMA <span>s</span>tructural
-<span>e</span>lements</a></b> (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3">Section 3</a>)
+<li><b><a href="#s3">EMMA <span>s</span>tructural
+<span>e</span>lements</a></b> (<a href="#s3">Section 3</a>)
 <ul>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.1">Root element</a></b>: The root node of an
+<li><b><a href="#s3.1">Root element</a></b>: The root node of an
 EMMA document, the <code>emma:emma</code> element, holds EMMA
 version and namespace information, and provides a container for one
 or more of the following interpretation and container elements
-(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.1">Section 3.1</a>)</li>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.2">Interpretation element</a></b>: The
+(<a href="#s3.1">Section 3.1</a>)</li>
+<li><b><a href="#s3.2">Interpretation element</a></b>: The
 <code>emma:interpretation</code> element contains a given
 interpretation of the input and holds application specific markup
-(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.2">Section 3.2</a>)</li>
+(<a href="#s3.2">Section 3.2</a>)</li>
 <li >Output element: The <code>emma:output </code>element contains a given instantiation of system output and holds application specific markup. (Section 3.3)</li>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3">Container elements</a>:</b>
+<li><b><a href="#s3.3">Container elements</a>:</b>
 <ul>
 <li><code>emma:one-of</code> is a container for one or more
 interpretation elements, output elements, or container elements and denotes that
-these are mutually exclusive interpretations or possible system outputs (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.1">Section 3.3.1</a>)</li>
+these are mutually exclusive interpretations or possible system outputs (<a href="#s3.3.1">Section 3.3.1</a>)</li>
 <li><code>emma:group</code> is a general container for one or more
 interpretation elements, output elements, or container elements. It can be associated
-with arbitrary grouping criteria (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.2">Section
+with arbitrary grouping criteria (<a href="#s3.3.2">Section
 3.3.2</a>).</li>
 <li><code>emma:sequence</code> is a container for one or more
 interpretation elements, output elements, or container elements and denotes that
-these are sequential in time (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.3">Section
+these are sequential in time (<a href="#s3.3.3">Section
 3.3.3</a>).</li>
 </ul>
 </li>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.4">Lattice element</a></b>: The
+<li><b><a href="#s3.4">Lattice element</a></b>: The
 <code>emma:lattice</code> element is used to contain a series of
 <code>emma:arc</code> and <code>emma:node</code> elements that
 define a lattice of words, gestures, meanings or other symbols. The
 <code>emma:lattice</code> element appears within the
-<code>emma:interpretation</code> element (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.4">Section
+<code>emma:interpretation</code> element (<a href="#s3.4">Section
 3.4</a>) or within the <code>emma:output</code> element.</li>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.5">Literal element</a></b>: The
+<li><b><a href="#s3.5">Literal element</a></b>: The
 <code>emma:literal</code> element is used as a wrapper when the
-application semantics is a string literal. (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.5">Section
+application semantics is a string literal. (<a href="#s3.5">Section
 3.5</a>)</li>
 </ul>
 </li>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s4">EMMA annotations</a></b> (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4">Section 4</a>)
+<li><b><a href="#s4">EMMA annotations</a></b> (<a href="#s4">Section 4</a>)
 <ul>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1">EMMA annotation elements</a></b>: These are
+<li><b><a href="#s4.1">EMMA annotation elements</a></b>: These are
 EMMA annotations such as <code>emma:derived-from</code>,
 <code>emma:endpoint-info</code>, and <code>emma:info</code> which
 are represented as elements so that they can occur more than once
-within an element and can contain internal structure. (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1">Section 4.1</a>)</li>
-<li><b><a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2">EMMA annotation attributes</a></b>: These
+within an element and can contain internal structure. (<a href="#s4.1">Section 4.1</a>)</li>
+<li><b><a href="#s4.2">EMMA annotation attributes</a></b>: These
 are EMMA annotations such as <code>emma:start</code>,
 <code>emma:end</code> , <code>emma:confidence</code>, and
 <code>emma:tokens</code> which are represented as attributes. They
 can appear on <code>emma:interpretation</code> elements or <code>emma:output</code> elements<span>.
 S</span>ome can appear on container elements, lattice elements, and
-elements in the application-specific markup. (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2">Section 4.2</a>)</li>
+elements in the application-specific markup. (<a href="#s4.2">Section 4.2</a>)</li>
 </ul>
 </li>
 </ul>
@@ -845,7 +845,7 @@ associated with each of the inputs are annotated using the EMMA
 annotation attributes <code>emma:confidence</code> and
 <code>emma:tokens</code> on each of the
 <code>emma:interpretation</code> elements.</p>
-<p>Attributes in EMMA cascade from a containing <code>emma:one-of</code> element to the individual interpretations. In the example above, the <code>emma:start</code>, <code>emma:end</code>, <code>emma:medium</code>, and <code>emma:mode</code> attributes are all specified once on <code>emma:one-of</code> but apply to both of the contained <code>emma:interpretation</code> elements. This is an important mechanism as it limits the need to repeat annotations. More details on the scope of annotations among EMMA structural elements, and also on the scope of annotations within derivations, where multiple different processing stages apply to an input, can be found in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.3">Section 4.3</a>.</p>
+<p>Attributes in EMMA cascade from a containing <code>emma:one-of</code> element to the individual interpretations. In the example above, the <code>emma:start</code>, <code>emma:end</code>, <code>emma:medium</code>, and <code>emma:mode</code> attributes are all specified once on <code>emma:one-of</code> but apply to both of the contained <code>emma:interpretation</code> elements. This is an important mechanism as it limits the need to repeat annotations. More details on the scope of annotations among EMMA structural elements, and also on the scope of annotations within derivations, where multiple different processing stages apply to an input, can be found in <a href="#s4.3">Section 4.3</a>.</p>
 <p >The core of an EMMA document representing system output is <code>emma:output</code>. Like <code>emma:interpretation</code>, <code>emma:output</code> can appear within container elements. In the following example <code>emma:output</code> elements appear within <code>emma:one-of </code>indicating alternative text-to-speech prompts and this structure is captured with <code>emma:group</code> indicating a graphical table to be presented. The <code>emma:medium</code>, <code>emma:mode</code>, <code>emma:verbal</code>, <code>emma:function</code>, <code>emma:result-format</code>, and <code>emma:lang</code> are the same for both TTS prompts and so they can be specified once on the <code>emma:one-of</code> and are assumed to apply to both prompts.</p>
 
 <pre class="example"><a name="fullOutputExample" id="fullOutputExample"></a>&lt;emma:emma version=&quot;2.0&quot;
@@ -910,17 +910,17 @@ definition, application-specific structure). <span>The</span>
 specification of <span>a data model</span> in EMMA is optional.</p>
 <p>Since Web applications today use different formats to specify
 data models, e.g. <span>XML Schema Part 1: Structures Second
-Edition</span> [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XSD1">XML Schema
+Edition</span> [<a href="#XSD1">XML Schema
 <span>Structures</span></a>], XForms <span>1.0 (Second
-Edition)</span> [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XFORMS">XFORMS</a>], <span>RELAX NG
-Specification</span> [<a href="https://www.w3.org/2002/mmi/Group/emma11/#RELAXNG">RELAX-NG</a>], etc., EMMA
+Edition)</span> [<a href="#XFORMS">XFORMS</a>], <span>RELAX NG
+Specification</span> [<a href="#RELAXNG">RELAX-NG</a>], etc., EMMA
 itself is agnostic to the format of data model used.</p>
-<p>Data model definition and reference is defined in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.1">Section 4.1.1</a>.</p>
+<p>Data model definition and reference is defined in <a href="#s4.1.1">Section 4.1.1</a>.</p>
 <h3 id="s2.2">2.<span>2</span> EMMA namespace prefixes</h3>
 <p>An EMMA attribute is qualified with the EMMA namespace prefix if
 the attribute can also be used as an in-line annotation on elements
 in the application's namespace. Most of the EMMA annotation
-attributes in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2">Section 4.2</a> are in this category.
+attributes in <a href="#s4.2">Section 4.2</a> are in this category.
 An EMMA attribute is not qualified with the EMMA namespace prefix
 if the attribute only appears on an EMMA element. This rule ensures
 consistent usage of the attributes across all examples.</p>
@@ -987,7 +987,7 @@ namespaces.</li>
 (<code>emma:one-of</code>, <code>emma:sequence</code>,
 <code>emma:group</code>). It MAY also contain a single
 <code>emma:derivation</code> element containing earlier stages of
-the processing of the input (See <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section
+the processing of the input (See <a href="#s4.1.2">Section
 4.1.2</a>). It MAY also contain multiple optional
 <code>emma:grammar</code>, <code>emma:model</code>, and
 <code>emma:endpoint-info</code> ,<span> <code>emma:info</code>, <code>emma:process-model</code>, <code>emma:parameters</code>, and <code>emma:annotation</code> elements.</span></p>
@@ -1001,7 +1001,7 @@ examples, the EMMA namespace is generally declared using the
 attribute <code>xmlns:emma</code> on the root
 <code>emma:emma</code> element. EMMA processors MUST support the
 full range of ways of declaring XML namespaces as defined by the
-<span>Namespaces in XML 1.1 (Second Edition)</span> [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XMLNS">XMLNS</a>]. Application markup <span>MUST</span> be declared<span> either</span> in an
+<span>Namespaces in XML 1.1 (Second Edition)</span> [<a href="#XMLNS">XMLNS</a>]. Application markup <span>MUST</span> be declared<span> either</span> in an
 explicit application namespace, or an undefined namespace
 by setting xmlns="".</p>
 <p>For example:</p>
@@ -1128,11 +1128,11 @@ interpretation represented in application specific markup, or a
 single <code>emma:lattice</code> element, or a single
 <code>emma:literal</code> element.</p>
 <p>The <code>emma:interpretation</code> element MUST be empty if it
-is marked with <code>emma:no-input="true"</code> <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.3">Section 4.2.3</a>)</span>. The
+is marked with <code>emma:no-input="true"</code> <span>(<a href="#s4.2.3">Section 4.2.3</a>)</span>. The
 <code>emma:interpretation</code> element <span>MUST</span> be empty
 if it has been annotated with
-<code>emma:uninterpreted="true"</code> <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.4">Section 4.2.4</a>)</span> or
-<code>emma:function="recording"</code> <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.11">Section 4.2.11</a>)</span>.</p>
+<code>emma:uninterpreted="true"</code> <span>(<a href="#s4.2.4">Section 4.2.4</a>)</span> or
+<code>emma:function="recording"</code> <span>(<a href="#s4.2.11">Section 4.2.11</a>)</span>.</p>
 <p>Attributes:</p>
 <ol>
 <li><b>id</b> a REQUIRED <code>xsd:ID</code> value that uniquely
@@ -1686,9 +1686,9 @@ element<span>s</span> and multiple <code>emma:info</code> <span>element</span><s
   related in some manner. <code>emma:group</code> MUST NOT be used
   for containing the multiple stages of processing of a single user
   input. Those MUST be contained in the <code>emma:derivation</code>
-  element instead <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section 4.1.2</a>)</span>.
+  element instead <span>(<a href="#s4.1.2">Section 4.1.2</a>)</span>.
   For groups of inputs in temporal order the more specialized
-  container <code>emma:sequence</code> MUST be used <span>(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.3">Section 3.3.3</a>)</span>. The following example shows
+  container <code>emma:sequence</code> MUST be used <span>(<a href="#s3.3.3">Section 3.3.3</a>)</span>. The following example shows
   three interpretations derived from the speech input "Move this
   ambulance here" and the tactile input related to two consecutive
 points on a map.</p>
@@ -1912,7 +1912,7 @@ its follower), or which overlap in some manner (e.g. the start-time
 of a follower interpretation precedes the end-time of its
 precedent). It is possible to use timestamps to provide fine
 grained annotation for the sequence of interpretations that are
-sequential in time <span>(see <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10">Section
+sequential in time <span>(see <a href="#s4.2.10">Section
 4.2.10)</a></span>.</p>
 <p>In the following more complex example, a sequence of two pen
 gestures in <code>emma:sequence</code> and a speech input in
@@ -2636,7 +2636,7 @@ represented in EMMA as follows:</p>
 <p>This section defines annotations in the EMMA namespace including
 both attributes and elements. The values are specified in terms of
 the data types defined by XML Schema Part 2: Datatypes <span>Second
-Edition</span> [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XSD2"><span>XML Schema
+Edition</span> [<a href="#XSD2"><span>XML Schema
 Datatypes</span></a>].</p>
 <h3 id="s4.1">4.1 EMMA annotation elements</h3>
 <h3 id="s4.1.1">4.1.1 Data model: <code>emma:model</code>
@@ -3001,11 +3001,11 @@ annotations that appear on a composite input are that the
 <code>emma:medium</code> attribute MUST contain the union of the
 <code>emma:medium</code> attributes on the combining inputs,
 represented as a space delimited set of <code>nmtokens</code> as
-defined in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.11">Section 4.2.11</a>, and that the
+defined in <a href="#s4.2.11">Section 4.2.11</a>, and that the
 <code>emma:mode</code> attribute MUST contain the union of the
 <code>emma:mode</code> attributes on the combining inputs,
 represented as a space delimited set of <span><code>nmtokens</code>
-as defined in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.11">Section 4.2.11</a></span>. In the
+as defined in <a href="#s4.2.11">Section 4.2.11</a></span>. In the
 example above this meanings that the <code>emma:medium</code> value
 is <code>"acoustic tactile"</code> and the <code>emma:mode</code>
 attribute is <code>"voice ink"</code>. How all other annotations
@@ -3025,7 +3025,7 @@ can be achieved by taking the earlier of the
 later of the <code>emma:end</code> values
 (<code>emma:end="1087995964000"</code> in the example). The
 determination of relative timestamps for composite is more complex,
-informative guidance is given in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.10.4">Section
+informative guidance is given in <a href="#s4.2.10.4">Section
 4.2.10.4</a>. Generally speaking the <code>emma:confidence</code>
 value will be some numerical combination of the confidence scores
 assigned to the combining inputs. In our example, it is the result
@@ -3125,7 +3125,7 @@ derived from.</p>
   &lt;/emma:derivation&gt;
 &lt;/emma:emma&gt;
 </pre>
-<p><a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.3">Section 4.3</a> provides further examples of the
+<p><a href="#s4.3">Section 4.3</a> provides further examples of the
 use of <code>emma:derived-from</code> to represent sequential
 derivations and addresses the issue of the scope of EMMA
 annotations across derivations of user input.</p>
@@ -3404,7 +3404,7 @@ the EMMA elements <code>emma:emma</code>,
 </tr>
 </tbody>
 </table>
-<p>In <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2">Section 4.2</a>, a series of attributes are
+<p>In <a href="#s4.2">Section 4.2</a>, a series of attributes are
 defined for representation of metadata about user inputs in a
 standardized form. EMMA also provides an extensibility mechanism
 for annotation of user inputs with vendor or application specific
@@ -3467,7 +3467,7 @@ element. The semantics of conflicting annotations in
 within <code>emma:emma</code> and <code>emma:interpretation</code>,
 are left to the developer of the vendor/application specific
 annotations.</p>
-<p>There may be more than one <code>emma:info</code> element. One of the functions of this is to enable specification interpretations to indicate which <code>emma:info</code> applies to them using <code>emma:info-ref</code><var>. </var>If <code>emma:info</code> has the optional <code>id</code> attribute then the <code>emma:info-ref</code> attribute (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.19">Section 4.2.19</a>) can be used on <code>emma:interpretation</code> and other container elements to indicate that a particular set of application/vendor specific annotations apply to a particular interpretation. </p>
+<p>There may be more than one <code>emma:info</code> element. One of the functions of this is to enable specification interpretations to indicate which <code>emma:info</code> applies to them using <code>emma:info-ref</code><var>. </var>If <code>emma:info</code> has the optional <code>id</code> attribute then the <code>emma:info-ref</code> attribute (<a href="#s4.2.19">Section 4.2.19</a>) can be used on <code>emma:interpretation</code> and other container elements to indicate that a particular set of application/vendor specific annotations apply to a particular interpretation. </p>
 <p>The <code>emma:info</code>
 element can therefore have either position scope (applies to the element it appears in and the interpretations within in), or index scope where  <code>emma:info-ref </code>attributes are used to show which interpretations a particular <code>emma:info</code> applies to. In order to distinguish emma:info elements that have positional vs. index scope the indexed attribute must be used. The attribute<code> indexed=true</code> indicates that the <code>emma:info</code> it appears on does not have positional scope and instead is referenced using <code>emma:info-ref</code>. The attribute<code> indexed=false</code> indicates than an <code>emma:info</code> has positional scope. The default value if <code>indexed</code> is not specified is <code>false</code>. The <code>indexed</code> attribute is required if and only if there is an <code>emma:info-ref </code>that refers to the <code>id</code> of the <code>emma:info</code>.</p>
 <p >The <code>ref</code> attribute can also be used on <code>emma:info</code> instead of placing the application/vendor specific annotations inline. For example, assuming the example above was available at <code>http://example.com/examples/123/emma.xml</code>, the EMMA document delivered to an EMMA consumer could be:</p>
@@ -3578,7 +3578,7 @@ element <code>emma:endpoint</code> can be used for this purpose. It
 can specify the endpoint properties based on a set of common
 endpoint property attributes in EMMA, such as
 <code>emma:endpoint-address</code>, <code>emma:port-num</code>,
-<code>emma:port-type</code>, etc. (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.14">Section
+<code>emma:port-type</code>, etc. (<a href="#s4.2.14">Section
 4.2.14</a>). Moreover, it provides an extensible annotation
 structure that allows the inclusion of application and vendor
 specific endpoint properties.</p>
@@ -3823,7 +3823,7 @@ the <code>emma:parameters</code> element.</td>
 <p>A set of parameters that were used to configure the EMMA processor that produces an EMMA result MAY be
 specified with the <code>emma:parameters</code> annotation defined as
 an element in the EMMA namespace. The <code>emma:parameter-ref</code> attribute 
-(Section <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.21">4.2.21</a>) appears on the specific <code>emma:interpretation</code> or other container element and references the
+(Section <a href="#s4.2.21">4.2.21</a>) appears on the specific <code>emma:interpretation</code> or other container element and references the
 appropriate <code>emma:parameters</code> element.&nbsp;For example, typical parameters for speech recognition such as confidence thresholds, speed vs. accuracy, timeouts, settings for endpointing etc can be included in <code>emma:parameters</code>.</p>
 <p>For each <code>emma:parameters </code>element there MUST be an <code>emma:parameter-ref</code> in the document those value is the <code>id</code> of that <code>emma:parameters</code>. The<code> emma:parameters</code> element cannot have positional scope.</p>
 <p>The optional attribute  <code>api-ref </code>on<code> emma:parameter</code> and <code>emma:parameters</code>, specifies the specific API that the name and value of a parameter is drawn from or names and values of the set of parameters are drawn from. It's value is a string from an open set including: <strong>{vxml2.1, vxml2.0, MRCPv2, MRCPv1, html+speech, OpenCV....}</strong>. A parameters <code>name</code> and <code>value</code> are from the API specified in <code>api-ref</code> on the <code>emma:parameter</code> element if present. Otherwise, they are from the API specified in <code>api-ref</code>, if present, on the surrounding <code>emma:parameters</code> element. If the <code>api-ref</code> is not defined on either <code>emma:parameter</code> or <code>emma:parameters</code> the API that the name(s) and value(s) are drawn from is undefined.</p>
@@ -3901,7 +3901,7 @@ to is captured by the<code> emma:parameter-ref</code> attribute. </p>
 </span>
 <p>In addition to specifying annotations inline the ref attribute on the <code>emma:annotation</code> element can be used to refer to an external document containing the annotation content.</p>
 <span>
-<p>In the following example, the EMMA document contains an N-best list with two recognition hypotheses and their semantic representations. Under <code>emma:one-of </code>there are three different annotations all made by different annotators on different days and times. The first is the transcription, this indicates that in fact neither of the N-best results was correct and actual utterance spoken was "flights from austin to denver tomorrow". The second annotation (<code>label2</code>) contains the annotated semantic intepretation of the reference string. The third annotation contains an additional piece of metadata captured by a human labeller, specifically it captures the fact that based on the audio, the user's emotional state was angry. Here as an illustration we utilize <a href="https://www.w3.org/2002/mmi/Group/emma11/#emotionml">Emotion ML</a> markup.</p>
+<p>In the following example, the EMMA document contains an N-best list with two recognition hypotheses and their semantic representations. Under <code>emma:one-of </code>there are three different annotations all made by different annotators on different days and times. The first is the transcription, this indicates that in fact neither of the N-best results was correct and actual utterance spoken was "flights from austin to denver tomorrow". The second annotation (<code>label2</code>) contains the annotated semantic intepretation of the reference string. The third annotation contains an additional piece of metadata captured by a human labeller, specifically it captures the fact that based on the audio, the user's emotional state was angry. Here as an illustration we utilize <a href="#emotionml">Emotion ML</a> markup.</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -3962,10 +3962,10 @@ to is captured by the<code> emma:parameter-ref</code> attribute. </p>
 </pre>
 <p> In addition to this more powerful mechanism for adding human annotation to a document, 
   EMMA also provides a shorthand <code>emma:annotated-tokens</code> attribute for the common use case of 
-adding reference transcriptions to an EMMA document (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s.4.2.22">Section 4.2.22</a>) .</p>
+adding reference transcriptions to an EMMA document (<a href="#s.4.2.22">Section 4.2.22</a>) .</p>
 <p>Note that 'annotation' as used in the <code>emma:annotation</code> element and the <code>emma:annotated-tokens</code> attribute refers only to annotations made in a post process by human labellers to indicate what the correct processing (reference) of an input should have been or to annotate other aspects of the input. This differs from the general sense of annotation as used more broadly in the specification as in the title "Extensible MultiModal Annotation", which refers in general to metadata provided about an input either by an EMMA processor or by a human labeller. The many annotation elements and attributes in EMMA are used to indicate metadata captured regarding an input. The<code> emma:annotation </code>element and <code>emma:annotated-tokens</code> attribute are specifically for the addition of information provided by human labellers.</p>
 </span>
-<p >Annotations such the  <a href="https://www.w3.org/2002/mmi/Group/emma11/#emotionml">Emotion ML</a> in the example above can also be stored in separate files and referenced on an <code>emma:annotation</code> element using <code>ref</code>. Like <code>emma:parameters</code>, a partial specification of the annotation can be provided inline and <code>emma:partial-content="true"</code> provides an indication that the full annotation can be accessed at <code>ref</code>.</p>
+<p >Annotations such the  <a href="#emotionml">Emotion ML</a> in the example above can also be stored in separate files and referenced on an <code>emma:annotation</code> element using <code>ref</code>. Like <code>emma:parameters</code>, a partial specification of the annotation can be provided inline and <code>emma:partial-content="true"</code> provides an indication that the full annotation can be accessed at <code>ref</code>.</p>
 
 <pre >&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
@@ -4039,10 +4039,10 @@ adding reference transcriptions to an EMMA document (<a href="https://www.w3.org
   </tbody>
 </table>
 <p >Many mobile devices and sensors are equiped with geolocation capabilities and information about where a unimodal or multimodal event occurred can be very useful both for interpretation and logging. Annotating interpretations with location information in EMMA is achieved with the <code>emma:location</code> element. The <code>emma:location</code> element indicates the location of the capture device. In many cases the device location and the user location will be identical, as in the case where the user is carrying a mobile device. In other use cases (e.g. cameras capturing distant motion, far field microphone arrays) the user may be distant from from the device location. Capturing the location of the user or other source of signal is beyond the scope of the <code>emma:location</code> annotation. Note that <code>emma:location</code> is not intended as a general semantic representation for location information, e.g. a gesture made a location on a map or a spoken location, these rather are part of the interpretation and should be contained within <code>emma:interpretation</code> rather than the <code>emma:location</code> annotation element. The location information in <code>emma:location</code> represents a point in space. Since a device or sensor may be moving during the capture of an input, the location may not be same at the beginning and end of an input. For this reason, the <code>emma:location</code> information is defined to be relative to the beginning of the capture.  Note though that the bearing of the sensor can be annotated using the <code>emma:heading</code> and <code>emma:speed</code> attributes on <code>emma:location</code>. The <code>emma:location</code> element represents the location of single capture device. Uses cases where multiple input devices or sensors are involved in the capture of the input can be represented as composite inputs with an <code>emma:location</code> element annotation on each of the interpretations that are composed. Multimodal Interaction Working Group invites comments on use cases that may require a finer-grained representation of location metadata.</p>
-<p > The <code>emma:location</code> attributes are based on the W3C Geolocation API <a href="https://www.w3.org/2002/mmi/Group/emma11/#geolocation">[Geolocation]</a> specification, with the addition of attributes for a description of the location and address information. The formats of the attributes from the Geolocation API are as defined in that specification. Specifically, they are: </p>
-<p >The geographic coordinate reference system used by the attributes is the World Geodetic System (2d) <a href="https://www.w3.org/2002/mmi/Group/emma11/#ref-wgs">[WGS84]</a>. No   other reference system is supported. </p>
+<p > The <code>emma:location</code> attributes are based on the W3C Geolocation API <a href="#geolocation">[Geolocation]</a> specification, with the addition of attributes for a description of the location and address information. The formats of the attributes from the Geolocation API are as defined in that specification. Specifically, they are: </p>
+<p >The geographic coordinate reference system used by the attributes is the World Geodetic System (2d) <a href="#ref-wgs">[WGS84]</a>. No   other reference system is supported. </p>
 <p >The <code>emma:latitude</code> and <code>emma:longitude</code> attributes are geographic coordinates of the capture device at the beginning of the capture. They MUST be specified in decimal degrees. </p>
-<p >The <code>emma:altitude</code> attribute denotes the height of the position at the beginning of the capture. It MUST be specified in meters above the <a href="https://www.w3.org/2002/mmi/Group/emma11/#ref-wgs">[WGS84]</a> ellipsoid, or as provided by the device's geolocation implementation. If the implementation cannot provide altitude information, the value of this attribute MUST be the empty string.</p>
+<p >The <code>emma:altitude</code> attribute denotes the height of the position at the beginning of the capture. It MUST be specified in meters above the <a href="#ref-wgs">[WGS84]</a> ellipsoid, or as provided by the device's geolocation implementation. If the implementation cannot provide altitude information, the value of this attribute MUST be the empty string.</p>
 <p >The <code>emma:accuracy</code> attribute denotes the accuracy of the latitude and longitude coordinates. It MUST be specified in meters. The value of the <code>emma:accuracy</code> attribute MUST be a non-negative real number. </p>
 <p >The <code>emma:altitudeAccuracy</code> attribute is specified in meters. If the implementation cannot provide altitude information, the value of this attribute MUST be the empty string. Otherwise, the value of the <code>emma:altitudeAccuracy</code> attribute MUST be a non-negative real number. </p>
 <p >The <code>emma:accuracy</code> and <code>emma:altitudeAccuracy</code> values in a EMMA document SHOULD correspond to a 95% confidence level. </p>
@@ -4140,9 +4140,9 @@ application instance data.</td>
 there is no language associated with this value.</p>
 <p>In the case where a grammar is used to constrain input, the
 value will correspond to tokens as defined by the grammar. So for
-an EMMA document produced by input to a SRGS grammar [<a href="https://www.w3.org/2002/mmi/Group/emma11/#SRGS">SRGS</a>], the value of <code>emma:tokens</code> will be
+an EMMA document produced by input to a SRGS grammar [<a href="#SRGS">SRGS</a>], the value of <code>emma:tokens</code> will be
 the list of words and/or phrases that are defined as tokens in SRGS
-(<span>see</span> Section 2.1 <span>of [<a href="https://www.w3.org/2002/mmi/Group/emma11/#SRGS">SRGS</a>]</span>). Items in the <code>emma:tokens</code>
+(<span>see</span> Section 2.1 <span>of [<a href="#SRGS">SRGS</a>]</span>). Items in the <code>emma:tokens</code>
 list are delimited by white space and/or quotation marks for
 phrases containing white space. For example:</p>
 <pre class="example">emma:tokens="arriving at 'Liverpool Street'"
@@ -4360,7 +4360,7 @@ application instance data.</td>
 <p>The <code>emma:lang</code> annotation is used to indicate the
 human language for the input that it annotates. The values of the
 <code>emma:lang</code> attribute are language identifiers as
-defined by <span>IETF Best Current Practice 47 [<a href="https://www.w3.org/2002/mmi/Group/emma11/#BCP47">BCP47</a>]</span>. For example,
+defined by <span>IETF Best Current Practice 47 [<a href="#BCP47">BCP47</a>]</span>. For example,
 <code>emma:lang="fr"</code> denotes French, and
 <code>emma:lang="en-US"</code> denotes US English.
 <code>emma:lang</code> MAY be applied to any
@@ -4540,7 +4540,7 @@ source.</td>
 </table>
 <p>A URI reference to the signal that originated the input
 recognition process MAY be represented in EMMA using the
-<code>emma:signal</code> annotation. <span>For example, in the case of speech recognition, the <code>emma:signal</code> attribute is the annotation used to reference the audio that was recognized. The MIME type of the audio can be indicated using <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.7"><code>emma:media-type</code></a>.</span></p>
+<code>emma:signal</code> annotation. <span>For example, in the case of speech recognition, the <code>emma:signal</code> attribute is the annotation used to reference the audio that was recognized. The MIME type of the audio can be indicated using <a href="#s4.2.7"><code>emma:media-type</code></a>.</span></p>
 <p>Here is an example where the reference to a speech signal is
 represented using the <code>emma:signal</code> annotation on the
 <code>emma:interpretation</code> element:</p>
@@ -4609,7 +4609,7 @@ data.</td>
 <p>The data format of the signal that originated the input MAY be
 represented in EMMA using the <code>emma:media-type</code>
 annotation. An initial set of MIME media types is defined by
-[<a href="https://www.w3.org/2002/mmi/Group/emma11/#RFC2046">RFC2046</a>].</p>
+[<a href="#RFC2046">RFC2046</a>].</p>
 <p>Here is an example where the media type for the ETSI ES 202 212
 audio codec for Distributed Speech Recognition (DSR) is applied to
 the <code>emma:interpretation</code> element. The example also
@@ -4631,7 +4631,8 @@ milliseconds.</p>
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;</pre>
 <p>For output, this could be the planned MIME, for example, what a TTS should generate. A later draft will clarify the semantics of <code>emma:mime-type</code> for output in more detail. </p>
-<p>** Should explain how this can be used to specify the characteristics of the audio to be generated, is this redundant with SSML?</p>
+<p>** Should explain how this can be used to specify the characteristics of the audio to be generated, is this redundant with SSML? **</p>
+<p>&gt; what would default be, value from MIME repository.</p>
 <p>&nbsp;</p>
 <h3>4.2.8 Confidence scores:
   <code>emma:confidence</code> attribute</h3>
@@ -5309,7 +5310,6 @@ whether they use their voice (<code>acoustic</code>), touch
 (<code>tactile</code>), or visual appearance/motion
 (<code>visual</code>) for output . Tactile includes most <i>hand-on</i> input device types such as pen, mouse, keyboard, and
 touch screen or vibration for output. Visual is used for camera input. Visual is also used for output to a display..</p>
-<p>&nbsp;</p>
 <pre class="example">emma:medium = <span>space delimited sequence of values from the set: </span>
             [acoustic|tactile|visual]</pre>
 <p>The mode property provides the ability to distinguish between
@@ -5345,7 +5345,7 @@ input the user physically presses keys on a keypad.</p>
 					 [microphone|keypad|keyboard|touchscreen|touchpad|
                     mouse|pen|joystick|thumbwheel|
                     camera_2d|camera_3d|scanner... ]</pre>
-<p>The <code>emma:device-type</code> attribute SHOULD be used to indicate the general category of the sensor used to captured the input. The specific model number or characteristics SHOULD be captured instead using <code>emma:process</code> (<a href="https://www.w3.org/2002/mmi/Group/emma11/#4.2.2">Section 4.2.2</a>).</p>
+<p>The <code>emma:device-type</code> attribute SHOULD be used to indicate the general category of the sensor used to captured the input. The specific model number or characteristics SHOULD be captured instead using <code>emma:process</code> (<a href="#4.2.2">Section 4.2.2</a>).</p>
 <p>Orthogonal to the mode, user inputs can also be classified with
   respect to their communicative function. This enables a simpler
   mode classification.</p>
@@ -5648,7 +5648,7 @@ complete interpretation. The <code>emma:mode</code> to be
 integrated at that point in the application semantics is indicated
 as the value of the <code>emma:hook</code> attribute. The possible
 values of <code>emma:hook</code> are the list of input modes that
-can be values of <code>emma:mode</code> <span>(see <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.11">Section 4.2.11</a>)</span>. In addition to these, the
+can be values of <code>emma:mode</code> <span>(see <a href="#s4.2.11">Section 4.2.11</a>)</span>. In addition to these, the
 value of <code>emma:hook</code> can also be the wildcard
 <code>any</code> indicating that the other content can come from
 any source. The annotation <code>emma:hook</code> differs in
@@ -5683,7 +5683,7 @@ namespace element using <code>emma:hook</code></span></p>
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
 </pre>
-<p>For more detailed explanation of this example see <a href="https://www.w3.org/2002/mmi/Group/emma11/#appC">Appendix C</a>.</p>
+<p>For more detailed explanation of this example see <a href="#appC">Appendix C</a>.</p>
 <h3 id="s4.2.13">4.2.13 Cost: <code>emma:cost</code> attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
@@ -5882,7 +5882,7 @@ of the <code>sink</code> endpoint and its pairing
 MAY link to multiple source endpoints through
 <code>emma:endpoint-pair-ref</code>. Further bounding of the
 <code>emma:endpoint</code> is possible by using the annotation of
-<code>emma:group</code> (see <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.3.2">Section
+<code>emma:group</code> (see <a href="#s3.3.2">Section
 3.3.2</a>).</p>
 <p>The <code>emma:endpoint-info-ref</code> attribute associates the
 EMMA result in the container element with an
@@ -5979,7 +5979,7 @@ element<span>.</span></td>
 </table>
 <p>The <code>emma:grammar-ref</code> attribute associates the EMMA
 result in the container element with an <code>emma:grammar</code>
-element. <span>The <code>emma:grammar-ref</code> attribute is also used on <code>emma:active</code> elements within <code>emma:grammar-active</code> in order to indicate which grammars are active during the processing of an input (<a href="https://www.w3.org/2002/mmi/Group/emma11/#4.1.4">4.1.4</a>). </span></p>
+element. <span>The <code>emma:grammar-ref</code> attribute is also used on <code>emma:active</code> elements within <code>emma:grammar-active</code> in order to indicate which grammars are active during the processing of an input (<a href="#4.1.4">4.1.4</a>). </span></p>
 <p>The following example shows the use of <code>emma:grammar-ref</code> on the container element <code>emma:interpretation</code> and on the <code>emma:active</code> element:</p>
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
@@ -6116,7 +6116,7 @@ for applications to define.</p>
     </tr>
   </tbody>
 </table>
-<p>Typically, the application semantics contained within EMMA is in XML format, as can be seen in examples throughout the specification. The application semantics can be also be a simple string, contained within <code>emma:literal</code>. EMMA also accommodates other semantic representation formats such as JSON  (Javascript Object Notation [<a href="https://www.w3.org/2002/mmi/Group/emma11/#json">JSON</a>] )using CDATA within <code>emma:literal</code>. The function of the <code>emma:result-format</code> attribute is to make explict the specific format of the semantic representation. The value is a MIME type. The value to generally be used for XML semantic representations is  <code>text/xml</code>. If <code>emma:result-format</code> is not specified, the assumed default is <code>text/xml</code>. If a more specific XML MIME type is being used then this should be indicated explicitly in <code>emma:result-format</code>, e.g. for RDF the <code>emma:result-format</code> would be <code>application/rdf+xml</code>. In the following example, the application semantic representation is JSON and the MIME type <code>application/json</code> appears in <code>emma:result-format</code> indicating to an EMMA processor what to expect within the contained <code>emma:literal</code>.</p>
+<p>Typically, the application semantics contained within EMMA is in XML format, as can be seen in examples throughout the specification. The application semantics can be also be a simple string, contained within <code>emma:literal</code>. EMMA also accommodates other semantic representation formats such as JSON  (Javascript Object Notation [<a href="#json">JSON</a>] )using CDATA within <code>emma:literal</code>. The function of the <code>emma:result-format</code> attribute is to make explict the specific format of the semantic representation. The value is a MIME type. The value to generally be used for XML semantic representations is  <code>text/xml</code>. If <code>emma:result-format</code> is not specified, the assumed default is <code>text/xml</code>. If a more specific XML MIME type is being used then this should be indicated explicitly in <code>emma:result-format</code>, e.g. for RDF the <code>emma:result-format</code> would be <code>application/rdf+xml</code>. In the following example, the application semantic representation is JSON and the MIME type <code>application/json</code> appears in <code>emma:result-format</code> indicating to an EMMA processor what to expect within the contained <code>emma:literal</code>.</p>
 <pre class="example">&lt;emma:emma<br>  version="1.1"<br>  xmlns:emma="http://www.w3.org/2003/04/emma"<br>  xmlns="http://www.example.com/example"&gt; <br>  &lt;emma:interpretation id=“int1"<br>    emma:confidence="0.75”<br>    emma:medium="acoustic" <br>    emma:mode="voice" <br>    emma:verbal="true"<br>    emma:function="dialog" <br>    emma:result-format="application/json" <br>      &lt;emma:literal&gt; <br>        &lt;![CDATA[<br>              {<br>           drink: {<br>              liquid:"coke",<br>              drinksize:"medium"},<br>           pizza: {<br>              number: "3",<br>              pizzasize: "large",<br>              topping: [ "pepperoni", "mushrooms" ]<br>           }<br>          } <br>          ]]&gt;<br>      &lt;/emma:literal&gt; <br>  &lt;/emma:interpretation&gt; <br>&lt;/emma:emma&gt;</pre>
 
 <p>Note that while many of the examples of semantic representation  in the specification are simple lists of attributes and values, EMMA interpretations can contain arbitrarily complex semantic representations.  XML representation can be used for the payload, so representations can be nested, have attributes, and ID references can be used to capture aspects of the interpretation such as variable binding or co-reference. Also using <code>emma:result-format</code> and <code>emma:literal</code> as above, other kinds of logical representations and notations, not necessarily XML, can also be carried as EMMA payloads.</p>
@@ -6314,7 +6314,7 @@ element that specifies a series of parameters used to configure the processor th
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;
 </pre>
-<p>In order to provide metadata on the annotation such as the name of the annotator or time of annotation, the more powerful <a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.9"><code>emma:annotation</code></a> element mechanism should be used. This also allows for structured annotations such as labelling of a semantic interpretation in XML.</p>
+<p>In order to provide metadata on the annotation such as the name of the annotator or time of annotation, the more powerful <a href="#s4.1.9"><code>emma:annotation</code></a> element mechanism should be used. This also allows for structured annotations such as labelling of a semantic interpretation in XML.</p>
 
 <h3 id="s4.2.23">4.2.23 Partial Content: <code>emma:partial-content</code></h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -6851,11 +6851,11 @@ In the next example we see how incremental results can be used for a voice searc
 <p >In this case the final message in the stream contains the full result as indicated by <code>emma:stream-full-result=&quot;true&quot;</code>.</p>
 <p>&nbsp;</p>
 <h2 class="notoc">4.3 Scope of EMMA annotations</h2>
-<p>The <code>emma:derived-from</code> element (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section 4.1.2</a>) can be used to capture both sequential
+<p>The <code>emma:derived-from</code> element (<a href="#s4.1.2">Section 4.1.2</a>) can be used to capture both sequential
 and composite derivations. This section concerns the scope of EMMA
 annotations across <span>sequential</span> derivations of user
 input connected using the <code>emma:derived-from</code> element
-(<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section 4.1.2</a>). Sequential derivations
+(<a href="#s4.1.2">Section 4.1.2</a>). Sequential derivations
 involve processing steps that do not involve multimodal
 integration, such as applying natural language understanding and
 then reference resolution to a speech transcription. EMMA
@@ -6896,10 +6896,10 @@ utilizing the <code>id</code> values: <code>raw</code>,
 &lt;/emma:emma&gt;
 </pre>
 <p>Each member of the derivation chain is linked to the previous
-one by a <code>derived-from</code> element (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.1.2">Section 4.1.2</a>), which has an attribute
+one by a <code>derived-from</code> element (<a href="#s4.1.2">Section 4.1.2</a>), which has an attribute
 <code>resource</code> that provides a pointer to the
 <code>emma:interpretation</code> from which it is derived. The
-<code>emma:process</code> annotation (<a href="https://www.w3.org/2002/mmi/Group/emma11/#s4.2.2">Section
+<code>emma:process</code> annotation (<a href="#s4.2.2">Section
 4.2.2</a>) provides a pointer to the process used for each stage of
 the derivation.</p>
 <p>The following EMMA example represents the same derivation as
@@ -7178,12 +7178,12 @@ elements.</p>
 <p>A document is a Conforming EMMA Document if it meets both the
 following conditions:</p>
 <ul>
-<li>It is a well-formed XML document [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XML">XML</a>]
-conforming to Namespaces in XML [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XMLNS">XMLNS</a>].</li>
+<li>It is a well-formed XML document [<a href="#XML">XML</a>]
+conforming to Namespaces in XML [<a href="#XMLNS">XMLNS</a>].</li>
 <li>It adheres to the specification described in this document
 (EMMA Specification) including the constraints expressed in the
-Schema (see <a href="https://www.w3.org/2002/mmi/Group/emma11/#appA">Appendix A</a>) and having an XML
-Prolog and root element as specified in <a href="https://www.w3.org/2002/mmi/Group/emma11/#s3.1">Section
+Schema (see <a href="#appA">Appendix A</a>) and having an XML
+Prolog and root element as specified in <a href="#s3.1">Section
 3.1</a>.</li>
 </ul>
 <p>The EMMA specification and these conformance criteria provide no
@@ -7192,20 +7192,20 @@ no maximum values on the number of elements, the amount of
 character data, or the number of characters in attribute
 values.</p>
 <p><span>Within this specification, the term URI refers to a
-Universal Resource Identifier as defined in [<a href="https://www.w3.org/2002/mmi/Group/emma11/#RFC3986">RFC3986</a>] and extended in [<a href="https://www.w3.org/2002/mmi/Group/emma11/#RFC3987">RFC3987</a>] with the new name IRI. The term URI has
+Universal Resource Identifier as defined in [<a href="#RFC3986">RFC3986</a>] and extended in [<a href="#RFC3987">RFC3987</a>] with the new name IRI. The term URI has
 been retained in preference to IRI to avoid introducing new names
 for concepts such as "Base URI" that are defined or referenced
 across the whole family of XML specifications</span>.</p>
 <h3 id="s5.2">5.2 Using EMMA with other Namespaces</h3>
 <p>The EMMA namespace is intended to be used with other XML
-namespaces as per the Namespaces in XML Recommendation [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XMLNS">XMLNS</a>]. Future work by W3C is expected to address ways
+namespaces as per the Namespaces in XML Recommendation [<a href="#XMLNS">XMLNS</a>]. Future work by W3C is expected to address ways
 to specify conformance for documents involving multiple
 namespaces.</p>
 <h3 id="s5.3">5.3 Conforming EMMA Processors</h3>
 <p>A EMMA processor is a program that can process and/or generate
 Conforming EMMA documents.</p>
 <p>In a Conforming EMMA Processor, the XML parser MUST be able to
-parse and process all XML constructs defined by XML 1.1 [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XML">XML</a>] and Namespaces in XML [<a href="https://www.w3.org/2002/mmi/Group/emma11/#XMLNS">XMLNS</a>].
+parse and process all XML constructs defined by XML 1.1 [<a href="#XML">XML</a>] and Namespaces in XML [<a href="#XMLNS">XMLNS</a>].
 It is not required that a Conforming EMMA Processor uses a
 validating XML parser.</p>
 <p>A Conforming EMMA Processor MUST correctly understand and apply
@@ -7292,7 +7292,7 @@ type application/emma+xml</h3>
 <dd>
 <p>This parameter has identical semantics to the
 <code>charset</code> parameter of the <code>application/xml</code>
-media type as specified in [<a href="https://www.w3.org/2002/mmi/Group/emma11/#RFC3023">RFC3023</a>] or its
+media type as specified in [<a href="#RFC3023">RFC3023</a>] or its
 successor.</p>
 </dd>
 </dl>
@@ -7306,7 +7306,7 @@ does XML. See RFC 3023 (or its successor), section 3.2.</p>
 <dt>Security considerations:</dt>
 <dd>
 <p>Several features of EMMA require dereferencing arbitrary URIs.
-Implementers are advised to heed the security issues of [<a href="https://www.w3.org/2002/mmi/Group/emma11/#RFC3986">RFC3986</a>] section 7.</p>
+Implementers are advised to heed the security issues of [<a href="#RFC3986">RFC3986</a>] section 7.</p>
 <p>In addition, because of the extensibility features for EMMA, it
 is possible that "<code>application/emma+xml</code>" will describe
 content that has security implications beyond those described here.
@@ -7394,7 +7394,7 @@ multimodal systems support more natural and effective interaction
 for users. In order to support composite inputs, a multimodal
 architecture must provide some kind of multimodal integration
 mechanism. In the W3C Multimodal Interaction Framework
-<span>[<a href="https://www.w3.org/2002/mmi/Group/emma11/#MMIF">MMI Framework</a>]</span>, multimodal
+<span>[<a href="#MMIF">MMI Framework</a>]</span>, multimodal
 integration can be handled by an integration component which
 follows the application of speech understanding and other kinds of
 interpretation procedures for individual modes.</p>
@@ -7416,15 +7416,15 @@ describing the possible interpretation of that input.</p>
 </div>
 <p>One way to build an EMMA representation of a spoken input such
 as "zoom in here" is to use grammar rules in the W3C Speech
-Recognition Grammar Specification [<a href="https://www.w3.org/2002/mmi/Group/emma11/#SRGS">SRGS</a>] using
-the Semantic Interpretation <span>[<a href="https://www.w3.org/2002/mmi/Group/emma11/#SI">SISR</a>]</span>
+Recognition Grammar Specification [<a href="#SRGS">SRGS</a>] using
+the Semantic Interpretation <span>[<a href="#SI">SISR</a>]</span>
 tags to build the application semantics with the
-<code>emma:hook</code> attribute. In this approach <span>[<a href="https://www.w3.org/2002/mmi/Group/emma11/#ECMASCRIPT">ECMAScript</a>]</span> is specified in order to build
+<code>emma:hook</code> attribute. In this approach <span>[<a href="#ECMASCRIPT">ECMAScript</a>]</span> is specified in order to build
 up an object representing the semantics. The resulting ECMAScript
 object is then translated to XML.</p>
 <p>For our example case of "zoom in here". The following SRGS rule
 could be used. The <span>Semantic Interpretation for Speech
-Recognition</span> specification <span>[<a href="https://www.w3.org/2002/mmi/Group/emma11/#SI">SISR</a>]</span> provides a reserved property
+Recognition</span> specification <span>[<a href="#SI">SISR</a>]</span> provides a reserved property
 <b>_nsprefix</b> for indicating the namespace to be used with an
 attribute.</p>
 <pre class="example">&lt;rule id="zoom"&gt;
@@ -7455,7 +7455,7 @@ object being built.</p>
         type: "area"
       }
 }</pre>
-<p><a href="https://www.w3.org/2002/mmi/Group/emma11/#SI">SI</a> processing in an XML environment would
+<p><a href="#SI">SI</a> processing in an XML environment would
 generate the following document:</p>
 <pre class="example">&lt;command&gt;
   &lt;action&gt;zoom&lt;/action&gt;
@@ -7505,7 +7505,7 @@ following:</p>
 <p>This representation could be generated by a pen modality
 component performing gesture recognition and interpretation. The
 input to the component would be an <span>Ink Markup Language</span>
-specification <span>[<a href="https://www.w3.org/2002/mmi/Group/emma11/#InkML">INKML</a>]</span> of the ink
+specification <span>[<a href="#InkML">INKML</a>]</span> of the ink
 trace and the output would be the EMMA document above.</p>
 <p>The combination will result in the following EMMA document for
 the combined speech and pen multimodal input.</p>
@@ -7551,7 +7551,7 @@ existence of this relationship.</p>
 <p>One way to achieve both the compatibility checking and fusion of
 content from the two modes is to use a well-defined general purpose
 matching mechanism such as unification. <span>Graph unification
-[</span><a href="https://www.w3.org/2002/mmi/Group/emma11/#graphunification">Graph
+[</span><a href="#graphunification">Graph
 unification</a><span>]</span> is a mathematical operation defined
 over directed acylic graphs which captures both of the components
 of integration in a single operation: the applications of the
@@ -7583,7 +7583,7 @@ required. If a general purpose integration mechanism is used, such
 as the unification approach described above, authors should be able
 to use the same integration mechanism for a range of different
 applications without having to change the integration rules or
-logic. For each application the speech grammar rules [<a href="https://www.w3.org/2002/mmi/Group/emma11/#SRGS">SRGS</a>] need to assign <code>emma:hook</code> to the
+logic. For each application the speech grammar rules [<a href="#SRGS">SRGS</a>] need to assign <code>emma:hook</code> to the
 appropriate elements in the semantic representation of the speech.
 The general purpose multimodal integration mechanism will use the
 <code>emma:hook</code> annotations in order to determine where to
@@ -7705,7 +7705,7 @@ result, we have the following EMMA for the composite result:</p>
 </pre></div>
 <h2 id="appD">Appendix D. EMMA event interface</h2>
 <p>This section is <span>I</span>nformative.</p>
-<p>The W3C Document Object Model [<a href="https://www.w3.org/2002/mmi/Group/emma11/#DOM">DOM</a>] defines
+<p>The W3C Document Object Model [<a href="#DOM">DOM</a>] defines
 platform and language neutral interfaces that gives programs and
 scripts the means to dynamically access and update the content,
 structure and style of documents. DOM Events define a generic event
