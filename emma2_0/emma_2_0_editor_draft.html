@@ -99,7 +99,7 @@ table.defn td { background-color: rgb(230,230,255);
 <div class="banner"><a href="http://www.w3.org/"><img alt="W3C" src="w3c_home" width="72" height="48"></a></div>
 <h1 class="notoc" id="s0">EMMA: Extensible MultiModal Annotation
 markup language Version 2.0</h1>
-<h2><a id="w3c-doctype" name="w3c-doctype"><acronym title="World Wide Web Consortium">W3C</acronym> Working Draft @@ March 2015</a></h2>
+<h2><a id="w3c-doctype" name="w3c-doctype"><acronym title="World Wide Web Consortium">W3C</acronym> Working Draft @@ June 2015</a></h2>
 <dl>
 <dt>This version:</dt>
 <dd>&nbsp;</dd>
@@ -111,13 +111,11 @@ http://www.w3.org/TR/emma20</a></dd>
 </dl>
 <dl>
 <dt>Editor:</dt>
-<dd>Michael Johnston (???)</dd>
+<dd>Michael Johnston (Interactions)</dd>
 <dt>Authors:</dt>
-<dd>Paolo Baggia (while at Loquendo, currently Nuance Communications)</dd>
-<dd>Michael Bodell (until May 2012, while at Microsoft)</dd>
-<dd>Daniel C. Burnett (Voxeo)</dd>
+<dd>&nbsp;</dd>
 <dd>Deborah A. Dahl (W3C Invited Expert)</dd>
-<dd>Tim Denney (Boeing Corporation)</dd>
+<dd>&nbsp;</dd>
 <dd> Nagesh Kharidi (Openstream) </dd>
 <dt>&nbsp;</dt>
 </dl>
@@ -153,7 +151,7 @@ document. A list of current W3C publications and the latest
 revision of this technical report can be found in the <a href="http://www.w3.org/TR/">W3C technical reports index</a> at
 http://www.w3.org/TR/.</em></p>
 
-<p>This is the @@ March 2015 Working Draft of "EMMA:
+<p>This is the @@ June 2015 Working Draft of "EMMA:
 Extensible MultiModal Annotation markup language Version 2.0".
 
 It has been produced by the
@@ -228,32 +226,32 @@ prefixes</a></li>
 <code>emma:emma</code></a></li>
 <li>3.2 <a href="#s3.2">Interpretation element:
 <code>emma:interpretation</code></a></li>
-<li >3.3 Output: <code>emma:output</code></li>
-<li>3.4 <a href="#s3.3">Container elements</a>
+<li>3.3 <a href="#s3.3">Output: <code>emma:output</code></a></li>
+<li>3.4 <a href="#s3.4">Container elements</a>
   <ul class="tocline">
-<li>3.4.1 <a href="#s3.3.1"><code>emma:one-of</code>
+<li>3.4.1 <a href="#s3.4.1"><code>emma:one-of</code>
 element</a></li>
-<li>3.4.2 <a href="#s3.3.2"><code>emma:group</code> element</a>
+<li>3.4.2 <a href="#s3.4.2"><code>emma:group</code> element</a>
   <ul class="tocline">
-<li>3.4.2.1 <a href="#s3.3.2.1">Indirect grouping criteria:
+<li>3.4.2.1 <a href="#s3.4.2.1">Indirect grouping criteria:
 <code>emma:group-info</code> element</a></li>
 </ul>
 </li>
-<li>3.4.3 <a href="#s3.3.3"><code>emma:sequence</code>
+<li>3.4.3 <a href="#s3.4.3"><code>emma:sequence</code>
 element</a></li>
 </ul>
 </li>
-<li>3.5 <a href="#s3.4">Lattice element</a>
+<li>3.5 <a href="#s3.5">Lattice element</a>
   <ul class="tocline">
-<li>3.5.1 <a href="#s3.4.1">Lattice markup:
+<li>3.5.1 <a href="#s3.5.1">Lattice markup:
 <code>emma:lattice</code>, <code>emma:arc</code>,
 <code>emma:node</code> elements</a></li>
-<li>3.5.2 <a href="#s3.4.2">Annotations on lattices</a></li>
-<li>3.5.3 <a href="#s3.4.3">Relative timestamps on
+<li>3.5.2 <a href="#s3.5.2">Annotations on lattices</a></li>
+<li>3.5.3 <a href="#s3.5.3">Relative timestamps on
 lattices</a></li>
 </ul>
 </li>
-<li>3.6 <a href="#s3.5">Literal semantics:
+<li>3.6 <a href="#s3.6">Literal semantics:
 <code>emma:literal</code> element</a></li>
 </ul>
 </li>
@@ -723,7 +721,7 @@ or more of the following interpretation and container elements
 <code>emma:interpretation</code> element contains a given
 interpretation of the input and holds application specific markup
 (<a href="#s3.2">Section 3.2</a>)</li>
-<li >Output element: The <code>emma:output </code>element contains a given instantiation of system output and holds application specific markup. (Section 3.3)</li>
+<li><b><a href="#s3.2">Output element</a></b>: The <code>emma:output </code>element contains a given instantiation of system output and holds application specific markup. (Section 3.3)</li>
 <li><b><a href="#s3.3">Container elements</a>:</b>
 <ul>
 <li><code>emma:one-of</code> is a container for one or more
@@ -797,7 +795,7 @@ are required of all
 implementations.  The remaining elements and attributes are optional
 and may be used in some implementations and not other depending on the
 specific modalities and processing being represented.</p>
-<p>*** QUESTION: Could there be an output only implementation e.g. is emma:interpretation now optional? but you need one or the other surely.</p>
+<p>*** NOTE: Could there be an output only implementation e.g. is emma:interpretation now optional? but you need one or the other surely. ***</p>
 <p>To illustrate this, here is an example of
   an EMMA document representing input
   to a flight reservation application. In this example there are two
@@ -1223,17 +1221,16 @@ earlier stage of the derivation listed in
 &lt;/emma:output&gt;
 &lt;/emma:emma&gt;</pre>
 
-<p >The semantics of annotations on <code>emma:output</code> differs from emma:interpretation, since here we are seeing the stages of the planning of an intended output by the system. Future drafts will address issues of planned vs. actual output.</p>
+<p >The semantics of annotations on <code>emma:output</code> differs from <code>emma:interpretation</code>, since here we are seeing the stages of the planning of an intended output by the system. Future drafts will address issues of planned vs. actual output.</p>
 <p >This representation would then be received by a natural language generation component with generates a text string for the system to speak, here captured in SSML. 
 </p>
-<p >** Does NS for speak need to be declared **</p>
-
 <pre class="example">&lt;emma:emma version=&quot;2.0&quot;
     xmlns:emma=&quot;http://www.w3.org/2003/04/emma&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
     xsi:schemaLocation=&quot;http://www.w3.org/2003/04/emma
      http://www.w3.org/TR/2009/REC-emma-20090210/emma.xsd&quot;
-    xmlns=&quot;http://www.example.com/example&quot;&gt;
+    xmlns=&quot;http://www.example.com/example&quot;
+    xmlns=&quot;http://www.w3.org/2001/10/synthesis&gt;
 &lt;emma:output emma:confidence=&quot;0.8&quot; id=&quot;tts1&quot;&gt;
          emma:medium=&quot;acoustic&quot;
          emma:mode=&quot;voice&quot;
@@ -1258,8 +1255,8 @@ earlier stage of the derivation listed in
   directly on <code>emma:output</code> or they must appear on
   an ancestor <code>emma:one-of</code> node or they must appear on an
   earlier stage of the derivation of the output listed in <code>emma:derivation</code>.</p>
-<h3 id="s3.3">3.4 Container elements</h3>
-<h3 id="s3.3.1">3.4.1 <code>emma:one-of</code> element</h3>
+<h3 id="s3.4">3.4 Container elements</h3>
+<h3 id="s3.4.1">3.4.1 <code>emma:one-of</code> element</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
 <tr>
@@ -1425,7 +1422,7 @@ this would be represented as follows in EMMA:</p>
 </span>
 </pre>
 
-<p> Output example: ** Explanation needed **</p>
+<p> In the following example, <code>emma:one-of</code> contains multiple <code>emma:output</code> elements containing different alternative spoken system outputs.</p>
 
 
 <pre class="example">&lt;emma:emma version=&quot;2.0&quot;
@@ -1457,9 +1454,6 @@ this would be represented as follows in EMMA:</p>
 &lt;/emma:one-of&gt;
 &lt;/emma:emma&gt;
 </pre>
-
-
-
 
 <p>EMMA MAY explicitly represent ambiguity resulting from different
 processes, devices, or sources using embedded
@@ -1557,7 +1551,6 @@ appear on an earlier stage of the derivation listed in
 <p> Where the document at "http://www.example.com/emma_021210_10.xml" is as follows, and
 there are two more interpretations within the<code> emma:one-of</code> with id "r1".</p>
 
-
 <pre class="example">&lt;emma:emma version="1.1"
     xmlns:emma="http://www.w3.org/2003/04/emma"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1623,7 +1616,7 @@ In this example, there are two N-best results and the <code>emma:lattice</code> 
   &lt;/emma:one-of&gt;
 &lt;/emma:emma&gt;
 </pre>
-<h3 id="s3.3.2">3.4.2 <code>emma:group</code> element</h3>
+<h3 id="s3.4.2">3.4.2 <code>emma:group</code> element</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
   <tbody>
 <tr>
@@ -1723,8 +1716,8 @@ points on a map.</p>
 <p>The <code>emma:one-of</code> and <code>emma:group</code>
 containers MAY be nested arbitrarily.</p>
 <p >Like <code>emma:one-of</code> the contents for <code>emma:group</code> may be partial, indicated by <code>emma:partial-content="true"</code> and the full set of group members retrieved by accessing the element referenced in <code>ref</code>.</p>
-<p ><code>emma:group</code> may also be used with multiple <code>emma:output</code> as children, for example to represent multimodal output where each <code>emma:output</code> contains content from a particular modality. For example,<code> emma:group</code> can contain a visual table in html grouped with a text-to-speech prompt in SSML, as in the example above (Section XX).</p>
-<h4 id="s3.3.2.1">3.4.2.1 Indirect grouping criteria:
+<p ><code>emma:group</code> may also be used with multiple <code>emma:output</code> as children, for example to represent multimodal output where each <code>emma:output</code> contains content from a particular modality. For example,<code> emma:group</code> can contain a visual table in html grouped with a text-to-speech prompt in SSML, as in the example above (Section 2).</p>
+<h4 id="s3.4.2.1">3.4.2.1 Indirect grouping criteria:
 <code>emma:group-info</code> element</h4>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
@@ -1820,7 +1813,7 @@ instance:</p>
   &lt;/emma:group&gt;
 &lt;/emma:emma&gt;
 </pre>
-<h3 id="s3.3.3">3.4.3 <code>emma:sequence</code> element</h3>
+<h3 id="s3.4.3">3.4.3 <code>emma:sequence</code> element</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
 <tr>
@@ -1947,9 +1940,8 @@ gestures in <code>emma:sequence</code> and a speech input in
 &lt;/emma:emma&gt;
 </pre>
 
-
 <p>Like <code>emma:one-of</code> the contents for emma:group may be partial, indicated by <code>emma:partial-content="true"</code> and the full set of group members retrieved by accessing the element referenced in <code>ref</code>.</p>
-<p>** Description of an <code>emma:output</code> example with emma:sequence**</p>
+<p>** TBD of an <code>emma:output</code> example with emma:sequence**</p>
 <h3 id="s3.4">3.5 Lattice element</h3>
 <p>In addition to providing the ability to represent N-best lists
 of interpretations using <code>emma:one-of</code>, EMMA also
@@ -1983,7 +1975,7 @@ f. flights to austin from portland tomorrow
 g. flights to boston from oakland tomorrow
 h. flights to austin from oakland tomorrow
 </pre>
-<h3 id="s3.4.1">3.5.1 Lattice markup: <code>emma:lattice</code>,
+<h3 id="s3.5.1">3.5.1 Lattice markup: <code>emma:lattice</code>,
 <code>emma:arc</code>, <code>emma:node</code> elements</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
 <tbody>
@@ -4630,10 +4622,7 @@ milliseconds.</p>
     &lt;date&gt;03152003&lt;/date&gt;
   &lt;/emma:interpretation&gt;
 &lt;/emma:emma&gt;</pre>
-<p>For output, this could be the planned MIME, for example, what a TTS should generate. A later draft will clarify the semantics of <code>emma:mime-type</code> for output in more detail. </p>
-<p>** Should explain how this can be used to specify the characteristics of the audio to be generated, is this redundant with SSML? **</p>
-<p>&gt; what would default be, value from MIME repository.</p>
-<p>&nbsp;</p>
+<p>For output, this could be the planned MIME, for example, what a TTS should generate. A later draft will clarify the semantics of <code>emma:mime-type</code> for output in more detail.</p>
 <h3>4.2.8 Confidence scores:
   <code>emma:confidence</code> attribute</h3>
 <table class="defn" summary="property definition" width="98%" cellpadding="5" cellspacing="0">
@@ -7894,9 +7883,13 @@ current and former members of the W3C Multimodal Interaction Group
 <em>(listed in alphabetical order)</em>:</p>
 <dl>
 <dd>Kazuyuki Ashimura, W3C</dd>
+<dd>Paolo Baggia (while at Loquendo, currently Nuance Communications)</dd>
 <dd>Patrizio Bergallo, (until 2008, while at Loquendo)</dd>
+<dd>Michael Bodell (until May 2012, while at Microsoft)</dd>
+<dd>Daniel C. Burnett (while at Voxeo)</dd>
 <dd>Jerry Carter (while at Nuance Communications)</dd>
 <dd>Wu Chou, Avaya</dd>
+<dd>Tim Denney (while at Boeing Corporation)</dd>
 <dd>Max Froumentin, (until 2006, while at W3C)</dd>
 <dd>Katriina Halonen, Nokia</dd>
 <dd>Jin Liu, T-Systems</dd>
@@ -7908,6 +7901,10 @@ current and former members of the W3C Multimodal Interaction Group
 <dd>Massimo Romanelli, DFKI</dd>
 <dd>Yuan Shao, Canon</dd>
 <dd>Raj Tumuluri, Openstream</dd>
+<dd>&nbsp;</dd>
+<dd>&nbsp;</dd>
+<dd>&nbsp;</dd>
+<dt>&nbsp;</dt>
 <dd>&nbsp;</dd>
 <dd>&nbsp;</dd>
 <dt>&nbsp;</dt>
