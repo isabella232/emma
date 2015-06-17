@@ -111,7 +111,7 @@ http://www.w3.org/TR/emma20</a></dd>
 </dl>
 <dl>
 <dt>Editor:</dt>
-<dd>Michael Johnston (Interactions)</dd>
+<dd>Michael Johnston (Interactions Corporation)</dd>
 <dt>Authors:</dt>
 <dd>&nbsp;</dd>
 <dd>Deborah A. Dahl (W3C Invited Expert)</dd>
@@ -168,7 +168,7 @@ Framework</a>.</p>
 In addition we have extended the specification to handle the production of system output, by adding the new element, <code>emma:output</code> and added a series of annotations enabling the use of EMMA for incremental results (Section 4.2.24). 
 <p>Not addressed in this draft, but planned for a later Working Draft of EMMA 2.0, is a JSON serialization of EMMA documents for use in contexts were JSON is better suited than XML for representing user inputs and system outputs.</p>
 <h3>Changes from the last working draft</h3>
-<p >This working draft also adds a new <code>emma:location</code> element for specification of the location of the device or sensor which captured the input. The  <code>ref</code> attribute was added to a number of elements allowing for shorter EMMA documents which use URIs to point to content stored outside of the document: <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:group</code>, <code>emma:info</code>, <code>emma:parameters</code>, <code>emma:lattice</code>. A new attribute <code>emma:partial-content</code> is introduced which indicates whether the content in an element with <code>ref</code>, is the full content or whether it is partial and more can be retrieved by following the URI in <code>ref</code>. The <code>emma:emma</code> element is extended with <code>doc-ref</code> and <code>prev-doc</code> attributes that indicate where the document can be retrieved from and where the previous document in a sequence of inputs can be retrieved from. The application of <code>emma:lattice</code> is also extended so that an EMMA document can contain both a N-best and a lattice side-by-side.</p>
+<p >This working draft also adds a new <code>emma:location</code> element for specification of the location of the device or sensor which captured the input. The  <code>ref</code> attribute was added to a number of elements allowing for shorter EMMA documents which use URIs to point to content stored outside of the document: <code>emma:one-of</code>, <code>emma:sequence</code>, <code>emma:group</code>, <code>emma:info</code>, <code>emma:parameters</code>, <code>emma:lattice</code>. A new attribute <code>emma:partial-content</code> is introduced which indicates whether the content in an element with <code>ref</code>, is the full content or whether it is partial and more can be retrieved by following the URI in <code>ref</code>. The <code>emma:emma</code> element is extended with <code>doc-ref</code> and <code>prev-doc</code> attributes that indicate where the document can be retrieved from and where the previous document in a sequence of inputs can be retrieved from. The application of <code>emma:lattice</code> is also extended so that an EMMA document can contain both a N-best and a lattice side-by-side. A new Section 3.3 includes an initial proposal for the extension of EMMA to output and the new element <code>emma:output</code>. A new Section 4.2.24 describes new attributes that extend EMMA so that it support incremental results.</p>
 
 <p>
 A <a href="diff.html">diff-marked version</a> from EMMA 1.1
@@ -721,32 +721,32 @@ or more of the following interpretation and container elements
 <code>emma:interpretation</code> element contains a given
 interpretation of the input and holds application specific markup
 (<a href="#s3.2">Section 3.2</a>)</li>
-<li><b><a href="#s3.2">Output element</a></b>: The <code>emma:output </code>element contains a given instantiation of system output and holds application specific markup. (Section 3.3)</li>
-<li><b><a href="#s3.3">Container elements</a>:</b>
+<li><b><a href="#s3.3">Output element</a></b>: The <code>emma:output </code>element contains a given instantiation of system output and holds application specific markup. (<a href="#s3.3">Section 3.3</a>)</li>
+<li><b><a href="#s3.4">Container elements</a>:</b>
 <ul>
 <li><code>emma:one-of</code> is a container for one or more
 interpretation elements, output elements, or container elements and denotes that
-these are mutually exclusive interpretations or possible system outputs (<a href="#s3.3.1">Section 3.3.1</a>)</li>
+these are mutually exclusive interpretations or possible system outputs (<a href="#s3.4.1">Section 3.4.1</a>)</li>
 <li><code>emma:group</code> is a general container for one or more
 interpretation elements, output elements, or container elements. It can be associated
-with arbitrary grouping criteria (<a href="#s3.3.2">Section
-3.3.2</a>).</li>
+with arbitrary grouping criteria (<a href="#s3.4.2">Section
+3.4.2</a>).</li>
 <li><code>emma:sequence</code> is a container for one or more
 interpretation elements, output elements, or container elements and denotes that
-these are sequential in time (<a href="#s3.3.3">Section
-3.3.3</a>).</li>
+these are sequential in time (<a href="#s3.4.3">Section
+3.4.3</a>).</li>
 </ul>
 </li>
-<li><b><a href="#s3.4">Lattice element</a></b>: The
+<li><b><a href="#s3.5">Lattice element</a></b>: The
 <code>emma:lattice</code> element is used to contain a series of
 <code>emma:arc</code> and <code>emma:node</code> elements that
 define a lattice of words, gestures, meanings or other symbols. The
 <code>emma:lattice</code> element appears within the
-<code>emma:interpretation</code> element (<a href="#s3.4">Section
+<code>emma:interpretation</code> element (<a href="#s3.5">Section
 3.4</a>) or within the <code>emma:output</code> element.</li>
-<li><b><a href="#s3.5">Literal element</a></b>: The
+<li><b><a href="#s3.6">Literal element</a></b>: The
 <code>emma:literal</code> element is used as a wrapper when the
-application semantics is a string literal. (<a href="#s3.5">Section
+application semantics is a string literal. (<a href="#s3.6">Section
 3.5</a>)</li>
 </ul>
 </li>
@@ -795,7 +795,6 @@ are required of all
 implementations.  The remaining elements and attributes are optional
 and may be used in some implementations and not other depending on the
 specific modalities and processing being represented.</p>
-<p>*** NOTE: Could there be an output only implementation e.g. is emma:interpretation now optional? but you need one or the other surely. ***</p>
 <p>To illustrate this, here is an example of
   an EMMA document representing input
   to a flight reservation application. In this example there are two
@@ -1941,7 +1940,6 @@ gestures in <code>emma:sequence</code> and a speech input in
 </pre>
 
 <p>Like <code>emma:one-of</code> the contents for emma:group may be partial, indicated by <code>emma:partial-content="true"</code> and the full set of group members retrieved by accessing the element referenced in <code>ref</code>.</p>
-<p>** TBD of an <code>emma:output</code> example with emma:sequence**</p>
 <h3 id="s3.4">3.5 Lattice element</h3>
 <p>In addition to providing the ability to represent N-best lists
 of interpretations using <code>emma:one-of</code>, EMMA also
@@ -7872,7 +7870,8 @@ Since the publication of the  EMMA 1.0 Recommendation, the following changes hav
 <li>Added ability to specific a lattice and an N-best in a single EMMA document</li>
 <li>Added <code>emma:partial-content</code> attribute 4.2.23</li>
 <li>Added attributes and mechanisms for incremental results Section 4.2.24</li>
-<li>Revisions throughout to support output ....</li>
+<li>Revisions throughout to support output and description of <code>emma:output</code> in Section 3.3</li>
+<li>Extensions to support incremental results (Section 4.2.24)</li>
 
 </ul>
 
