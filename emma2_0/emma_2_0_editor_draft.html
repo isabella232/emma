@@ -115,6 +115,7 @@ http://www.w3.org/TR/emma20</a></dd>
 <dt>Authors:</dt>
 <dd>&nbsp;</dd>
 <dd>Deborah A. Dahl (W3C Invited Expert)</dd>
+<dd>Tim Denney (Boeing Corporation)</dd>
 <dd>&nbsp;</dd>
 <dd> Nagesh Kharidi (Openstream) </dd>
 <dt>&nbsp;</dt>
@@ -361,6 +362,11 @@ element: <code>emma:parameter-ref</code> attribute</a></li>
 <li>5.1 <a href="#s5.1">Conforming EMMA Documents</a></li>
 <li>5.2 <a href="#s5.2">Using EMMA with other Namespaces</a></li>
 <li>5.3 <a href="#s5.3">Conforming EMMA Processors</a></li>
+</ul>
+<li>6.<a href="#s6">Integration of EMMA with other Standards Related to Output</a>
+<ul class="tocline">
+<li>6.1 <a href="#s6.1">WAI-ARIA (Accessible Rich Internet Applications)</a></li>
+<li>6.2 <a href="#s6.2">Integration of EMMA with TTML (Timed Text Markup Language)</a></li>
 </ul>
 </li>
 <li><a href="#appendices">Appendices</a>
@@ -1962,7 +1968,7 @@ defined, along with the label for the transition. Initial and final
 nodes MUST also be indicated. The following figure provides a
 graphical representation of a speech recognition lattice which
 compactly represents eight different sequences of words.</p>
-<p><img alt="speech lattice" src="./emma_061913_files/lattice.png"></p>
+<p><img alt="speech lattice" src="lattice.png"></p>
 <p>which expands to:</p>
 <pre>a. flights to boston from portland today please
 b. flights to austin from portland today please
@@ -4878,7 +4884,7 @@ data</td>
 </table>
 <p>Relative timestamps define the start of an input relative to the
 start or end of a reference interval such as another input.</p>
-<p><img alt="relative timestamps" src="./emma_061913_files/relativetimestamps.png"></p>
+<p><img src="relativetimestamps.png" width="535" height="265" alt="relative timestamps" /></p>
 <p>The reference interval is designated with
 <code>emma:time-ref-uri</code> attribute. This MAY be combined with
 <code>emma:time-ref-anchor-point</code> attribute to specify
@@ -5105,7 +5111,7 @@ in order to determine the combined timestamp.</td>
 </table>
 <p >Relative timestamps define the start of an output relative to the start or end 
   of a reference interval such as another output. The figure shows how planned output times can vary from the actual output times, relative to a reference interval.</p>
-<p ><img src="timing.png" width="658" height="322" alt="plannedTimeStamps" /></p>
+<p ><img src="timing.png" width="658" height="322" alt="planned TimeStamps" /></p>
 <p >The reference interval is designated with <code>emma:time-ref-uri</code> attribute. This MAY be combined with <code>emma:time-ref-anchor-point</code>attribute to specify whether the anchor point is the start or end of this 
   interval. The start of an output relative to this anchor point is then specified
   with <code>emma:offset-to-start-plan</code> attribute. The examples in the graphic all show the actual output occuring after the planned output. This is expected to be the most frequent case, but in general there may be application-specific situations where the actual output is earlier than the planned output. </p>
@@ -7888,7 +7894,6 @@ current and former members of the W3C Multimodal Interaction Group
 <dd>Daniel C. Burnett (while at Voxeo)</dd>
 <dd>Jerry Carter (while at Nuance Communications)</dd>
 <dd>Wu Chou, Avaya</dd>
-<dd>Tim Denney (while at Boeing Corporation)</dd>
 <dd>Max Froumentin, (until 2006, while at W3C)</dd>
 <dd>Katriina Halonen, Nokia</dd>
 <dd>Jin Liu, T-Systems</dd>
